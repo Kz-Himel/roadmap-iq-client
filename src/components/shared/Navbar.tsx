@@ -57,9 +57,9 @@ export default function Navbar() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link href="/" className="group flex shrink-0 items-center gap-2.5">
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-600 to-violet-600 text-sm font-bold text-white shadow-sm transition-transform duration-200 group-hover:scale-105">
+          {/* <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-600 to-violet-600 text-sm font-bold text-white shadow-sm transition-transform duration-200 group-hover:scale-105">
             C
-          </span>
+          </span> */}
           <span className="text-lg font-bold tracking-tight text-slate-900">
             CareerPilot{" "}
             <span className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">
