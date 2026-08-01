@@ -46,9 +46,9 @@ export default function Footer() {
           {/* Brand + contact */}
           <div className="sm:col-span-2 lg:col-span-1">
             <Link href="/" className="mb-4 flex items-center gap-2.5">
-              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 text-sm font-bold text-white">
+              {/* <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 text-sm font-bold text-white">
                 C
-              </span>
+              </span> */}
               <span className="text-lg font-bold text-white">
                 CareerPilot{" "}
                 <span className="text-indigo-400">AI</span>
