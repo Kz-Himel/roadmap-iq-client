@@ -61,7 +61,7 @@ export default function Navbar() {
             C
           </span> */}
           <span className="text-lg font-bold tracking-tight text-slate-900">
-            CareerPilot{" "}
+            RoadmapIQ{" "}
             <span className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">
               AI
             </span>

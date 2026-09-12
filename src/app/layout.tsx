@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CareerPilot AI",
+  title: "Roadmap IQ",
   description: "Build by Kz Himel",
 };
 

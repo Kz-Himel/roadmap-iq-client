@@ -95,13 +95,10 @@ export default function RegisterPage() {
       <div className="card w-full max-w-[440px] p-7 shadow-lg sm:p-9">
         <Link href="/" className="mb-6 flex items-center justify-center gap-2.5">
           <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-600 to-violet-600 text-sm font-bold text-white">
-            C
+            R
           </span>
           <span className="text-lg font-bold text-slate-900">
-            CareerPilot{" "}
-            <span className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">
-              AI
-            </span>
+            RoadmapIQ{" "}
           </span>
         </Link>
 

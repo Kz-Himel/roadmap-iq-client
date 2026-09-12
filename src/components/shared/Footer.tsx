@@ -50,7 +50,7 @@ export default function Footer() {
                 C
               </span> */}
               <span className="text-lg font-bold text-white">
-                CareerPilot{" "}
+                RoadmapIQ{" "}
                 <span className="text-indigo-400">AI</span>
               </span>
             </Link>
