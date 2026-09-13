@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useTheme } from "next-themes";
 import { authClient } from "@/lib/auth-client";
 import {
   FiLogOut,
@@ -13,11 +14,13 @@ import {
   FiSun,
   FiMoon,
 } from "react-icons/fi";
+import { HiChartBar } from "react-icons/hi2";
 
 const publicRoutes = [
   { label: "Home", href: "/" },
-  { label: "Explore Careers", href: "/explore" },
+  { label: "Roadmaps", href: "/roadmaps" },
   { label: "Features", href: "/features" },
+  { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
 ];
 
@@ -25,6 +28,9 @@ export default function Navbar() {
   const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  
+  // next-themes setup
+  const { theme, setTheme } = useTheme();
 
   const { data: session, isPending } = authClient.useSession();
   const isLoggedIn = !!session;
@@ -48,8 +54,9 @@ export default function Navbar() {
   if (!mounted || isPending) {
     return (
       <nav className="sticky top-0 z-50 h-16 w-full border-b border-slate-200/80 bg-white/80 backdrop-blur-xl transition-colors dark:border-slate-800/80 dark:bg-[#0b1329]/80">
-        <div className="mx-auto flex h-16 max-w-7xl items-center px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <div className="h-8 w-36 animate-pulse rounded-lg bg-slate-200 dark:bg-slate-800" />
+          <div className="h-9 w-24 animate-pulse rounded-xl bg-slate-200 dark:bg-slate-800" />
         </div>
       </nav>
     );
@@ -59,17 +66,17 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/80 backdrop-blur-xl transition-colors dark:border-slate-800/80 dark:bg-[#0b1329]/80">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         
-        {/* Logo matching RoadmapIQ Design */}
-        <Link href="/" className="group flex shrink-0 items-center gap-2.5">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-600 font-extrabold text-white shadow-md shadow-blue-500/20 transition-transform duration-200 group-hover:scale-105">
-            <span className="text-lg">📊</span>
+        {/* Brand Logo matching Image */}
+        <Link href="/" className="group flex shrink-0 items-center gap-2">
+          <div className="flex items-center justify-center text-blue-600 dark:text-blue-500 transition-transform duration-200 group-hover:scale-105">
+            <HiChartBar className="h-7 w-7" />
           </div>
-          <span className="text-xl font-black tracking-tight text-slate-900 dark:text-white">
-            Roadmap<span className="text-blue-600 dark:text-blue-400">IQ</span>
+          <span className="text-lg font-bold tracking-tight text-slate-900 dark:text-white">
+            RoadmapIQ
           </span>
         </Link>
 
-        {/* Desktop Links */}
+        {/* Desktop Navigation */}
         <div className="hidden items-center gap-1 lg:flex">
           {publicRoutes.map((route) => (
             <Link
@@ -86,16 +93,20 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Desktop Auth & Dark Theme Switcher */}
+        {/* Desktop Actions (Theme Switcher + Auth Buttons) */}
         <div className="hidden items-center gap-3 lg:flex">
           {/* Theme Toggle Button */}
           <button
-            onClick={() => document.documentElement.classList.toggle("dark")}
-            className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-600 transition-all hover:bg-slate-100 dark:border-slate-800 dark:bg-slate-800/60 dark:text-slate-300 dark:hover:bg-slate-800"
-            title="Toggle Light/Dark Theme"
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-600 transition-all hover:bg-slate-100 hover:text-blue-600 dark:border-slate-800 dark:bg-slate-800/60 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-blue-400"
+            title="Toggle Theme"
+            aria-label="Toggle Theme"
           >
-            <FiSun className="h-4 w-4 hidden dark:block" />
-            <FiMoon className="h-4 w-4 block dark:hidden" />
+            {theme === "dark" ? (
+              <FiSun className="h-4 w-4 text-amber-400" />
+            ) : (
+              <FiMoon className="h-4 w-4 text-slate-600" />
+            )}
           </button>
 
           {!isLoggedIn ? (
@@ -140,14 +151,19 @@ export default function Navbar() {
           )}
         </div>
 
-        {/* Mobile menu button */}
+        {/* Mobile controls */}
         <div className="flex items-center gap-2 lg:hidden">
+          {/* Mobile Theme Toggle */}
           <button
-            onClick={() => document.documentElement.classList.toggle("dark")}
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-600 dark:border-slate-800 dark:bg-slate-800 dark:text-slate-300"
+            aria-label="Toggle Theme"
           >
-            <FiSun className="h-4 w-4 hidden dark:block" />
-            <FiMoon className="h-4 w-4 block dark:hidden" />
+            {theme === "dark" ? (
+              <FiSun className="h-4 w-4 text-amber-400" />
+            ) : (
+              <FiMoon className="h-4 w-4 text-slate-600" />
+            )}
           </button>
 
           <button
@@ -160,7 +176,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile Drawer */}
       {mobileOpen && (
         <div className="border-t border-slate-200/80 bg-white/95 px-4 py-4 backdrop-blur-xl dark:border-slate-800 dark:bg-[#0b1329]/95 lg:hidden">
           <div className="flex flex-col gap-1">
