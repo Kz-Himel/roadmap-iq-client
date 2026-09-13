@@ -3,9 +3,8 @@
 import { motion, Variants } from "framer-motion";
 import Link from "next/link";
 import {
-  FiSparkles,
   FiPlay,
-  FiCheckCircle2,
+  FiCheckCircle,
   FiBell,
   FiSearch,
   FiChevronRight,
@@ -16,63 +15,68 @@ import {
   FiFolder,
   FiBookmark,
 } from "react-icons/fi";
+import { HiSparkles } from "react-icons/hi2";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: (i: number = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, delay: i * 0.1, ease: "easeOut" },
+    transition: {
+      duration: 0.5,
+      delay: i * 0.1,
+      ease: [0.215, 0.61, 0.355, 1],
+    },
   }),
 };
 
 export default function Banner() {
   return (
-    <section className="relative w-full overflow-hidden bg-[#F8FAFC] py-12 lg:py-20 min-h-[680px] flex items-center">
-      {/* Background Soft Glow Radial Effect (Pixel Perfect with Image Background) */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-tr from-blue-200/40 via-sky-100/50 to-transparent blur-3xl pointer-events-none rounded-full -z-0" />
+    <section className="relative overflow-hidden pt-12 pb-20 lg:pt-20 lg:pb-28">
+      {/* Background Glow Overlay */}
+      <div className="pointer-events-none absolute left-1/2 top-0 -z-10 -translate-x-1/2 opacity-30 blur-3xl dark:opacity-20">
+        <div className="h-[400px] w-[700px] bg-gradient-to-tr from-blue-600 to-indigo-500 opacity-30" />
+      </div>
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-8">
           
-          {/* Left Content Block */}
-          <div className="lg:col-span-5 max-w-xl">
-            {/* Pill Tag */}
+          {/* Left Side Column */}
+          <div className="lg:col-span-6 xl:col-span-6">
             <motion.div
               initial="hidden"
               animate="visible"
               variants={fadeUp}
               custom={0}
-              className="mb-6 inline-flex items-center gap-2 rounded-full bg-blue-50/80 px-3.5 py-1.5 text-xs font-semibold text-blue-600 border border-blue-100/60"
+              className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-100/80 bg-blue-50/80 px-3.5 py-1.5 text-xs font-semibold text-blue-600 dark:border-blue-900/50 dark:bg-blue-950/40 dark:text-blue-400"
             >
-              <FiSparkles className="h-3.5 w-3.5 text-blue-500" />
-              AI-Powered Career Guidance
+              <HiSparkles className="h-3.5 w-3.5 text-blue-500" />
+              <span>AI-Powered Career Guidance</span>
             </motion.div>
 
-            {/* Title */}
             <motion.h1
               initial="hidden"
               animate="visible"
               variants={fadeUp}
               custom={1}
-              className="text-5xl sm:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.08]"
+              className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl dark:text-white"
             >
-              Your Future. <br />
-              With <span className="text-blue-600">Clarity.</span>
+              Build Your <br />
+              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent dark:from-blue-400 dark:to-indigo-400">
+                Dream Career Path
+              </span>
             </motion.h1>
 
-            {/* Subtitle */}
             <motion.p
               initial="hidden"
               animate="visible"
               variants={fadeUp}
               custom={2}
-              className="mt-6 text-base text-slate-600 leading-relaxed font-normal"
+              className="mt-6 text-lg text-slate-600 dark:text-slate-300"
             >
-              RoadmapIQ helps students, fresh graduates and aspiring developers plan, track and achieve their career goals with personalized AI roadmaps.
+              Discover step-by-step career roadmaps, AI recommendations, and interactive visual paths tailored to your goals.
             </motion.p>
 
-            {/* Action Buttons */}
             <motion.div
               initial="hidden"
               animate="visible"
@@ -81,20 +85,19 @@ export default function Banner() {
               className="mt-8 flex flex-wrap items-center gap-4"
             >
               <Link
-                href="/register"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 text-sm font-semibold text-white shadow-md shadow-blue-500/20 transition-all hover:bg-blue-700 hover:shadow-lg"
+                href="/explore"
+                className="inline-flex h-12 items-center gap-2 rounded-xl bg-blue-600 px-6 font-semibold text-white shadow-lg shadow-blue-500/25 transition-all hover:bg-blue-700 active:scale-95"
               >
-                Get Started Free <span className="text-lg">→</span>
+                <span>Explore Careers</span>
+                <FiChevronRight className="h-4 w-4" />
               </Link>
-              
+
               <Link
                 href="/demo"
-                className="inline-flex h-12 items-center justify-center gap-2.5 rounded-xl border border-slate-200 bg-white px-6 text-sm font-semibold text-slate-700 shadow-sm transition-colors hover:bg-slate-50 hover:text-blue-600"
+                className="inline-flex h-12 items-center gap-2 rounded-xl border border-slate-200 bg-white px-6 font-semibold text-slate-700 transition-colors hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
               >
-                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-blue-50 text-blue-600">
-                  <FiPlay className="h-3 w-3 fill-current ml-0.5" />
-                </div>
-                Watch Demo
+                <FiPlay className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+                <span>Watch Demo</span>
               </Link>
             </motion.div>
 
@@ -104,152 +107,164 @@ export default function Banner() {
               animate="visible"
               variants={fadeUp}
               custom={4}
-              className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs font-medium text-slate-600"
+              className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs font-medium text-slate-600 dark:text-slate-400"
             >
               <div className="flex items-center gap-1.5">
-                <FiCheckCircle2 className="h-4 w-4 text-blue-600" />
+                <FiCheckCircle className="h-4 w-4 text-blue-600 dark:text-blue-400" />
                 <span>Personalized Roadmaps</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <FiCheckCircle2 className="h-4 w-4 text-blue-600" />
+                <FiCheckCircle className="h-4 w-4 text-blue-600 dark:text-blue-400" />
                 <span>Track Progress</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <FiCheckCircle2 className="h-4 w-4 text-blue-600" />
+                <FiCheckCircle className="h-4 w-4 text-blue-600 dark:text-blue-400" />
                 <span>AI Career Chat</span>
               </div>
             </motion.div>
           </div>
 
-          {/* Right Graphics Dashboard Card (Pixel-Perfect Dashboard Mockup) */}
-          <div className="lg:col-span-7 relative flex justify-center lg:justify-end">
+          {/* Right Side Column (Original Mockup Layout with Matched Theme Colors) */}
+          <div className="lg:col-span-6 xl:col-span-6">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="relative w-full max-w-[560px] rounded-2xl bg-white p-4 sm:p-5 shadow-2xl shadow-blue-950/10 border border-slate-100"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="relative mx-auto max-w-lg lg:max-w-none"
             >
-              {/* Dashboard Layout Container */}
-              <div className="flex gap-4">
+              {/* Main Dashboard Preview Card */}
+              <div className="relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white/90 p-5 shadow-2xl backdrop-blur-xl dark:border-slate-800/80 dark:bg-[#0b1329]/90">
                 
-                {/* Mini Sidebar */}
-                <div className="w-36 shrink-0 border-r border-slate-100 pr-3 hidden sm:block">
-                  <div className="flex items-center gap-2 mb-6">
-                    <div className="h-5 w-5 rounded bg-blue-600 flex items-center justify-center text-white text-[10px] font-bold">
-                      IQ
-                    </div>
-                    <span className="text-xs font-bold text-slate-900">RoadmapIQ</span>
+                {/* Mock Card Header */}
+                <div className="mb-4 flex items-center justify-between border-b border-slate-100 pb-3 dark:border-slate-800/80">
+                  <div className="flex items-center gap-2">
+                    <div className="flex h-3 w-3 items-center justify-center rounded-full bg-red-400/80" />
+                    <div className="flex h-3 w-3 items-center justify-center rounded-full bg-amber-400/80" />
+                    <div className="flex h-3 w-3 items-center justify-center rounded-full bg-emerald-400/80" />
+                    <span className="ml-2 text-xs font-semibold text-slate-400 dark:text-slate-500">
+                      RoadmapIQ Workspace
+                    </span>
                   </div>
-
-                  <nav className="flex flex-col gap-1 text-[11px] font-medium text-slate-500">
-                    <div className="flex items-center gap-2 rounded-lg bg-blue-50 px-2.5 py-1.5 text-blue-600 font-semibold">
-                      <FiLayout className="h-3.5 w-3.5" /> Dashboard
-                    </div>
-                    <div className="flex items-center gap-2 px-2.5 py-1.5 hover:text-slate-900">
-                      <FiMap className="h-3.5 w-3.5" /> Roadmaps
-                    </div>
-                    <div className="flex items-center gap-2 px-2.5 py-1.5 hover:text-slate-900">
-                      <FiTarget className="h-3.5 w-3.5" /> Goals
-                    </div>
-                    <div className="flex items-center gap-2 px-2.5 py-1.5 hover:text-slate-900">
-                      <FiMessageSquare className="h-3.5 w-3.5" /> Chat
-                    </div>
-                    <div className="flex items-center gap-2 px-2.5 py-1.5 hover:text-slate-900">
-                      <FiFolder className="h-3.5 w-3.5" /> Resources
-                    </div>
-                    <div className="flex items-center gap-2 px-2.5 py-1.5 hover:text-slate-900">
-                      <FiBookmark className="h-3.5 w-3.5" /> Saved
-                    </div>
-                  </nav>
+                  <div className="flex items-center gap-2 text-slate-400">
+                    <FiSearch className="h-3.5 w-3.5" />
+                    <FiBell className="h-3.5 w-3.5" />
+                  </div>
                 </div>
 
-                {/* Dashboard Main Content Area */}
-                <div className="flex-1 min-w-0">
+                {/* Grid Content Mockup */}
+                <div className="grid grid-cols-12 gap-3">
                   
-                  {/* Dashboard Header */}
-                  <div className="flex items-center justify-between gap-2 pb-3">
-                    <div>
-                      <h4 className="text-xs font-bold text-slate-900">Good morning, Himel 👋</h4>
-                      <p className="text-[10px] text-slate-400">Your journey to a better future starts here.</p>
+                  {/* Left Small Sidebar Mock */}
+                  <div className="col-span-3 hidden flex-col gap-2 sm:flex">
+                    <div className="flex items-center gap-2 rounded-lg bg-blue-50 px-2.5 py-2 text-xs font-semibold text-blue-600 dark:bg-blue-950/50 dark:text-blue-400">
+                      <FiLayout className="h-3.5 w-3.5" />
+                      <span>Overview</span>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <FiBell className="h-3.5 w-3.5 text-slate-400" />
-                      <div className="h-6 w-6 rounded-full bg-slate-200 border border-slate-300 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Avatar" className="h-full w-full object-cover" />
-                      </div>
+                    <div className="flex items-center gap-2 rounded-lg px-2.5 py-2 text-xs font-medium text-slate-500 hover:bg-slate-50 dark:text-slate-400 dark:hover:bg-slate-800/50">
+                      <FiMap className="h-3.5 w-3.5" />
+                      <span>Roadmaps</span>
+                    </div>
+                    <div className="flex items-center gap-2 rounded-lg px-2.5 py-2 text-xs font-medium text-slate-500 hover:bg-slate-50 dark:text-slate-400 dark:hover:bg-slate-800/50">
+                      <FiTarget className="h-3.5 w-3.5" />
+                      <span>Goals</span>
+                    </div>
+                    <div className="flex items-center gap-2 rounded-lg px-2.5 py-2 text-xs font-medium text-slate-500 hover:bg-slate-50 dark:text-slate-400 dark:hover:bg-slate-800/50">
+                      <FiMessageSquare className="h-3.5 w-3.5" />
+                      <span>AI Advisor</span>
                     </div>
                   </div>
 
-                  {/* Search Bar */}
-                  <div className="relative mb-4">
-                    <FiSearch className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-slate-400" />
-                    <input
-                      type="text"
-                      readOnly
-                      placeholder="What do you want to achieve?"
-                      className="w-full rounded-lg bg-slate-50 py-1.5 pl-8 pr-3 text-[11px] text-slate-600 placeholder:text-slate-400 border border-slate-100 outline-none"
-                    />
-                  </div>
-
-                  {/* Progress Cards Split */}
-                  <div className="grid grid-cols-3 gap-2 mb-4">
-                    {/* Active Roadmap Card */}
-                    <div className="col-span-2 rounded-xl bg-slate-50 p-3 border border-slate-100">
-                      <div className="flex items-center gap-2">
-                        <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-blue-600 text-white text-xs">
-                          ⚙️
-                        </div>
+                  {/* Main Roadmap Tree Area */}
+                  <div className="col-span-12 sm:col-span-9">
+                    <div className="rounded-xl border border-slate-100 bg-slate-50/50 p-4 dark:border-slate-800/60 dark:bg-slate-900/40">
+                      <div className="mb-3 flex items-center justify-between">
                         <div>
-                          <p className="text-[10px] font-semibold text-slate-900 leading-tight">Your Career Roadmap</p>
-                          <p className="text-[9px] text-slate-400">Full Stack Developer</p>
+                          <p className="text-xs font-bold text-slate-900 dark:text-white">
+                            Full-Stack Engineer Path
+                          </p>
+                          <p className="text-[10px] text-slate-500 dark:text-slate-400">
+                            Progress: 68% Completed
+                          </p>
                         </div>
+                        <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-semibold text-emerald-600 dark:bg-emerald-950/60 dark:text-emerald-400">
+                          Active
+                        </span>
                       </div>
-                      <div className="mt-3 flex items-center justify-between text-[9px] text-slate-500 font-medium">
-                        <span>3/8 steps completed</span>
-                        <span>3/8</span>
-                      </div>
-                      <div className="mt-1 h-1 w-full rounded-full bg-slate-200 overflow-hidden">
-                        <div className="h-full w-[37.5%] bg-blue-600 rounded-full" />
-                      </div>
-                    </div>
 
-                    {/* Next Step Card */}
-                    <div className="rounded-xl bg-slate-50 p-3 border border-slate-100 flex flex-col justify-between">
-                      <div>
-                        <p className="text-[9px] font-semibold text-slate-400 uppercase tracking-tight">Next Step</p>
-                        <p className="text-[10px] font-bold text-slate-800 leading-tight mt-0.5">React Fundamentals</p>
-                        <p className="text-[9px] text-slate-400 mt-1">2-3 hours • Beginner</p>
+                      {/* Animated Progress Bar */}
+                      <div className="h-1.5 w-full overflow-hidden rounded-full bg-slate-200 dark:bg-slate-800">
+                        <div className="h-full w-[68%] rounded-full bg-gradient-to-r from-blue-600 to-indigo-500" />
                       </div>
-                      <div className="flex justify-end">
-                        <FiChevronRight className="h-3.5 w-3.5 text-slate-400" />
-                      </div>
-                    </div>
-                  </div>
 
-                  {/* Quick Actions Grid */}
-                  <div>
-                    <p className="text-[10px] font-bold text-slate-900 mb-2">Quick Actions</p>
-                    <div className="grid grid-cols-4 gap-2">
-                      {[
-                        { title: "Explore Roadmaps", desc: "Find your perfect path", icon: "🗺️" },
-                        { title: "Track Progress", desc: "See your growth", icon: "📈" },
-                        { title: "AI Career Chat", desc: "Ask anything", icon: "💬" },
-                        { title: "Browse Resources", desc: "Learn & grow", icon: "📚" },
-                      ].map((action, i) => (
-                        <div key={i} className="rounded-xl border border-slate-100 bg-white p-2 text-center shadow-2xl shadow-slate-100">
-                          <div className="mx-auto mb-1 flex h-6 w-6 items-center justify-center rounded-lg bg-blue-50 text-xs">
-                            {action.icon}
+                      {/* Mock Nodes */}
+                      <div className="mt-4 flex flex-col gap-2.5">
+                        <div className="flex items-center justify-between rounded-lg border border-slate-200/60 bg-white p-2.5 shadow-xs dark:border-slate-800 dark:bg-slate-900">
+                          <div className="flex items-center gap-2">
+                            <FiCheckCircle className="h-4 w-4 text-emerald-500" />
+                            <span className="text-xs font-semibold text-slate-700 dark:text-slate-200">
+                              Frontend Fundamentals
+                            </span>
                           </div>
-                          <p className="text-[9px] font-bold text-slate-800 leading-tight">{action.title}</p>
-                          <p className="text-[8px] text-slate-400 leading-tight mt-0.5 hidden sm:block">{action.desc}</p>
+                          <span className="text-[10px] font-medium text-slate-400">Done</span>
                         </div>
-                      ))}
+
+                        <div className="flex items-center justify-between rounded-lg border border-blue-200 bg-blue-50/50 p-2.5 shadow-xs dark:border-blue-900/60 dark:bg-blue-950/30">
+                          <div className="flex items-center gap-2">
+                            <HiSparkles className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+                            <span className="text-xs font-semibold text-blue-700 dark:text-blue-300">
+                              React & Next.js Ecosystem
+                            </span>
+                          </div>
+                          <span className="text-[10px] font-bold text-blue-600 dark:text-blue-400">In Progress</span>
+                        </div>
+
+                        <div className="flex items-center justify-between rounded-lg border border-slate-200/60 bg-white p-2.5 shadow-xs dark:border-slate-800 dark:bg-slate-900">
+                          <div className="flex items-center gap-2">
+                            <FiFolder className="h-4 w-4 text-slate-400" />
+                            <span className="text-xs font-semibold text-slate-700 dark:text-slate-200">
+                              Backend Architecture & DB
+                            </span>
+                          </div>
+                          <span className="text-[10px] font-medium text-slate-400">Next</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
-
                 </div>
-
               </div>
+
+              {/* Floating Badge 1: AI Prompt Chip */}
+              <motion.div
+                initial={{ y: 15, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+                className="absolute -bottom-5 -left-5 hidden items-center gap-2.5 rounded-xl border border-slate-200/80 bg-white p-3 shadow-xl backdrop-blur-md sm:flex dark:border-slate-800 dark:bg-[#0b1329]"
+              >
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-100 text-blue-600 dark:bg-blue-950 dark:text-blue-400">
+                  <FiBookmark className="h-4 w-4" />
+                </div>
+                <div>
+                  <p className="text-[11px] font-bold text-slate-900 dark:text-white">Next Recommendation</p>
+                  <p className="text-[10px] text-slate-500 dark:text-slate-400">Learn TypeScript Generics</p>
+                </div>
+              </motion.div>
+
+              {/* Floating Badge 2: User Stat */}
+              <motion.div
+                initial={{ y: -15, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.4, duration: 0.5 }}
+                className="absolute -top-4 -right-4 hidden items-center gap-2 rounded-xl border border-slate-200/80 bg-white/95 px-3 py-2 shadow-lg backdrop-blur-md sm:flex dark:border-slate-800 dark:bg-[#0b1329]/95"
+              >
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+                </span>
+                <span className="text-xs font-bold text-slate-800 dark:text-slate-200">
+                  1,240+ Active Learners
+                </span>
+              </motion.div>
+
             </motion.div>
           </div>
 

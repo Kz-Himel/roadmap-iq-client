@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useTheme } from "next-themes";
 import { authClient } from "@/lib/auth-client";
 import {
   FiLogOut,
@@ -11,10 +10,9 @@ import {
   FiX,
   FiUser,
   FiArrowRight,
-  FiSun,
-  FiMoon,
 } from "react-icons/fi";
 import { HiChartBar } from "react-icons/hi2";
+import ThemeToggle from "../theme/ThemeToggle";
 
 const publicRoutes = [
   { label: "Home", href: "/" },
@@ -28,9 +26,6 @@ export default function Navbar() {
   const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  
-  // next-themes setup
-  const { theme, setTheme } = useTheme();
 
   const { data: session, isPending } = authClient.useSession();
   const isLoggedIn = !!session;
@@ -66,9 +61,9 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/80 backdrop-blur-xl transition-colors dark:border-slate-800/80 dark:bg-[#0b1329]/80">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         
-        {/* Brand Logo matching Image */}
+        {/* Brand Logo */}
         <Link href="/" className="group flex shrink-0 items-center gap-2">
-          <div className="flex items-center justify-center text-blue-600 dark:text-blue-500 transition-transform duration-200 group-hover:scale-105">
+          <div className="flex items-center justify-center text-blue-600 transition-transform duration-200 group-hover:scale-105 dark:text-blue-500">
             <HiChartBar className="h-7 w-7" />
           </div>
           <span className="text-lg font-bold tracking-tight text-slate-900 dark:text-white">
@@ -95,19 +90,8 @@ export default function Navbar() {
 
         {/* Desktop Actions (Theme Switcher + Auth Buttons) */}
         <div className="hidden items-center gap-3 lg:flex">
-          {/* Theme Toggle Button */}
-          <button
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-600 transition-all hover:bg-slate-100 hover:text-blue-600 dark:border-slate-800 dark:bg-slate-800/60 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-blue-400"
-            title="Toggle Theme"
-            aria-label="Toggle Theme"
-          >
-            {theme === "dark" ? (
-              <FiSun className="h-4 w-4 text-amber-400" />
-            ) : (
-              <FiMoon className="h-4 w-4 text-slate-600" />
-            )}
-          </button>
+          {/* Desktop Theme Toggle Component */}
+          <ThemeToggle />
 
           {!isLoggedIn ? (
             <>
@@ -153,18 +137,8 @@ export default function Navbar() {
 
         {/* Mobile controls */}
         <div className="flex items-center gap-2 lg:hidden">
-          {/* Mobile Theme Toggle */}
-          <button
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-600 dark:border-slate-800 dark:bg-slate-800 dark:text-slate-300"
-            aria-label="Toggle Theme"
-          >
-            {theme === "dark" ? (
-              <FiSun className="h-4 w-4 text-amber-400" />
-            ) : (
-              <FiMoon className="h-4 w-4 text-slate-600" />
-            )}
-          </button>
+          {/* Mobile Theme Toggle Component */}
+          <ThemeToggle />
 
           <button
             onClick={() => setMobileOpen((v) => !v)}

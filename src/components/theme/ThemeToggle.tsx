@@ -8,23 +8,25 @@ export default function ThemeToggle() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  // Hydration error এড়াতে useEffect ব্যবহার
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  if (!mounted) return <div className="w-9 h-9" />;
+  if (!mounted) {
+    return <div className="h-9 w-9" />;
+  }
 
   return (
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="p-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all"
+      className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-600 transition-all hover:bg-slate-100 hover:text-blue-600 dark:border-slate-800 dark:bg-slate-800/60 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-blue-400"
       aria-label="Toggle Theme"
+      type="button"
     >
       {theme === "dark" ? (
-        <FiSun className="w-5 h-5 text-amber-400" />
+        <FiSun className="h-4 w-4 text-amber-400" />
       ) : (
-        <FiMoon className="w-5 h-5 text-slate-700" />
+        <FiMoon className="h-4 w-4 text-slate-600" />
       )}
     </button>
   );
