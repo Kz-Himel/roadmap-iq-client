@@ -2,13 +2,19 @@
 
 import { motion, Variants } from "framer-motion";
 import Link from "next/link";
-import { useState } from "react";
 import {
-  FiTrendingUp,
-  FiChevronDown,
-  FiBookOpen,
-  FiTerminal,
-  FiBriefcase,
+  FiSparkles,
+  FiPlay,
+  FiCheckCircle2,
+  FiBell,
+  FiSearch,
+  FiChevronRight,
+  FiLayout,
+  FiMap,
+  FiTarget,
+  FiMessageSquare,
+  FiFolder,
+  FiBookmark,
 } from "react-icons/fi";
 
 const fadeUp: Variants = {
@@ -20,236 +26,234 @@ const fadeUp: Variants = {
   }),
 };
 
-const interactiveCards = [
-  {
-    icon: <FiTerminal className="h-6 w-6 text-white" />,
-    title: "Fullstack Dev Roadmap",
-    desc: "6-Month customized AI training timeline",
-    color: "from-indigo-500 to-indigo-600",
-  },
-  {
-    icon: <FiBookOpen className="h-6 w-6 text-white" />,
-    title: "Nextjs & AI Skills",
-    desc: "High impact node tasks tailored for you",
-    color: "from-violet-500 to-violet-600",
-  },
-  {
-    icon: <FiBriefcase className="h-6 w-6 text-white" />,
-    title: "Mock Interview Prep",
-    desc: "Real-time AI behavioral analysis",
-    color: "from-emerald-500 to-teal-600",
-  },
-];
-
 export default function Banner() {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const nextCard = () => {
-    setActiveIndex((prev) => (prev + 1) % interactiveCards.length);
-  };
-
   return (
-    <section className="hero-gradient relative flex min-h-[620px] h-[72vh] max-h-[820px] w-full items-center overflow-hidden border-b border-gray-100 bg-white py-12 sm:py-16">
-      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-        
-        {/* Main Split Layout Grid */}
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+    <section className="relative w-full overflow-hidden bg-[#F8FAFC] py-12 lg:py-20 min-h-[680px] flex items-center">
+      {/* Background Soft Glow Radial Effect (Pixel Perfect with Image Background) */}
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-tr from-blue-200/40 via-sky-100/50 to-transparent blur-3xl pointer-events-none rounded-full -z-0" />
+
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
           
-          {/* Left content block */}
-          <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-2xl">
-            <motion.span
+          {/* Left Content Block */}
+          <div className="lg:col-span-5 max-w-xl">
+            {/* Pill Tag */}
+            <motion.div
               initial="hidden"
               animate="visible"
               variants={fadeUp}
               custom={0}
-              className="mb-4 inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1.5 text-xs font-medium text-blue-700 w-fit"
+              className="mb-6 inline-flex items-center gap-2 rounded-full bg-blue-50/80 px-3.5 py-1.5 text-xs font-semibold text-blue-600 border border-blue-100/60"
             >
-              <FiTrendingUp className="h-3.5 w-3.5" />
-              AI-Powered Career Coaching
-            </motion.span>
+              <FiSparkles className="h-3.5 w-3.5 text-blue-500" />
+              AI-Powered Career Guidance
+            </motion.div>
 
+            {/* Title */}
             <motion.h1
               initial="hidden"
               animate="visible"
               variants={fadeUp}
               custom={1}
-              className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl leading-[1.1]"
+              className="text-5xl sm:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.08]"
             >
-              Your AI Career Coach,{" "}
-              <span className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">
-                For a Better Future
-              </span>
+              Your Future. <br />
+              With <span className="text-blue-600">Clarity.</span>
             </motion.h1>
 
+            {/* Subtitle */}
             <motion.p
               initial="hidden"
               animate="visible"
               variants={fadeUp}
               custom={2}
-              className="mt-6 text-base leading-relaxed text-gray-500 sm:text-lg max-w-md"
+              className="mt-6 text-base text-slate-600 leading-relaxed font-normal"
             >
-              Get personalized roadmaps, skill recommendations, interview preparation, and expert
-              guidance — all powered by AI.
+              RoadmapIQ helps students, fresh graduates and aspiring developers plan, track and achieve their career goals with personalized AI roadmaps.
             </motion.p>
 
-            {/* Action Buttons Block */}
+            {/* Action Buttons */}
             <motion.div
               initial="hidden"
               animate="visible"
               variants={fadeUp}
               custom={3}
-              className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center"
+              className="mt-8 flex flex-wrap items-center gap-4"
             >
-              <Link 
-                href="/register" 
-                className="flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-700"
+              <Link
+                href="/register"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 text-sm font-semibold text-white shadow-md shadow-blue-500/20 transition-all hover:bg-blue-700 hover:shadow-lg"
               >
-                Get Started Free
+                Get Started Free <span className="text-lg">→</span>
               </Link>
-              <Link 
-                href="/explore" 
-                className="flex min-h-[48px] items-center justify-center gap-2 rounded-xl border border-gray-200 bg-white px-6 text-sm font-semibold text-gray-600 transition-colors hover:bg-gray-50"
+              
+              <Link
+                href="/demo"
+                className="inline-flex h-12 items-center justify-center gap-2.5 rounded-xl border border-slate-200 bg-white px-6 text-sm font-semibold text-slate-700 shadow-sm transition-colors hover:bg-slate-50 hover:text-blue-600"
               >
-                Explore Careers
+                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-blue-50 text-blue-600">
+                  <FiPlay className="h-3 w-3 fill-current ml-0.5" />
+                </div>
+                Watch Demo
               </Link>
             </motion.div>
 
-            {/* Social Trust Metrics */}
+            {/* Feature Checklist */}
             <motion.div
               initial="hidden"
               animate="visible"
               variants={fadeUp}
               custom={4}
-              className="mt-10 flex items-center gap-3.5"
+              className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs font-medium text-slate-600"
             >
-              <div className="flex -space-x-2.5">
-                {["S", "R", "N"].map((initial, i) => (
-                  <div
-                    key={i}
-                    className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-white bg-gradient-to-br from-indigo-100 to-violet-100 text-xs font-bold text-indigo-700 shadow-sm"
-                  >
-                    {initial}
-                  </div>
-                ))}
+              <div className="flex items-center gap-1.5">
+                <FiCheckCircle2 className="h-4 w-4 text-blue-600" />
+                <span>Personalized Roadmaps</span>
               </div>
-              <p className="text-xs font-medium text-gray-400">
-                Trusted by{" "}
-                <span className="font-semibold text-gray-900">10,000+</span> learners worldwide
-              </p>
+              <div className="flex items-center gap-1.5">
+                <FiCheckCircle2 className="h-4 w-4 text-blue-600" />
+                <span>Track Progress</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <FiCheckCircle2 className="h-4 w-4 text-blue-600" />
+                <span>AI Career Chat</span>
+              </div>
             </motion.div>
           </div>
 
-          {/* Right graphics dashboard container */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-            className="relative hidden h-[450px] w-full items-center justify-center lg:flex"
-          >
-            {/* Ambient Lighting Blob */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <motion.div
-                animate={{ scale: [1, 1.1, 1], rotate: [0, 90, 0] }}
-                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                className="h-80 w-80 rounded-full bg-gradient-to-br from-indigo-100/70 to-violet-100/50 blur-3xl"
-              />
-            </div>
-
-            {/* Swappable Interactive Card Grid Node */}
+          {/* Right Graphics Dashboard Card (Pixel-Perfect Dashboard Mockup) */}
+          <div className="lg:col-span-7 relative flex justify-center lg:justify-end">
             <motion.div
-              onClick={nextCard}
-              whileHover={{ y: -4 }}
-              whileTap={{ scale: 0.98 }}
-              className="relative z-10 flex h-72 w-72 cursor-pointer select-none flex-col justify-between rounded-2xl border border-gray-100 bg-white p-6 shadow-xl transition-shadow hover:shadow-2xl"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="relative w-full max-w-[560px] rounded-2xl bg-white p-4 sm:p-5 shadow-2xl shadow-blue-950/10 border border-slate-100"
             >
-              <div className="flex items-center justify-between">
-                <div
-                  className={`flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br shadow-sm transition-all duration-300 ${interactiveCards[activeIndex].color}`}
-                >
-                  {interactiveCards[activeIndex].icon}
+              {/* Dashboard Layout Container */}
+              <div className="flex gap-4">
+                
+                {/* Mini Sidebar */}
+                <div className="w-36 shrink-0 border-r border-slate-100 pr-3 hidden sm:block">
+                  <div className="flex items-center gap-2 mb-6">
+                    <div className="h-5 w-5 rounded bg-blue-600 flex items-center justify-center text-white text-[10px] font-bold">
+                      IQ
+                    </div>
+                    <span className="text-xs font-bold text-slate-900">RoadmapIQ</span>
+                  </div>
+
+                  <nav className="flex flex-col gap-1 text-[11px] font-medium text-slate-500">
+                    <div className="flex items-center gap-2 rounded-lg bg-blue-50 px-2.5 py-1.5 text-blue-600 font-semibold">
+                      <FiLayout className="h-3.5 w-3.5" /> Dashboard
+                    </div>
+                    <div className="flex items-center gap-2 px-2.5 py-1.5 hover:text-slate-900">
+                      <FiMap className="h-3.5 w-3.5" /> Roadmaps
+                    </div>
+                    <div className="flex items-center gap-2 px-2.5 py-1.5 hover:text-slate-900">
+                      <FiTarget className="h-3.5 w-3.5" /> Goals
+                    </div>
+                    <div className="flex items-center gap-2 px-2.5 py-1.5 hover:text-slate-900">
+                      <FiMessageSquare className="h-3.5 w-3.5" /> Chat
+                    </div>
+                    <div className="flex items-center gap-2 px-2.5 py-1.5 hover:text-slate-900">
+                      <FiFolder className="h-3.5 w-3.5" /> Resources
+                    </div>
+                    <div className="flex items-center gap-2 px-2.5 py-1.5 hover:text-slate-900">
+                      <FiBookmark className="h-3.5 w-3.5" /> Saved
+                    </div>
+                  </nav>
                 </div>
-                <span className="inline-block rounded-full bg-blue-50 px-2.5 py-1 text-[11px] font-semibold text-blue-700">
-                  Interactive Demo
-                </span>
-              </div>
 
-              <div>
-                <motion.h3
-                  key={activeIndex}
-                  initial={{ opacity: 0, x: 8 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  className="text-base font-bold text-gray-900 sm:text-lg"
-                >
-                  {interactiveCards[activeIndex].title}
-                </motion.h3>
-                <p className="mt-1 text-xs leading-relaxed text-gray-400">
-                  {interactiveCards[activeIndex].desc}
-                </p>
-              </div>
+                {/* Dashboard Main Content Area */}
+                <div className="flex-1 min-w-0">
+                  
+                  {/* Dashboard Header */}
+                  <div className="flex items-center justify-between gap-2 pb-3">
+                    <div>
+                      <h4 className="text-xs font-bold text-slate-900">Good morning, Himel 👋</h4>
+                      <p className="text-[10px] text-slate-400">Your journey to a better future starts here.</p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <FiBell className="h-3.5 w-3.5 text-slate-400" />
+                      <div className="h-6 w-6 rounded-full bg-slate-200 border border-slate-300 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Avatar" className="h-full w-full object-cover" />
+                      </div>
+                    </div>
+                  </div>
 
-              <div className="flex items-center justify-between border-t border-gray-50 pt-4">
-                <span className="text-[11px] font-medium text-gray-400">Click to slide next</span>
-                <div className="flex gap-1.5">
-                  {interactiveCards.map((_, i) => (
-                    <span
-                      key={i}
-                      className={`h-1.5 rounded-full transition-all duration-300 ${
-                        activeIndex === i ? "w-5 bg-indigo-600" : "w-1.5 bg-gray-200"
-                      }`}
+                  {/* Search Bar */}
+                  <div className="relative mb-4">
+                    <FiSearch className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-slate-400" />
+                    <input
+                      type="text"
+                      readOnly
+                      placeholder="What do you want to achieve?"
+                      className="w-full rounded-lg bg-slate-50 py-1.5 pl-8 pr-3 text-[11px] text-slate-600 placeholder:text-slate-400 border border-slate-100 outline-none"
                     />
-                  ))}
+                  </div>
+
+                  {/* Progress Cards Split */}
+                  <div className="grid grid-cols-3 gap-2 mb-4">
+                    {/* Active Roadmap Card */}
+                    <div className="col-span-2 rounded-xl bg-slate-50 p-3 border border-slate-100">
+                      <div className="flex items-center gap-2">
+                        <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-blue-600 text-white text-xs">
+                          ⚙️
+                        </div>
+                        <div>
+                          <p className="text-[10px] font-semibold text-slate-900 leading-tight">Your Career Roadmap</p>
+                          <p className="text-[9px] text-slate-400">Full Stack Developer</p>
+                        </div>
+                      </div>
+                      <div className="mt-3 flex items-center justify-between text-[9px] text-slate-500 font-medium">
+                        <span>3/8 steps completed</span>
+                        <span>3/8</span>
+                      </div>
+                      <div className="mt-1 h-1 w-full rounded-full bg-slate-200 overflow-hidden">
+                        <div className="h-full w-[37.5%] bg-blue-600 rounded-full" />
+                      </div>
+                    </div>
+
+                    {/* Next Step Card */}
+                    <div className="rounded-xl bg-slate-50 p-3 border border-slate-100 flex flex-col justify-between">
+                      <div>
+                        <p className="text-[9px] font-semibold text-slate-400 uppercase tracking-tight">Next Step</p>
+                        <p className="text-[10px] font-bold text-slate-800 leading-tight mt-0.5">React Fundamentals</p>
+                        <p className="text-[9px] text-slate-400 mt-1">2-3 hours • Beginner</p>
+                      </div>
+                      <div className="flex justify-end">
+                        <FiChevronRight className="h-3.5 w-3.5 text-slate-400" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Quick Actions Grid */}
+                  <div>
+                    <p className="text-[10px] font-bold text-slate-900 mb-2">Quick Actions</p>
+                    <div className="grid grid-cols-4 gap-2">
+                      {[
+                        { title: "Explore Roadmaps", desc: "Find your perfect path", icon: "🗺️" },
+                        { title: "Track Progress", desc: "See your growth", icon: "📈" },
+                        { title: "AI Career Chat", desc: "Ask anything", icon: "💬" },
+                        { title: "Browse Resources", desc: "Learn & grow", icon: "📚" },
+                      ].map((action, i) => (
+                        <div key={i} className="rounded-xl border border-slate-100 bg-white p-2 text-center shadow-2xl shadow-slate-100">
+                          <div className="mx-auto mb-1 flex h-6 w-6 items-center justify-center rounded-lg bg-blue-50 text-xs">
+                            {action.icon}
+                          </div>
+                          <p className="text-[9px] font-bold text-slate-800 leading-tight">{action.title}</p>
+                          <p className="text-[8px] text-slate-400 leading-tight mt-0.5 hidden sm:block">{action.desc}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
                 </div>
+
               </div>
             </motion.div>
+          </div>
 
-            {/* Relative Layered Floating Elements */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0, y: [0, -6, 0] }}
-              transition={{
-                opacity: { duration: 0.5, delay: 0.4 },
-                x: { duration: 0.5, delay: 0.4 },
-                y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.8 },
-              }}
-              className="absolute left-6 top-6 z-20 w-48 rounded-2xl border border-gray-100 bg-white p-4 shadow-md"
-            >
-              <p className="text-[10px] font-bold uppercase tracking-wider text-gray-400">
-                Your Career Roadmap
-              </p>
-              <p className="mt-1 text-sm font-bold text-gray-900">Frontend Developer</p>
-              <p className="text-[10px] text-gray-400 mt-0.5">6 Month Plan</p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0, y: [0, 6, 0] }}
-              transition={{
-                opacity: { duration: 0.5, delay: 0.5 },
-                x: { duration: 0.5, delay: 0.5 },
-                y: { duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1 },
-              }}
-              className="absolute bottom-8 right-6 z-20 w-52 rounded-2xl border border-gray-100 bg-white p-4 shadow-md"
-            >
-              <p className="text-[10px] font-bold text-indigo-600 uppercase tracking-wide">Next Milestone</p>
-              <p className="text-sm font-bold text-gray-800 mt-0.5">Learn React Core</p>
-              <p className="text-[10px] text-gray-400">Estimated: 1 week</p>
-            </motion.div>
-          </motion.div>
         </div>
-
-        {/* Bottom Scroll Indicator Anchored in Container Boundaries */}
-        <div className="pointer-events-none absolute bottom-6 left-1/2 hidden -translate-x-1/2 select-none flex-col items-center gap-1.5 sm:flex">
-          <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400">
-            Scroll to Discover
-          </span>
-          <motion.div
-            animate={{ y: [0, 4, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <FiChevronDown className="h-4 w-4 text-gray-400" />
-          </motion.div>
-        </div>
-
       </div>
     </section>
   );

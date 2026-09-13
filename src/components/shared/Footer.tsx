@@ -2,147 +2,59 @@
 
 import Link from "next/link";
 import {
-  FiMail,
-  FiPhone,
-  FiMapPin,
-  FiTwitter,
+  FiGithub,
   FiLinkedin,
+  FiTwitter,
   FiYoutube,
-  FiInstagram,
 } from "react-icons/fi";
+import { HiChartBar } from "react-icons/hi2";
 
-const footerLinks = {
-  product: [
-    { label: "Features", href: "/features" },
-    { label: "Career Paths", href: "/explore" },
-    { label: "Pricing", href: "/pricing" },
-    { label: "AI Roadmap", href: "/dashboard/ai-roadmap" },
-  ],
-  company: [
-    { label: "About Us", href: "/about" },
-    { label: "Blog", href: "/blog" },
-    { label: "Explore Careers", href: "/explore" },
-    { label: "Contact", href: "/contact" },
-  ],
-  support: [
-    { label: "Help Center", href: "/faq" },
-    { label: "Privacy Policy", href: "/privacy" },
-    { label: "Terms of Service", href: "/terms" },
-  ],
-};
+const navLinks = [
+  { label: "Home", href: "/" },
+  { label: "Roadmaps", href: "/roadmaps" },
+  { label: "Features", href: "/features" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "About", href: "/about" },
+];
 
 const socialLinks = [
-  { icon: FiTwitter, href: "https://twitter.com", label: "Twitter" },
+  { icon: FiGithub, href: "https://github.com", label: "GitHub" },
   { icon: FiLinkedin, href: "https://linkedin.com", label: "LinkedIn" },
+  { icon: FiTwitter, href: "https://twitter.com", label: "Twitter" },
   { icon: FiYoutube, href: "https://youtube.com", label: "YouTube" },
-  { icon: FiInstagram, href: "https://instagram.com", label: "Instagram" },
 ];
 
 export default function Footer() {
   return (
-    <footer className="border-t border-slate-800/50 bg-slate-900 text-slate-300">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          {/* Brand + contact */}
-          <div className="sm:col-span-2 lg:col-span-1">
-            <Link href="/" className="mb-4 flex items-center gap-2.5">
-              {/* <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 text-sm font-bold text-white">
-                C
-              </span> */}
-              <span className="text-lg font-bold text-white">
-                RoadmapIQ{" "}
-                <span className="text-indigo-400">AI</span>
-              </span>
-            </Link>
-            <p className="mb-5 text-sm leading-relaxed text-slate-400">
-              Your AI-powered career coach for personalized growth and success.
-            </p>
-            <div className="flex flex-col gap-2.5 text-sm text-slate-400">
-              <a
-                href="mailto:hello@careerpilot.ai"
-                className="flex items-center gap-2 transition-colors hover:text-indigo-400"
-              >
-                <FiMail className="h-4 w-4 shrink-0" />
-                hello@careerpilot.ai
-              </a>
-              <a
-                href="tel:+8801234567890"
-                className="flex items-center gap-2 transition-colors hover:text-indigo-400"
-              >
-                <FiPhone className="h-4 w-4 shrink-0" />
-                +880 1234 567890
-              </a>
-              <span className="flex items-center gap-2">
-                <FiMapPin className="h-4 w-4 shrink-0" />
-                Dhaka, Bangladesh
-              </span>
+    <footer className="w-full bg-white py-8 border-t border-slate-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+          
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2">
+            <div className="flex items-center justify-center text-blue-600">
+              <HiChartBar className="w-6 h-6" />
             </div>
-          </div>
+            <span className="text-base font-bold text-slate-900 tracking-tight">
+              RoadmapIQ
+            </span>
+          </Link>
 
-          {/* Product links */}
-          <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-slate-200">
-              Product
-            </h3>
-            <ul className="flex flex-col gap-2.5">
-              {footerLinks.product.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-slate-400 transition-colors hover:text-white"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Center Navigation Links */}
+          <nav className="flex items-center gap-6 sm:gap-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="text-xs font-medium text-slate-600 hover:text-blue-600 transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
 
-          {/* Company links */}
-          <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-slate-200">
-              Company
-            </h3>
-            <ul className="flex flex-col gap-2.5">
-              {footerLinks.company.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-slate-400 transition-colors hover:text-white"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Support links */}
-          <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-slate-200">
-              Support
-            </h3>
-            <ul className="flex flex-col gap-2.5">
-              {footerLinks.support.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-slate-400 transition-colors hover:text-white"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        {/* Bottom bar */}
-        <div className="mt-10 flex flex-col items-center gap-5 border-t border-slate-800 pt-8 sm:flex-row sm:justify-between">
-          <p className="text-xs text-slate-500">
-            © {new Date().getFullYear()} CareerPilot AI. All rights reserved.
-          </p>
-          <div className="flex items-center gap-2">
+          {/* Social Icons */}
+          <div className="flex items-center gap-4">
             {socialLinks.map((social) => {
               const Icon = social.icon;
               return (
@@ -152,13 +64,20 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-700 text-slate-400 transition-all duration-150 hover:border-indigo-500/50 hover:bg-indigo-500/10 hover:text-indigo-400"
+                  className="text-slate-800 hover:text-blue-600 transition-colors"
                 >
-                  <Icon className="h-4 w-4" />
+                  <Icon className="w-4 h-4 fill-current stroke-[1.5]" />
                 </a>
               );
             })}
           </div>
+        </div>
+
+        {/* Copyright Text */}
+        <div className="mt-8 text-center">
+          <p className="text-[11px] text-slate-400 font-normal">
+            © {new Date().getFullYear()} RoadmapIQ. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
