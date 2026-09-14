@@ -51,13 +51,13 @@ export default function FAQ() {
             transition={{ duration: 0.5 }}
             className="mb-8 text-center sm:mb-10"
           >
-            <span className="mb-2 block text-xs font-semibold uppercase tracking-wider text-blue-600">
+            <span className="mb-2 block text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">
               FAQ
             </span>
-            <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl">
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white sm:text-3xl">
               Frequently Asked Questions
             </h2>
-            <p className="mt-3 text-sm text-gray-500 sm:text-base">
+            <p className="mt-3 text-sm text-slate-500 dark:text-slate-400 sm:text-base">
               Everything you need to know before you start.
             </p>
           </motion.div>
@@ -73,20 +73,22 @@ export default function FAQ() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.08 }}
-                  className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-shadow hover:shadow-md"
+                  className="overflow-hidden rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm transition-all hover:border-slate-300 dark:hover:border-slate-700 hover:shadow-md"
                 >
                   <button
                     onClick={() => toggle(index)}
-                    className="flex min-h-[46px] w-full items-center justify-between gap-4 p-5 text-left transition-colors hover:bg-gray-50/50 sm:p-6"
+                    className="flex min-h-[46px] w-full items-center justify-between gap-4 p-5 text-left transition-colors hover:bg-slate-50/80 dark:hover:bg-slate-800/50 sm:p-6"
                   >
-                    <span className="text-base font-bold text-gray-900">
+                    <span className="text-base font-bold text-slate-900 dark:text-slate-100">
                       {faq.question}
                     </span>
                     <motion.span
                       animate={{ rotate: isOpen ? 180 : 0 }}
                       transition={{ duration: 0.25 }}
                       className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg transition-colors ${
-                        isOpen ? "bg-blue-50 text-blue-600" : "bg-gray-100 text-gray-400"
+                        isOpen
+                          ? "bg-blue-50 dark:bg-blue-950/80 text-blue-600 dark:text-blue-400"
+                          : "bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500"
                       }`}
                     >
                       <FiChevronDown className="h-4 w-4" />
@@ -102,7 +104,7 @@ export default function FAQ() {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                       >
-                        <p className="border-t border-gray-100 px-5 pb-5 pt-4 text-sm leading-relaxed text-gray-500 sm:px-6 sm:pb-6">
+                        <p className="border-t border-slate-100 dark:border-slate-800 px-5 pb-5 pt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 sm:px-6 sm:pb-6">
                           {faq.answer}
                         </p>
                       </motion.div>
