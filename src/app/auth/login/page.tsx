@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
 import { FiMail, FiLock, FiEye, FiEyeOff, FiAlertCircle, FiZap } from "react-icons/fi";
@@ -11,8 +10,6 @@ const DEMO_EMAIL = "careerpilot@gmail.com";
 const DEMO_PASSWORD = "Careerpilot@1234";
 
 export default function LoginPage() {
-  const router = useRouter();
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -36,6 +33,20 @@ export default function LoginPage() {
     return Object.keys(newErrors).length === 0;
   };
 
+  const handleInputChange = (field: "email" | "password", value: string) => {
+    if (field === "email") setEmail(value);
+    if (field === "password") setPassword(value);
+    
+    // Clear field-specific validation error on user input
+    if (errors[field]) {
+      setErrors((prev) => {
+        const updated = { ...prev };
+        delete updated[field];
+        return updated;
+      });
+    }
+  };
+
   const signInWithCredentials = async (loginEmail: string, loginPassword: string) => {
     const { error } = await authClient.signIn.email({
       email: loginEmail.trim(),
@@ -43,6 +54,7 @@ export default function LoginPage() {
       rememberMe,
       callbackURL: "/dashboard",
     });
+
     if (error) {
       setServerError(error.message || "Invalid email or password.");
       return false;
@@ -54,10 +66,10 @@ export default function LoginPage() {
     e.preventDefault();
     setServerError("");
     if (!validate()) return;
+    
     setLoading(true);
     try {
-      const success = await signInWithCredentials(email, password);
-      if (success) router.push("/dashboard");
+      await signInWithCredentials(email, password);
     } catch {
       setServerError("Something went wrong. Please try again.");
     } finally {
@@ -71,9 +83,9 @@ export default function LoginPage() {
     setEmail(DEMO_EMAIL);
     setPassword(DEMO_PASSWORD);
     setDemoLoading(true);
+
     try {
-      const success = await signInWithCredentials(DEMO_EMAIL, DEMO_PASSWORD);
-      if (success) router.push("/dashboard");
+      await signInWithCredentials(DEMO_EMAIL, DEMO_PASSWORD);
     } catch {
       setServerError("Demo login failed. Please try again.");
     } finally {
@@ -85,7 +97,10 @@ export default function LoginPage() {
     setServerError("");
     setSocialLoading(provider);
     try {
-      await authClient.signIn.social({ provider, callbackURL: "/dashboard" });
+      await authClient.signIn.social({ 
+        provider, 
+        callbackURL: "/dashboard" 
+      });
     } catch (err: unknown) {
       const message = err instanceof Error ? err.message : "Social login failed. Please try again.";
       setServerError(message);
@@ -104,7 +119,7 @@ export default function LoginPage() {
             R
           </span>
           <span className="text-lg font-bold text-slate-900">
-            RoadmapIQ{" "}
+            RoadmapIQ
           </span>
         </Link>
 
@@ -114,9 +129,9 @@ export default function LoginPage() {
         </div>
 
         {serverError && (
-          <div className="alert alert-error mb-5">
-            <FiAlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
-            <span>{serverError}</span>
+          <div className="alert alert-error mb-5 flex items-center gap-2" role="alert">
+            <FiAlertCircle className="h-4 w-4 shrink-0 text-red-500" />
+            <span className="text-sm">{serverError}</span>
           </div>
         )}
 
@@ -125,7 +140,7 @@ export default function LoginPage() {
           type="button"
           onClick={handleDemoLogin}
           disabled={isDisabled}
-          className="btn btn-md mb-4 w-full rounded-xl border border-indigo-200 bg-indigo-50 text-indigo-700 hover:bg-indigo-100"
+          className="btn btn-md mb-4 flex w-full items-center justify-center gap-2 rounded-xl border border-indigo-200 bg-indigo-50 text-indigo-700 hover:bg-indigo-100 disabled:opacity-50"
         >
           {demoLoading ? (
             <>
@@ -148,7 +163,7 @@ export default function LoginPage() {
           type="button"
           onClick={() => handleSocialLogin("google")}
           disabled={isDisabled}
-          className="btn btn-secondary btn-md w-full rounded-xl"
+          className="btn btn-secondary btn-md flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 disabled:opacity-50"
         >
           {socialLoading === "google" ? (
             <>
@@ -176,7 +191,7 @@ export default function LoginPage() {
         {/* Form */}
         <form onSubmit={handleSubmit} className="flex flex-col gap-4" noValidate>
           <div>
-            <label className="form-label">Email</label>
+            <label className="form-label mb-1 block text-sm font-medium text-slate-700">Email</label>
             <div className="relative">
               <FiMail className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
               <input
@@ -184,18 +199,20 @@ export default function LoginPage() {
                 inputMode="email"
                 autoComplete="username"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => handleInputChange("email", e.target.value)}
                 placeholder="example@gmail.com"
                 disabled={isDisabled}
-                className={`form-input-icon ${errors.email ? "form-input-error" : ""}`}
+                className={`form-input-icon w-full pl-10 pr-4 py-2 rounded-lg border text-sm transition focus:outline-none ${
+                  errors.email ? "border-red-500 focus:ring-1 focus:ring-red-500" : "border-slate-300 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+                }`}
               />
             </div>
-            {errors.email && <p className="form-error">{errors.email}</p>}
+            {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email}</p>}
           </div>
 
           <div>
-            <div className="mb-2 flex flex-wrap items-center justify-between gap-1">
-              <label className="form-label mb-0">Password</label>
+            <div className="mb-1 flex flex-wrap items-center justify-between gap-1">
+              <label className="form-label text-sm font-medium text-slate-700">Password</label>
               <Link href="/forgot-password" className="text-xs font-semibold text-indigo-600 hover:text-indigo-700">
                 Forgot password?
               </Link>
@@ -206,10 +223,12 @@ export default function LoginPage() {
                 type={showPassword ? "text" : "password"}
                 autoComplete="current-password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => handleInputChange("password", e.target.value)}
                 placeholder="••••••••"
                 disabled={isDisabled}
-                className={`form-input-icon pr-10 ${errors.password ? "form-input-error" : ""}`}
+                className={`form-input-icon w-full pl-10 pr-10 py-2 rounded-lg border text-sm transition focus:outline-none ${
+                  errors.password ? "border-red-500 focus:ring-1 focus:ring-red-500" : "border-slate-300 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+                }`}
               />
               <button
                 type="button"
@@ -221,10 +240,10 @@ export default function LoginPage() {
                 {showPassword ? <FiEyeOff className="h-4 w-4" /> : <FiEye className="h-4 w-4" />}
               </button>
             </div>
-            {errors.password && <p className="form-error">{errors.password}</p>}
+            {errors.password && <p className="mt-1 text-xs text-red-500">{errors.password}</p>}
           </div>
 
-          <label className="flex items-center gap-2.5 text-sm font-medium text-slate-600">
+          <label className="flex items-center gap-2.5 text-sm font-medium text-slate-600 cursor-pointer">
             <input
               type="checkbox"
               checked={rememberMe}
@@ -238,7 +257,7 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={isDisabled}
-            className="btn btn-primary btn-lg mt-1 w-full rounded-xl"
+            className="btn btn-primary btn-lg mt-1 flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 py-2.5 font-medium text-white hover:bg-indigo-700 disabled:opacity-50 transition"
           >
             {loading ? (
               <>
