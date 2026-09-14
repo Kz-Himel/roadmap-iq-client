@@ -1,13 +1,12 @@
-// app/not-found.tsx
 "use client";
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { FiHome, FiSearch, FiArrowLeft } from "react-icons/fi";
+import { FiHome, FiSearch } from "react-icons/fi";
 
 export default function NotFound() {
   return (
-    <div className="flex min-h-[70dvh] items-center justify-center px-4 py-12 sm:px-6">
+    <div className="flex min-h-[70dvh] items-center justify-center bg-slate-50/50 px-4 py-12 dark:bg-slate-950 sm:px-6">
       <div className="mx-auto max-w-md text-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
@@ -15,7 +14,7 @@ export default function NotFound() {
           transition={{ duration: 0.5 }}
           className="relative mx-auto mb-6 flex h-32 w-32 items-center justify-center sm:h-40 sm:w-40"
         >
-          <div className="absolute inset-0 rounded-full bg-blue-50" />
+          <div className="absolute inset-0 rounded-full bg-indigo-50 border border-indigo-100 dark:bg-indigo-950/50 dark:border-indigo-900/40" />
           <motion.span
             animate={{ y: [0, -8, 0] }}
             transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
@@ -29,7 +28,7 @@ export default function NotFound() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-6xl font-bold text-blue-600 sm:text-7xl"
+          className="text-6xl font-extrabold text-indigo-600 dark:text-indigo-400 sm:text-7xl"
         >
           404
         </motion.h1>
@@ -38,7 +37,7 @@ export default function NotFound() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-3 text-xl font-bold text-gray-900 sm:text-2xl"
+          className="mt-3 text-xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-2xl"
         >
           Page Not Found
         </motion.h2>
@@ -47,9 +46,9 @@ export default function NotFound() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-2 text-sm leading-relaxed text-gray-500 sm:text-base"
+          className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400 sm:text-base"
         >
-          Looks like this path isn't part of your career roadmap. Let's get you back on track.
+          Looks like this path isn&apos;t part of your career roadmap. Let&apos;s get you back on track.
         </motion.p>
 
         <motion.div
@@ -60,14 +59,14 @@ export default function NotFound() {
         >
           <Link
             href="/"
-            className="flex min-h-[46px] items-center justify-center gap-2 rounded-lg bg-blue-600 px-6 text-sm font-semibold text-white transition-colors active:bg-blue-700 sm:hover:bg-blue-700"
+            className="flex min-h-[46px] items-center justify-center gap-2 rounded-xl bg-indigo-600 px-6 text-sm font-semibold text-white shadow-xs transition-colors hover:bg-indigo-700 active:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600"
           >
             <FiHome className="h-4 w-4" />
             Back to Home
           </Link>
           <Link
             href="/explore"
-            className="flex min-h-[46px] items-center justify-center gap-2 rounded-lg border border-gray-200 px-6 text-sm font-semibold text-gray-700 transition-colors active:bg-gray-50 sm:hover:bg-gray-50"
+            className="flex min-h-[46px] items-center justify-center gap-2 rounded-xl border border-slate-200/80 bg-white px-6 text-sm font-semibold text-slate-700 shadow-xs transition-colors hover:bg-slate-50 active:bg-slate-100 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:active:bg-slate-800/80"
           >
             <FiSearch className="h-4 w-4" />
             Explore Careers
