@@ -16,7 +16,7 @@ import ThemeToggle from "../theme/ThemeToggle";
 
 const publicRoutes = [
   { label: "Home", href: "/" },
-  { label: "Roadmaps", href: "/roadmaps" },
+  { label: "Explore", href: "/explore" },
   { label: "Features", href: "/features" },
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
