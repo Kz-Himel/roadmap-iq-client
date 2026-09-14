@@ -46,7 +46,7 @@ export default function AboutPage() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl"
             >
-              About CareerPilot AI
+              About RoadmapIQ
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
