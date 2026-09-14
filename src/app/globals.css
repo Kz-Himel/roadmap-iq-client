@@ -9,6 +9,7 @@
 /* ================================================================== */
 :root {
   --background: #f8fafc;
+  --background-alt: #eef2f7;
   --foreground: #0f172a;
   --surface: #ffffff;
   --surface-hover: #f1f5f9;
@@ -29,32 +30,37 @@
 }
 
 .dark {
-  --background: #080e1a;
-  --foreground: #f8fafc;
-  --surface: #0f1729;
-  --surface-hover: #16213a;
-  --border: #1e293b;
-  --border-strong: #334155;
-  --muted: #111827;
+  /* A deep indigo-navy instead of near-black — keeps a hint of color/hue
+     so it reads as a designed surface, not a plain #000 fallback. */
+  --background: #0a0f1d;
+  --background-alt: #0e1526;
+  --foreground: #f1f5f9;
+  --surface: #131d33;
+  --surface-hover: #1a2540;
+  --border: #22304a;
+  --border-strong: #34445f;
+  --muted: #101827;
   --muted-foreground: #94a3b8;
   --primary: #3b82f6;
   --primary-hover: #60a5fa;
   --primary-foreground: #f8fafc;
   --ring: #60a5fa;
-  --selection-bg: rgba(30, 58, 138, 0.6);
-  --selection-fg: #93c5fd;
-  --scrollbar-track: #0b1329;
-  --scrollbar-thumb: #263248;
-  --scrollbar-thumb-hover: #334155;
+  --selection-bg: rgba(37, 99, 235, 0.35);
+  --selection-fg: #bfdbfe;
+  --scrollbar-track: #0a1120;
+  --scrollbar-thumb: #263249;
+  --scrollbar-thumb-hover: #374563;
   color-scheme: dark;
 }
 
 /* Expose the tokens as real Tailwind v4 utilities: bg-background,
-   text-foreground, border-border, bg-primary, ring-ring, etc.
-   "inline" keeps them pointing at the live CSS variable, so they
-   automatically follow the .dark class instead of freezing a value. */
+   bg-background-alt, text-foreground, border-border, bg-primary,
+   ring-ring, etc. "inline" keeps them pointing at the live CSS
+   variable, so they automatically follow the .dark class instead of
+   freezing a value. */
 @theme inline {
   --color-background: var(--background);
+  --color-background-alt: var(--background-alt);
   --color-foreground: var(--foreground);
   --color-surface: var(--surface);
   --color-surface-hover: var(--surface-hover);

@@ -24,7 +24,7 @@ export default function PopularRoadmaps() {
   });
 
   return (
-    <section className="py-12 sm:py-16">
+    <section className="border-t border-border/60 bg-background-alt py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
