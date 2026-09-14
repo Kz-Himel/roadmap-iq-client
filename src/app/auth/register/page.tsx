@@ -21,6 +21,16 @@ export default function RegisterPage() {
   const [loading, setLoading] = useState(false);
   const [socialLoading, setSocialLoading] = useState<"google" | null>(null);
 
+  const clearFieldError = (field: string) => {
+    if (errors[field]) {
+      setErrors((prev) => {
+        const updated = { ...prev };
+        delete updated[field];
+        return updated;
+      });
+    }
+  };
+
   const validate = () => {
     const newErrors: { [key: string]: string } = {};
 
@@ -98,7 +108,7 @@ export default function RegisterPage() {
             R
           </span>
           <span className="text-lg font-bold text-slate-900">
-            RoadmapIQ{" "}
+            RoadmapIQ
           </span>
         </Link>
 
@@ -108,9 +118,9 @@ export default function RegisterPage() {
         </div>
 
         {serverError && (
-          <div className="alert alert-error mb-5">
-            <FiAlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
-            <span>{serverError}</span>
+          <div className="alert alert-error mb-5 flex items-center gap-2" role="alert">
+            <FiAlertCircle className="h-4 w-4 shrink-0 text-red-500" />
+            <span className="text-sm">{serverError}</span>
           </div>
         )}
 
@@ -118,7 +128,7 @@ export default function RegisterPage() {
           type="button"
           onClick={() => handleSocialSignup("google")}
           disabled={isDisabled}
-          className="btn btn-secondary btn-md w-full rounded-xl"
+          className="btn btn-secondary btn-md flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white py-2 hover:bg-slate-50 disabled:opacity-50"
         >
           {socialLoading === "google" ? (
             <>
@@ -130,7 +140,7 @@ export default function RegisterPage() {
             </>
           ) : (
             <>
-              <FcGoogle className="h-5 w-5" />
+              <FcGoogle className="h-5 w-5 shrink-0" />
               <span>Continue with Google</span>
             </>
           )}
@@ -144,67 +154,93 @@ export default function RegisterPage() {
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4" noValidate>
           <div>
-            <label className="form-label">Full Name</label>
+            <label className="form-label mb-1 block text-sm font-medium text-slate-700">Full Name</label>
             <div className="relative">
               <FiUser className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
               <input
                 type="text"
+                autoComplete="name"
                 value={fullName}
-                onChange={(e) => setFullName(e.target.value)}
+                onChange={(e) => {
+                  setFullName(e.target.value);
+                  clearFieldError("fullName");
+                }}
                 placeholder="John Doe"
                 disabled={isDisabled}
-                className={`form-input-icon ${errors.fullName ? "form-input-error" : ""}`}
+                aria-invalid={!!errors.fullName}
+                className={`form-input-icon w-full pl-10 pr-4 py-2 rounded-lg border text-sm transition focus:outline-none ${
+                  errors.fullName ? "border-red-500 focus:ring-1 focus:ring-red-500" : "border-slate-300 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+                }`}
               />
             </div>
-            {errors.fullName && <p className="form-error">{errors.fullName}</p>}
+            {errors.fullName && <p className="mt-1 text-xs text-red-500">{errors.fullName}</p>}
           </div>
 
           <div>
-            <label className="form-label">Email</label>
+            <label className="form-label mb-1 block text-sm font-medium text-slate-700">Email</label>
             <div className="relative">
               <FiMail className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
               <input
                 type="email"
+                inputMode="email"
+                autoComplete="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  clearFieldError("email");
+                }}
                 placeholder="example@gmail.com"
                 disabled={isDisabled}
-                className={`form-input-icon ${errors.email ? "form-input-error" : ""}`}
+                aria-invalid={!!errors.email}
+                className={`form-input-icon w-full pl-10 pr-4 py-2 rounded-lg border text-sm transition focus:outline-none ${
+                  errors.email ? "border-red-500 focus:ring-1 focus:ring-red-500" : "border-slate-300 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+                }`}
               />
             </div>
-            {errors.email && <p className="form-error">{errors.email}</p>}
+            {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email}</p>}
           </div>
 
           <div>
-            <label className="form-label">Password</label>
+            <label className="form-label mb-1 block text-sm font-medium text-slate-700">Password</label>
             <div className="relative">
               <FiLock className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
               <input
                 type={showPassword ? "text" : "password"}
+                autoComplete="new-password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                  clearFieldError("password");
+                }}
                 placeholder="••••••••"
                 disabled={isDisabled}
-                className={`form-input-icon pr-10 ${errors.password ? "form-input-error" : ""}`}
+                aria-invalid={!!errors.password}
+                className={`form-input-icon w-full pl-10 pr-10 py-2 rounded-lg border text-sm transition focus:outline-none ${
+                  errors.password ? "border-red-500 focus:ring-1 focus:ring-red-500" : "border-slate-300 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+                }`}
               />
               <button
                 type="button"
                 onClick={() => setShowPassword((v) => !v)}
                 disabled={isDisabled}
                 className="absolute right-3 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-lg text-slate-400 hover:bg-slate-100 hover:text-slate-600 disabled:opacity-50"
+                aria-label="Toggle password visibility"
               >
                 {showPassword ? <FiEyeOff className="h-4 w-4" /> : <FiEye className="h-4 w-4" />}
               </button>
             </div>
-            {errors.password && <p className="form-error">{errors.password}</p>}
+            {errors.password && <p className="mt-1 text-xs text-red-500">{errors.password}</p>}
           </div>
 
           <div>
-            <label className="flex items-start gap-2.5 text-sm font-medium text-slate-600">
+            <label className="flex items-start gap-2.5 text-sm font-medium text-slate-600 cursor-pointer">
               <input
                 type="checkbox"
                 checked={agreeTerms}
-                onChange={(e) => setAgreeTerms(e.target.checked)}
+                onChange={(e) => {
+                  setAgreeTerms(e.target.checked);
+                  clearFieldError("terms");
+                }}
                 disabled={isDisabled}
                 className="mt-0.5 h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 disabled:opacity-50"
               />
@@ -215,13 +251,13 @@ export default function RegisterPage() {
                 </Link>
               </span>
             </label>
-            {errors.terms && <p className="form-error">{errors.terms}</p>}
+            {errors.terms && <p className="mt-1 text-xs text-red-500">{errors.terms}</p>}
           </div>
 
           <button
             type="submit"
             disabled={isDisabled}
-            className="btn btn-primary btn-lg mt-1 w-full rounded-xl"
+            className="btn btn-primary btn-lg mt-1 flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 py-2.5 font-medium text-white hover:bg-indigo-700 disabled:opacity-50 transition"
           >
             {loading ? (
               <>
