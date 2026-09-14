@@ -32,7 +32,7 @@ const fadeUp: Variants = {
 
 export default function Banner() {
   return (
-    <section className="relative overflow-hidden pt-12 pb-20 lg:pt-20 lg:pb-28">
+    <section className="relative overflow-hidden hero-gradient-bg pt-12 pb-20 lg:pt-20 lg:pb-28">
       {/* Background Glow */}
       <div className="pointer-events-none absolute left-1/2 top-0 -z-10 -translate-x-1/2 opacity-30 blur-3xl">
         <div className="h-[450px] w-[800px] bg-gradient-to-tr from-blue-600 via-indigo-600 to-purple-600 dark:from-blue-600/40 dark:via-indigo-600/40 dark:to-purple-600/40" />
