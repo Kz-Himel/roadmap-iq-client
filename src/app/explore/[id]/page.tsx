@@ -34,15 +34,15 @@ async function fetchGoalById(id: string): Promise<Goal> {
 function DetailsSkeleton() {
   return (
     <div className="mx-auto max-w-7xl animate-pulse px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
-      <div className="skeleton mb-6 h-4 w-28 rounded-lg" />
+      <div className="mb-6 h-4 w-28 rounded-lg bg-slate-200 dark:bg-slate-800" />
       <div className="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
-        <div className="skeleton h-24 rounded-2xl" />
-        <div className="skeleton h-24 rounded-2xl" />
+        <div className="h-24 rounded-2xl bg-slate-200 dark:bg-slate-800" />
+        <div className="h-24 rounded-2xl bg-slate-200 dark:bg-slate-800" />
       </div>
-      <div className="card card-body">
-        <div className="skeleton mb-4 h-7 w-2/3 rounded-lg" />
-        <div className="skeleton mb-2 h-3 w-full rounded-lg" />
-        <div className="skeleton h-3 w-2/3 rounded-lg" />
+      <div className="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-xs dark:border-slate-800 dark:bg-slate-900">
+        <div className="mb-4 h-7 w-2/3 rounded-lg bg-slate-200 dark:bg-slate-800" />
+        <div className="mb-2 h-3 w-full rounded-lg bg-slate-200 dark:bg-slate-800" />
+        <div className="h-3 w-2/3 rounded-lg bg-slate-200 dark:bg-slate-800" />
       </div>
     </div>
   );
@@ -66,13 +66,13 @@ export default function GoalDetailsPage() {
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <button
           onClick={() => router.back()}
-          className="btn btn-ghost btn-sm mb-6 gap-1.5 rounded-xl pl-0"
+          className="mb-6 flex items-center gap-1.5 rounded-xl text-sm font-medium text-slate-600 transition-colors hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400"
         >
           <FiArrowLeft className="h-4 w-4" />
           Back to Explore
         </button>
-        <div className="alert alert-error">
-          <FiAlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
+        <div className="flex items-center gap-3 rounded-xl border border-red-200 bg-red-50 p-4 text-sm font-medium text-red-600 dark:border-red-900/50 dark:bg-red-950/40 dark:text-red-400">
+          <FiAlertCircle className="h-5 w-5 shrink-0" />
           <span>{(error as Error)?.message || "Career guide not found."}</span>
         </div>
       </div>
@@ -80,10 +80,10 @@ export default function GoalDetailsPage() {
   }
 
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
       <Link
         href="/explore"
-        className="btn btn-ghost btn-sm mb-6 gap-1.5 rounded-xl pl-0 text-slate-600 hover:text-indigo-600"
+        className="mb-6 inline-flex items-center gap-1.5 rounded-xl text-sm font-medium text-slate-600 transition-colors hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400"
       >
         <FiArrowLeft className="h-4 w-4" />
         Back to Explore
@@ -91,68 +91,71 @@ export default function GoalDetailsPage() {
 
       {/* Stat cards */}
       <div className="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
-        <div className="card card-hover flex items-center gap-4 p-5">
-          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-emerald-50">
-            <FiDollarSign className="h-5 w-5 text-emerald-600" />
+        <div className="flex items-center gap-4 rounded-2xl border border-slate-200/80 bg-white p-5 shadow-xs transition-shadow hover:shadow-md dark:border-slate-800 dark:bg-slate-900">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-100 dark:border-emerald-900/30">
+            <FiDollarSign className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
           </div>
           <div className="min-w-0">
-            <p className="text-xs font-medium text-slate-400">Approx. Salary Range</p>
-            <p className="truncate text-sm font-semibold text-slate-900">{goal.salaryRange}</p>
+            <p className="text-xs font-medium text-slate-500 dark:text-slate-400">Approx. Salary Range</p>
+            <p className="truncate text-sm font-semibold text-slate-900 dark:text-white">{goal.salaryRange}</p>
           </div>
         </div>
 
-        <div className="card card-hover flex items-center gap-4 p-5">
-          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-violet-50">
-            <FiClock className="h-5 w-5 text-violet-600" />
+        <div className="flex items-center gap-4 rounded-2xl border border-slate-200/80 bg-white p-5 shadow-xs transition-shadow hover:shadow-md dark:border-slate-800 dark:bg-slate-900">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-violet-50 dark:bg-violet-950/50 border border-violet-100 dark:border-violet-900/30">
+            <FiClock className="h-5 w-5 text-violet-600 dark:text-violet-400" />
           </div>
           <div className="min-w-0">
-            <p className="text-xs font-medium text-slate-400">Estimated Time to Learn</p>
-            <p className="truncate text-sm font-semibold text-slate-900">{goal.estimatedTime}</p>
+            <p className="text-xs font-medium text-slate-500 dark:text-slate-400">Estimated Time to Learn</p>
+            <p className="truncate text-sm font-semibold text-slate-900 dark:text-white">{goal.estimatedTime}</p>
           </div>
         </div>
       </div>
 
       <div className="grid grid-cols-1 gap-5 lg:grid-cols-[1fr_280px]">
         {/* Overview */}
-        <div className="card card-body">
+        <div className="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-xs dark:border-slate-800 dark:bg-slate-900">
           <div className="mb-5 flex flex-wrap items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-50">
-                <FiBriefcase className="h-5 w-5 text-indigo-600" />
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-50 dark:bg-indigo-950/50 border border-indigo-100 dark:border-indigo-900/30">
+                <FiBriefcase className="h-5 w-5 text-indigo-600 dark:text-indigo-400" />
               </div>
-              <h1 className="heading-page text-xl sm:text-2xl">{goal.title}</h1>
+              <h1 className="text-xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-2xl">{goal.title}</h1>
             </div>
             <SaveGuideButton goalId={goal._id} />
           </div>
 
-          <div className="border-t border-slate-100 pt-5">
-            <h2 className="mb-3 flex items-center gap-2 text-sm font-semibold text-slate-900">
-              <FiFileText className="h-4 w-4 text-indigo-600" />
+          <div className="border-t border-slate-100 dark:border-slate-800/80 pt-5">
+            <h2 className="mb-3 flex items-center gap-2 text-sm font-semibold text-slate-900 dark:text-white">
+              <FiFileText className="h-4 w-4 text-indigo-600 dark:text-indigo-400" />
               Overview
             </h2>
-            <p className="whitespace-pre-line text-sm leading-relaxed text-slate-600 sm:text-[15px]">
+            <p className="whitespace-pre-line text-sm leading-relaxed text-slate-600 dark:text-slate-300 sm:text-[15px]">
               {goal.description}
             </p>
           </div>
         </div>
 
         {/* Skills */}
-        <div className="card card-body h-fit mb-10">
-          <p className="mb-4 flex items-center gap-2 text-sm font-semibold text-slate-900">
-            <FiCheckCircle className="h-4 w-4 text-indigo-600" />
+        <div className="mb-10 h-fit rounded-2xl border border-slate-200/80 bg-white p-6 shadow-xs dark:border-slate-800 dark:bg-slate-900">
+          <p className="mb-4 flex items-center gap-2 text-sm font-semibold text-slate-900 dark:text-white">
+            <FiCheckCircle className="h-4 w-4 text-indigo-600 dark:text-indigo-400" />
             Required Skills
           </p>
 
           {goal.requiredSkills?.length > 0 ? (
             <div className="flex flex-wrap gap-2">
               {goal.requiredSkills.map((skill) => (
-                <span key={skill} className="badge badge-primary px-3 py-1.5">
+                <span
+                  key={skill}
+                  className="rounded-lg bg-indigo-50 px-3 py-1.5 text-xs font-semibold text-indigo-600 border border-indigo-100 dark:bg-indigo-950/60 dark:text-indigo-300 dark:border-indigo-900/40"
+                >
                   {skill}
                 </span>
               ))}
             </div>
           ) : (
-            <p className="text-xs text-slate-400">No specific skills listed.</p>
+            <p className="text-xs text-slate-400 dark:text-slate-500">No specific skills listed.</p>
           )}
         </div>
       </div>
