@@ -160,40 +160,54 @@ export default function AIRoadmapPage() {
   return (
     <div className="mx-auto max-w-5xl px-10 sm:px-5">
       <div className="mb-6 sm:mb-8">
-        <h1 className="heading-page">AI Career Roadmap Generator</h1>
-        <p className="mt-1.5 text-body">Tell us your goal and get a personalized roadmap.</p>
+        <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-3xl">
+          AI Career Roadmap Generator
+        </h1>
+        <p className="mt-1.5 text-sm text-slate-500 dark:text-slate-400">
+          Tell us your goal and get a personalized roadmap.
+        </p>
       </div>
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-[380px_1fr]">
         <form
           onSubmit={handleGenerate}
-          className="card card-body flex h-fit flex-col gap-4"
+          className="flex h-fit flex-col gap-4 rounded-2xl border border-slate-200/80 bg-white p-5 shadow-xs dark:border-slate-800 dark:bg-slate-900"
           noValidate
         >
-          <h2 className="heading-card">Tell us your goal</h2>
+          <h2 className="text-base font-semibold text-slate-900 dark:text-white">
+            Tell us your goal
+          </h2>
 
           {/* 1. Saved Goal (Select) */}
           <div>
-            <label className="form-label">Use a Saved Goal as Context (Optional)</label>
+            <label className="mb-1.5 block text-xs font-semibold text-slate-700 dark:text-slate-300">
+              Use a Saved Goal as Context (Optional)
+            </label>
             <div className="relative flex items-center">
-              <FiBookmark className="pointer-events-none absolute left-3.5 h-4 w-4 text-slate-400 z-10" />
+              <FiBookmark className="pointer-events-none absolute left-3.5 z-10 h-4 w-4 text-slate-400 dark:text-slate-500" />
               <select
                 value={form.savedGuideId || ""}
                 onChange={(e) => handleSavedGuideChange(e.target.value)}
-                className="form-select w-full !pl-11 pr-8 relative bg-white appearance-none"
+                className="relative h-10 w-full appearance-none rounded-xl border border-slate-200/80 bg-white pr-8 text-xs font-medium text-slate-900 outline-none transition-all focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-200 dark:focus:border-indigo-400"
                 style={{ paddingLeft: "2.75rem" }}
               >
-                <option value="">Select from your saved goals</option>
+                <option value="" className="bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-200">
+                  Select from your saved goals
+                </option>
                 {isLoadingGuides ? (
-                  <option disabled value="">Loading saved goals...</option>
+                  <option disabled value="" className="bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-200">
+                    Loading saved goals...
+                  </option>
                 ) : savedGuides && savedGuides.length > 0 ? (
                   savedGuides.map((guide) => (
-                    <option key={guide._id} value={guide._id}>
+                    <option key={guide._id} value={guide._id} className="bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-200">
                       {guide.title}
                     </option>
                   ))
                 ) : (
-                  <option disabled value="">No saved goals found</option>
+                  <option disabled value="" className="bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-200">
+                    No saved goals found
+                  </option>
                 )}
               </select>
             </div>
@@ -201,16 +215,18 @@ export default function AIRoadmapPage() {
 
           {/* 2. Target Role (Input) */}
           <div>
-            <label className="form-label">I want to become</label>
+            <label className="mb-1.5 block text-xs font-semibold text-slate-700 dark:text-slate-300">
+              I want to become
+            </label>
             <div className="relative flex items-center">
-              <FiTarget className="pointer-events-none absolute left-3.5 h-4 w-4 text-slate-400 z-10" />
+              <FiTarget className="pointer-events-none absolute left-3.5 z-10 h-4 w-4 text-slate-400 dark:text-slate-500" />
               <input
                 type="text"
                 value={form.targetRole}
                 onChange={(e) => setForm((p) => ({ ...p, targetRole: e.target.value }))}
                 placeholder="Frontend Developer"
                 required
-                className="form-input-icon w-full !pl-11"
+                className="h-10 w-full rounded-xl border border-slate-200/80 bg-white text-xs font-medium text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-800 dark:bg-slate-950 dark:text-white dark:placeholder:text-slate-500 dark:focus:border-indigo-400"
                 style={{ paddingLeft: "2.75rem" }}
               />
             </div>
@@ -218,15 +234,17 @@ export default function AIRoadmapPage() {
 
           {/* 3. Current Role (Input) */}
           <div>
-            <label className="form-label">Current Role</label>
+            <label className="mb-1.5 block text-xs font-semibold text-slate-700 dark:text-slate-300">
+              Current Role
+            </label>
             <div className="relative flex items-center">
-              <FiBriefcase className="pointer-events-none absolute left-3.5 h-4 w-4 text-slate-400 z-10" />
+              <FiBriefcase className="pointer-events-none absolute left-3.5 z-10 h-4 w-4 text-slate-400 dark:text-slate-500" />
               <input
                 type="text"
                 value={form.currentRole}
                 onChange={(e) => setForm((p) => ({ ...p, currentRole: e.target.value }))}
                 placeholder="Student, Junior Developer, etc."
-                className="form-input-icon w-full !pl-11"
+                className="h-10 w-full rounded-xl border border-slate-200/80 bg-white text-xs font-medium text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-800 dark:bg-slate-950 dark:text-white dark:placeholder:text-slate-500 dark:focus:border-indigo-400"
                 style={{ paddingLeft: "2.75rem" }}
               />
             </div>
@@ -234,29 +252,33 @@ export default function AIRoadmapPage() {
 
           {/* 4. Experience Level (Select) */}
           <div>
-            <label className="form-label">My Experience Level</label>
+            <label className="mb-1.5 block text-xs font-semibold text-slate-700 dark:text-slate-300">
+              My Experience Level
+            </label>
             <div className="relative flex items-center">
-              <FiBarChart2 className="pointer-events-none absolute left-3.5 h-4 w-4 text-slate-400 z-10" />
+              <FiBarChart2 className="pointer-events-none absolute left-3.5 z-10 h-4 w-4 text-slate-400 dark:text-slate-500" />
               <select
                 value={form.experienceLevel}
                 onChange={(e) =>
                   setForm((p) => ({ ...p, experienceLevel: e.target.value as ExtendedRoadmapFormInput["experienceLevel"] }))
                 }
-                className="form-select w-full !pl-11 pr-8 relative bg-white appearance-none"
+                className="relative h-10 w-full appearance-none rounded-xl border border-slate-200/80 bg-white pr-8 text-xs font-medium text-slate-900 outline-none transition-all focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-200 dark:focus:border-indigo-400"
                 style={{ paddingLeft: "2.75rem" }}
               >
-                <option value="beginner">Beginner</option>
-                <option value="intermediate">Intermediate</option>
-                <option value="advanced">Advanced</option>
+                <option value="beginner" className="bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-200">Beginner</option>
+                <option value="intermediate" className="bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-200">Intermediate</option>
+                <option value="advanced" className="bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-200">Advanced</option>
               </select>
             </div>
           </div>
 
           {/* 5. Roadmap Length (Select) */}
           <div>
-            <label className="form-label">Roadmap Length</label>
+            <label className="mb-1.5 block text-xs font-semibold text-slate-700 dark:text-slate-300">
+              Roadmap Length
+            </label>
             <div className="relative flex items-center">
-              <FiCalendar className="pointer-events-none absolute left-3.5 h-4 w-4 text-slate-400 z-10" />
+              <FiCalendar className="pointer-events-none absolute left-3.5 z-10 h-4 w-4 text-slate-400 dark:text-slate-500" />
               <select
                 value={form.desiredDurationMonths}
                 onChange={(e) =>
@@ -265,24 +287,33 @@ export default function AIRoadmapPage() {
                     desiredDurationMonths: Number(e.target.value) as ExtendedRoadmapFormInput["desiredDurationMonths"],
                   }))
                 }
-                className="form-select w-full !pl-11 pr-8 relative bg-white appearance-none"
+                className="relative h-10 w-full appearance-none rounded-xl border border-slate-200/80 bg-white pr-8 text-xs font-medium text-slate-900 outline-none transition-all focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-200 dark:focus:border-indigo-400"
                 style={{ paddingLeft: "2.75rem" }}
               >
-                <option value={3}>3 Months (Quick Start)</option>
-                <option value={6}>6 Months (Standard)</option>
-                <option value={12}>12 Months (In-Depth)</option>
+                <option value={3} className="bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-200">3 Months (Quick Start)</option>
+                <option value={6} className="bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-200">6 Months (Standard)</option>
+                <option value={12} className="bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-200">12 Months (In-Depth)</option>
               </select>
             </div>
           </div>
 
           {/* 6. Current Skills (Input + Badge + Plus Button Fixed) */}
           <div>
-            <label className="form-label">Current Skills (Optional)</label>
+            <label className="mb-1.5 block text-xs font-semibold text-slate-700 dark:text-slate-300">
+              Current Skills (Optional)
+            </label>
             <div className="mb-2 flex flex-wrap gap-1.5">
               {form.currentSkills.map((skill) => (
-                <span key={skill} className="badge badge-primary flex items-center gap-1 px-2.5 py-1">
+                <span
+                  key={skill}
+                  className="inline-flex items-center gap-1 rounded-lg border border-indigo-100 bg-indigo-50 px-2.5 py-1 text-xs font-medium text-indigo-700 dark:border-indigo-900/50 dark:bg-indigo-950/60 dark:text-indigo-300"
+                >
                   {skill}
-                  <button type="button" onClick={() => removeSkill(skill)}>
+                  <button
+                    type="button"
+                    onClick={() => removeSkill(skill)}
+                    className="text-indigo-500 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-200"
+                  >
                     <FiX className="h-3 w-3" />
                   </button>
                 </span>
@@ -300,41 +331,43 @@ export default function AIRoadmapPage() {
                   }
                 }}
                 placeholder="HTML, CSS, JavaScript..."
-                className="form-input flex-1"
+                className="h-10 flex-1 rounded-xl border border-slate-200/80 bg-white px-3 text-xs font-medium text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-800 dark:bg-slate-950 dark:text-white dark:placeholder:text-slate-500 dark:focus:border-indigo-400"
               />
               <button
                 type="button"
                 onClick={addSkill}
-                className="btn btn-secondary flex items-center justify-center h-[44px] w-[44px] rounded-xl p-0 shrink-0"
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-slate-200/80 bg-slate-50 text-slate-600 transition-colors hover:bg-slate-100 dark:border-slate-800 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
               >
-                <FiPlus className="h-6 w-6 text-slate-600" />
+                <FiPlus className="h-5 w-5" />
               </button>
             </div>
           </div>
 
           {/* 7. Weekly Study Hours (Select) */}
           <div>
-            <label className="form-label">Weekly Study Hours</label>
+            <label className="mb-1.5 block text-xs font-semibold text-slate-700 dark:text-slate-300">
+              Weekly Study Hours
+            </label>
             <div className="relative flex items-center">
-              <FiClock className="pointer-events-none absolute left-3.5 h-4 w-4 text-slate-400 z-10" />
+              <FiClock className="pointer-events-none absolute left-3.5 z-10 h-4 w-4 text-slate-400 dark:text-slate-500" />
               <select
                 value={form.weeklyStudyHours}
                 onChange={(e) =>
                   setForm((p) => ({ ...p, weeklyStudyHours: Number(e.target.value) }))
                 }
-                className="form-select w-full !pl-11 pr-8 relative bg-white appearance-none"
+                className="relative h-10 w-full appearance-none rounded-xl border border-slate-200/80 bg-white pr-8 text-xs font-medium text-slate-900 outline-none transition-all focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-200 dark:focus:border-indigo-400"
                 style={{ paddingLeft: "2.75rem" }}
               >
-                <option value={5}>5 hrs</option>
-                <option value={10}>10 hrs</option>
-                <option value={15}>15 hrs</option>
-                <option value={20}>20+ hrs</option>
+                <option value={5} className="bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-200">5 hrs</option>
+                <option value={10} className="bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-200">10 hrs</option>
+                <option value={15} className="bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-200">15 hrs</option>
+                <option value={20} className="bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-200">20+ hrs</option>
               </select>
             </div>
           </div>
 
           {generateMutation.isError && (
-            <div className="alert alert-error">
+            <div className="flex items-start gap-2 rounded-xl border border-red-200/80 bg-red-50 p-3 text-xs text-red-700 dark:border-red-900/40 dark:bg-red-950/40 dark:text-red-400">
               <FiAlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
               <span>{(generateMutation.error as Error).message}</span>
             </div>
@@ -343,20 +376,22 @@ export default function AIRoadmapPage() {
           <button
             type="submit"
             disabled={generateMutation.isPending}
-            className="btn btn-primary btn-lg mt-1 w-full rounded-xl"
+            className="mt-1 flex h-11 w-full items-center justify-center rounded-xl bg-indigo-600 text-sm font-semibold text-white shadow-xs transition-all hover:bg-indigo-700 active:bg-indigo-800 disabled:opacity-50 dark:bg-indigo-500 dark:hover:bg-indigo-600"
           >
             {generateMutation.isPending ? "Generating..." : "Generate Roadmap"}
           </button>
         </form>
 
-        <div className="card card-body min-h-[400px]">
+        <div className="min-h-[400px] rounded-2xl border border-slate-200/80 bg-white p-5 shadow-xs dark:border-slate-800 dark:bg-slate-900">
           {!roadmap && !generateMutation.isPending && (
-            <div className="empty-state h-full border-0 bg-transparent py-12">
-              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-100">
-                <FiTarget className="h-7 w-7 text-slate-300" />
+            <div className="flex h-full min-h-[300px] flex-col items-center justify-center border-0 bg-transparent py-12 text-center">
+              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-100 dark:bg-slate-800">
+                <FiTarget className="h-7 w-7 text-slate-400 dark:text-slate-500" />
               </div>
-              <p className="text-sm font-semibold text-slate-600">No roadmap yet</p>
-              <p className="mt-1 text-xs text-slate-400">
+              <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">
+                No roadmap yet
+              </p>
+              <p className="mt-1 text-xs text-slate-400 dark:text-slate-500">
                 Fill the form and generate your personalized roadmap.
               </p>
             </div>
@@ -364,8 +399,10 @@ export default function AIRoadmapPage() {
 
           {generateMutation.isPending && (
             <div className="flex h-full min-h-[300px] flex-col items-center justify-center text-center">
-              <div className="mb-4 h-10 w-10 animate-spin rounded-full border-2 border-indigo-200 border-t-indigo-600" />
-              <p className="text-sm font-medium text-slate-500">Generating your roadmap...</p>
+              <div className="mb-4 h-10 w-10 animate-spin rounded-full border-2 border-indigo-200 border-t-indigo-600 dark:border-indigo-900 dark:border-t-indigo-400" />
+              <p className="text-sm font-medium text-slate-500 dark:text-slate-400">
+                Generating your roadmap...
+              </p>
             </div>
           )}
 
@@ -373,14 +410,18 @@ export default function AIRoadmapPage() {
             <>
               <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div>
-                  <h2 className="heading-card">{roadmap.targetRole} Roadmap</h2>
-                  <p className="text-xs text-slate-400">{roadmap.durationMonths} Month Plan</p>
+                  <h2 className="text-lg font-bold text-slate-900 dark:text-white">
+                    {roadmap.targetRole} Roadmap
+                  </h2>
+                  <p className="text-xs text-slate-400 dark:text-slate-500">
+                    {roadmap.durationMonths} Month Plan
+                  </p>
                 </div>
                 <div className="flex gap-2">
                   <button
                     onClick={handleRegenerate}
                     disabled={generateMutation.isPending}
-                    className="btn btn-secondary btn-sm rounded-xl"
+                    className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200/80 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 transition-colors hover:bg-slate-50 disabled:opacity-60 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800"
                   >
                     <FiRefreshCw className="h-3.5 w-3.5" />
                     Regenerate
@@ -388,7 +429,7 @@ export default function AIRoadmapPage() {
                   <button
                     onClick={() => saveMutation.mutate(roadmap)}
                     disabled={saveMutation.isPending}
-                    className="btn btn-primary btn-sm rounded-xl"
+                    className="inline-flex items-center gap-1.5 rounded-xl bg-indigo-600 px-3 py-1.5 text-xs font-semibold text-white shadow-xs transition-all hover:bg-indigo-700 disabled:opacity-60 dark:bg-indigo-500 dark:hover:bg-indigo-600"
                   >
                     <FiSave className="h-3.5 w-3.5" />
                     {saveMutation.isPending ? "Saving..." : "Save"}
@@ -397,7 +438,7 @@ export default function AIRoadmapPage() {
               </div>
 
               {showSaved && (
-                <div className="alert alert-success mb-4">
+                <div className="mb-4 flex items-center gap-2 rounded-xl border border-emerald-200/80 bg-emerald-50 p-3 text-xs text-emerald-700 dark:border-emerald-900/40 dark:bg-emerald-950/40 dark:text-emerald-400">
                   <FiCheckCircle className="mt-0.5 h-4 w-4 shrink-0" />
                   <span>Roadmap saved successfully!</span>
                 </div>
@@ -407,17 +448,19 @@ export default function AIRoadmapPage() {
                 {roadmap.months.map((month) => (
                   <div
                     key={month.monthNumber}
-                    className="rounded-xl border border-slate-100 bg-slate-50/80 p-4 transition-colors hover:border-indigo-100 hover:bg-indigo-50/30"
+                    className="rounded-xl border border-slate-100 bg-slate-50/80 p-4 transition-colors hover:border-indigo-100 hover:bg-indigo-50/30 dark:border-slate-800/80 dark:bg-slate-950/50 dark:hover:border-indigo-900/50 dark:hover:bg-indigo-950/30"
                   >
                     <div className="mb-2 flex items-center gap-2.5">
-                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-indigo-600 to-violet-600 text-[11px] font-bold text-white">
+                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-indigo-600 to-violet-600 text-[11px] font-bold text-white dark:from-indigo-500 dark:to-violet-500">
                         {month.monthNumber}
                       </span>
-                      <h3 className="text-sm font-semibold text-slate-900">{month.title}</h3>
+                      <h3 className="text-sm font-semibold text-slate-900 dark:text-white">
+                        {month.title}
+                      </h3>
                     </div>
                     <ul className="ml-9 flex flex-col gap-1">
                       {month.topics.map((topic, i) => (
-                        <li key={i} className="text-xs text-slate-600 sm:text-sm">
+                        <li key={i} className="text-xs text-slate-600 dark:text-slate-300 sm:text-sm">
                           • {topic}
                         </li>
                       ))}
