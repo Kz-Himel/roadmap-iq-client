@@ -1,4 +1,3 @@
-// components/goals/EditGoalForm.tsx
 "use client";
 
 import { useState } from "react";
@@ -110,29 +109,30 @@ export default function EditGoalForm({ goal, onSuccess, onCancel }: EditGoalForm
   };
 
   const inputClasses = (fieldError: string | undefined) => `
-    min-h-[44px] w-full rounded-lg border py-2.5 pl-10 pr-3 text-sm outline-none transition-colors
+    min-h-[44px] w-full rounded-xl border py-2.5 pl-10 pr-3 text-sm outline-none transition-colors
+    text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500
     ${
       fieldError
-        ? "border-red-400 bg-red-50 focus:border-red-500 focus:ring-1 focus:ring-red-500"
-        : "border-blue-200 bg-blue-50/40 focus:border-blue-600 focus:ring-2 focus:ring-blue-200"
+        ? "border-red-400 bg-red-50/50 dark:bg-red-950/20 dark:border-red-900 focus:border-red-500 focus:ring-1 focus:ring-red-500"
+        : "border-slate-200/80 bg-slate-50/50 dark:border-slate-800 dark:bg-slate-950/50 focus:border-blue-600 focus:ring-2 focus:ring-blue-100 dark:focus:ring-blue-950"
     }
   `;
 
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col gap-4 rounded-2xl border border-gray-100 bg-white p-5 shadow-sm sm:gap-5 sm:p-6"
+      className="flex flex-col gap-4 rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:gap-5 sm:p-6"
       noValidate
     >
       {showSuccess && (
-        <div className="flex items-start gap-2 rounded-lg bg-green-50 px-3 py-2.5 text-sm text-green-700">
+        <div className="flex items-start gap-2 rounded-xl bg-green-50 px-3.5 py-2.5 text-xs font-medium text-green-700 dark:bg-green-950/40 dark:text-green-400 border border-green-200 dark:border-green-900/50">
           <FiCheckCircle className="mt-0.5 h-4 w-4 shrink-0" />
           <span>Career guide updated successfully!</span>
         </div>
       )}
 
       {mutation.isError && (
-        <div className="flex items-start gap-2 rounded-lg bg-red-50 px-3 py-2.5 text-sm text-red-600">
+        <div className="flex items-start gap-2 rounded-xl bg-red-50 px-3.5 py-2.5 text-xs font-medium text-red-600 dark:bg-red-950/40 dark:text-red-400 border border-red-200 dark:border-red-900/50">
           <FiAlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
           <span>{(mutation.error as Error).message}</span>
         </div>
@@ -140,9 +140,9 @@ export default function EditGoalForm({ goal, onSuccess, onCancel }: EditGoalForm
 
       {/* Role/Title */}
       <div>
-        <label className="mb-1.5 block text-sm font-medium text-gray-700">Role / Title</label>
+        <label className="mb-1.5 block text-xs font-medium text-slate-700 dark:text-slate-300">Role / Title</label>
         <div className="relative">
-          <FiBriefcase className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-blue-500" />
+          <FiBriefcase className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-blue-600 dark:text-blue-400" />
           <input
             type="text"
             value={form.title}
@@ -150,14 +150,14 @@ export default function EditGoalForm({ goal, onSuccess, onCancel }: EditGoalForm
             className={inputClasses(errors.title)}
           />
         </div>
-        {errors.title && <p className="mt-1 text-xs text-red-500">{errors.title}</p>}
+        {errors.title && <p className="mt-1 text-xs text-red-500 dark:text-red-400">{errors.title}</p>}
       </div>
 
       {/* Description */}
       <div>
-        <label className="mb-1.5 block text-sm font-medium text-gray-700">Description</label>
+        <label className="mb-1.5 block text-xs font-medium text-slate-700 dark:text-slate-300">Description</label>
         <div className="relative">
-          <FiAlignLeft className="pointer-events-none absolute left-3 top-3 h-4 w-4 text-blue-500" />
+          <FiAlignLeft className="pointer-events-none absolute left-3 top-3 h-4 w-4 text-blue-600 dark:text-blue-400" />
           <textarea
             value={form.description}
             onChange={(e) => handleChange("description", e.target.value)}
@@ -165,22 +165,22 @@ export default function EditGoalForm({ goal, onSuccess, onCancel }: EditGoalForm
             className={`${inputClasses(errors.description)} resize-none`}
           />
         </div>
-        {errors.description && <p className="mt-1 text-xs text-red-500">{errors.description}</p>}
+        {errors.description && <p className="mt-1 text-xs text-red-500 dark:text-red-400">{errors.description}</p>}
       </div>
 
       {/* Required Skills - tag input */}
       <div>
-        <label className="mb-1.5 block text-sm font-medium text-gray-700">Required Skills</label>
+        <label className="mb-1.5 block text-xs font-medium text-slate-700 dark:text-slate-300">Required Skills</label>
 
         {form.requiredSkills.length > 0 && (
           <div className="mb-2 flex flex-wrap gap-1.5">
             {form.requiredSkills.map((skill) => (
               <span
                 key={skill}
-                className="flex items-center gap-1 rounded-full bg-blue-100 px-2.5 py-1 text-xs font-semibold text-blue-800"
+                className="flex items-center gap-1 rounded-lg bg-blue-50 px-2.5 py-1 text-xs font-medium text-blue-600 border border-blue-100 dark:bg-blue-950/60 dark:text-blue-400 dark:border-blue-900/40"
               >
                 {skill}
-                <button type="button" onClick={() => removeSkill(skill)}>
+                <button type="button" onClick={() => removeSkill(skill)} className="hover:text-blue-800 dark:hover:text-blue-200">
                   <FiX className="h-3 w-3" />
                 </button>
               </span>
@@ -205,20 +205,20 @@ export default function EditGoalForm({ goal, onSuccess, onCancel }: EditGoalForm
           <button
             type="button"
             onClick={addSkill}
-            className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg border border-blue-200 bg-blue-50/40 text-blue-600 hover:bg-blue-100"
+            className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-blue-600 hover:bg-blue-50 hover:border-blue-200 dark:border-slate-800 dark:bg-slate-800 dark:text-blue-400 dark:hover:bg-blue-950/50"
           >
             <FiPlus className="h-4 w-4" />
           </button>
         </div>
-        {errors.requiredSkills && <p className="mt-1 text-xs text-red-500">{errors.requiredSkills}</p>}
+        {errors.requiredSkills && <p className="mt-1 text-xs text-red-500 dark:text-red-400">{errors.requiredSkills}</p>}
       </div>
 
       {/* Salary Range + Estimated Time */}
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
-          <label className="mb-1.5 block text-sm font-medium text-gray-700">Salary Range</label>
+          <label className="mb-1.5 block text-xs font-medium text-slate-700 dark:text-slate-300">Salary Range</label>
           <div className="relative">
-            <FiDollarSign className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-blue-500" />
+            <FiDollarSign className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-blue-600 dark:text-blue-400" />
             <input
               type="text"
               value={form.salaryRange}
@@ -227,13 +227,13 @@ export default function EditGoalForm({ goal, onSuccess, onCancel }: EditGoalForm
               className={inputClasses(errors.salaryRange)}
             />
           </div>
-          {errors.salaryRange && <p className="mt-1 text-xs text-red-500">{errors.salaryRange}</p>}
+          {errors.salaryRange && <p className="mt-1 text-xs text-red-500 dark:text-red-400">{errors.salaryRange}</p>}
         </div>
 
         <div>
-          <label className="mb-1.5 block text-sm font-medium text-gray-700">Estimated Time</label>
+          <label className="mb-1.5 block text-xs font-medium text-slate-700 dark:text-slate-300">Estimated Time</label>
           <div className="relative">
-            <FiClock className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-blue-500" />
+            <FiClock className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-blue-600 dark:text-blue-400" />
             <input
               type="text"
               value={form.estimatedTime}
@@ -242,17 +242,17 @@ export default function EditGoalForm({ goal, onSuccess, onCancel }: EditGoalForm
               className={inputClasses(errors.estimatedTime)}
             />
           </div>
-          {errors.estimatedTime && <p className="mt-1 text-xs text-red-500">{errors.estimatedTime}</p>}
+          {errors.estimatedTime && <p className="mt-1 text-xs text-red-500 dark:text-red-400">{errors.estimatedTime}</p>}
         </div>
       </div>
 
       {/* Buttons */}
-      <div className="mt-1 flex gap-3">
+      <div className="mt-2 flex gap-3">
         {onCancel && (
           <button
             type="button"
             onClick={onCancel}
-            className="min-h-[46px] flex-1 rounded-lg border border-gray-200 text-sm font-medium text-gray-700 active:bg-gray-50 sm:hover:bg-gray-50"
+            className="min-h-[44px] flex-1 rounded-xl border border-slate-200 bg-white text-xs font-semibold text-slate-700 hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700/60"
           >
             Cancel
           </button>
@@ -260,7 +260,7 @@ export default function EditGoalForm({ goal, onSuccess, onCancel }: EditGoalForm
         <button
           type="submit"
           disabled={mutation.isPending}
-          className="min-h-[46px] flex-1 rounded-lg bg-blue-600 text-sm font-semibold text-white transition-colors active:bg-blue-700 disabled:opacity-60 sm:hover:bg-blue-700"
+          className="min-h-[44px] flex-1 rounded-xl bg-blue-600 text-xs font-semibold text-white transition-colors hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-500 disabled:opacity-60"
         >
           {mutation.isPending ? "Updating..." : "Update Guide"}
         </button>

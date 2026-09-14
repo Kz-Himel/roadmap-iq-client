@@ -62,13 +62,13 @@ export default function SaveGuideButton({ goalId }: SaveGuideButtonProps) {
     <button
       onClick={handleClick}
       disabled={mutation.isPending}
-      className={`btn btn-md rounded-xl ${
+      className={`inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-xs font-semibold shadow-xs transition-all ${
         isSaved
-          ? "border border-indigo-200 bg-indigo-50 text-indigo-700"
-          : "btn-secondary"
+          ? "border border-blue-200 bg-blue-50 text-blue-600 dark:border-blue-900/60 dark:bg-blue-950/80 dark:text-blue-400"
+          : "border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-800/60 dark:text-slate-200 dark:hover:bg-slate-800"
       }`}
     >
-      <FiBookmark className={`h-4 w-4 ${isSaved ? "fill-indigo-600" : ""}`} />
+      <FiBookmark className={`h-4 w-4 ${isSaved ? "fill-blue-600 dark:fill-blue-400 text-blue-600 dark:text-blue-400" : ""}`} />
       {mutation.isPending ? "Saving..." : isSaved ? "Saved" : "Save Guide"}
     </button>
   );
