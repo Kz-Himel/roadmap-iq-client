@@ -12,28 +12,68 @@ import {
 } from "react-icons/fi";
 
 const categories = [
-  { title: "Frontend", count: "45+ Roles", icon: FiCode, iconColor: "text-indigo-600", bg: "bg-indigo-50" },
-  { title: "Backend", count: "38+ Roles", icon: FiServer, iconColor: "text-emerald-600", bg: "bg-emerald-50" },
-  { title: "Data & Analytics", count: "29+ Roles", icon: FiPieChart, iconColor: "text-violet-600", bg: "bg-violet-50" },
-  { title: "Cybersecurity", count: "22+ Roles", icon: FiShield, iconColor: "text-rose-600", bg: "bg-rose-50" },
-  { title: "Mobile Development", count: "18+ Roles", icon: FiSmartphone, iconColor: "text-amber-600", bg: "bg-amber-50" },
-  { title: "Cloud & DevOps", count: "25+ Roles", icon: FiCloud, iconColor: "text-sky-600", bg: "bg-sky-50" },
+  {
+    title: "Frontend",
+    count: "45+ Roles",
+    icon: FiCode,
+    iconColor: "text-blue-600 dark:text-blue-400",
+    bg: "bg-blue-50 dark:bg-blue-950/80",
+  },
+  {
+    title: "Backend",
+    count: "38+ Roles",
+    icon: FiServer,
+    iconColor: "text-emerald-600 dark:text-emerald-400",
+    bg: "bg-emerald-50 dark:bg-emerald-950/80",
+  },
+  {
+    title: "Data & Analytics",
+    count: "29+ Roles",
+    icon: FiPieChart,
+    iconColor: "text-violet-600 dark:text-violet-400",
+    bg: "bg-violet-50 dark:bg-violet-950/80",
+  },
+  {
+    title: "Cybersecurity",
+    count: "22+ Roles",
+    icon: FiShield,
+    iconColor: "text-rose-600 dark:text-rose-400",
+    bg: "bg-rose-50 dark:bg-rose-950/80",
+  },
+  {
+    title: "Mobile Development",
+    count: "18+ Roles",
+    icon: FiSmartphone,
+    iconColor: "text-amber-600 dark:text-amber-400",
+    bg: "bg-amber-50 dark:bg-amber-950/80",
+  },
+  {
+    title: "Cloud & DevOps",
+    count: "25+ Roles",
+    icon: FiCloud,
+    iconColor: "text-sky-600 dark:text-sky-400",
+    bg: "bg-sky-50 dark:bg-sky-950/80",
+  },
 ];
 
 export default function PopularCategories() {
   return (
-    <section className="section-alt">
+    <section className="py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="section-header-center"
+          className="mb-8 text-center sm:mb-10"
         >
-          <span className="eyebrow mb-3">Categories</span>
-          <h2 className="heading-section">Browse by Category</h2>
-          <p className="text-body max-w-md">
+          <span className="mb-2 block text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">
+            Categories
+          </span>
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white sm:text-3xl">
+            Browse by Category
+          </h2>
+          <p className="mx-auto mt-3 max-w-md text-sm text-slate-500 dark:text-slate-400 sm:text-base">
             Find your ideal career path across every domain.
           </p>
         </motion.div>
@@ -51,7 +91,7 @@ export default function PopularCategories() {
               >
                 <Link
                   href={`/explore?category=${encodeURIComponent(cat.title)}`}
-                  className="card card-hover group flex items-center gap-4 p-5"
+                  className="group flex items-center gap-4 rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 shadow-sm transition-all hover:border-slate-300 dark:hover:border-slate-700 hover:shadow-md"
                 >
                   <div
                     className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${cat.bg} transition-transform duration-200 group-hover:scale-105`}
@@ -59,10 +99,12 @@ export default function PopularCategories() {
                     <Icon className={`h-5 w-5 ${cat.iconColor}`} />
                   </div>
                   <div className="min-w-0">
-                    <h3 className="truncate text-sm font-semibold text-slate-900 transition-colors group-hover:text-indigo-700 sm:text-base">
+                    <h3 className="truncate text-sm font-semibold text-slate-900 dark:text-slate-100 transition-colors group-hover:text-blue-600 dark:group-hover:text-blue-400 sm:text-base">
                       {cat.title}
                     </h3>
-                    <p className="text-xs text-slate-400">{cat.count}</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">
+                      {cat.count}
+                    </p>
                   </div>
                 </Link>
               </motion.div>
