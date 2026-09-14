@@ -30,28 +30,29 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans text-slate-900">
-        <Navbar />
-        <main className="flex-1 bg-background">
+      <body className="min-h-full flex flex-col font-sans text-foreground">
+        <ThemeProvider>
           <Providers>
-            <ThemeProvider>{children}</ThemeProvider>
+            <Navbar />
+            <main className="flex-1 bg-background">{children}</main>
+            <Footer />
           </Providers>
-        </main>
-        <Footer />
-        <ToastContainer
-          position="bottom-right"
-          autoClose={4000}
-          hideProgressBar={false}
-          newestOnTop
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="light"
-        />
+          <ToastContainer
+            position="bottom-right"
+            autoClose={4000}
+            hideProgressBar={false}
+            newestOnTop
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+          />
+        </ThemeProvider>
       </body>
     </html>
   );
