@@ -16,43 +16,43 @@ const categories = [
     title: "Frontend",
     count: "45+ Roles",
     icon: FiCode,
-    iconColor: "text-blue-600 dark:text-blue-400",
-    bg: "bg-blue-50 dark:bg-blue-950/80",
+    iconColor: "text-blue-500 dark:text-blue-400",
+    bg: "bg-blue-500/10",
   },
   {
     title: "Backend",
     count: "38+ Roles",
     icon: FiServer,
-    iconColor: "text-emerald-600 dark:text-emerald-400",
-    bg: "bg-emerald-50 dark:bg-emerald-950/80",
+    iconColor: "text-emerald-500 dark:text-emerald-400",
+    bg: "bg-emerald-500/10",
   },
   {
     title: "Data & Analytics",
     count: "29+ Roles",
     icon: FiPieChart,
-    iconColor: "text-violet-600 dark:text-violet-400",
-    bg: "bg-violet-50 dark:bg-violet-950/80",
+    iconColor: "text-violet-500 dark:text-violet-400",
+    bg: "bg-violet-500/10",
   },
   {
     title: "Cybersecurity",
     count: "22+ Roles",
     icon: FiShield,
-    iconColor: "text-rose-600 dark:text-rose-400",
-    bg: "bg-rose-50 dark:bg-rose-950/80",
+    iconColor: "text-rose-500 dark:text-rose-400",
+    bg: "bg-rose-500/10",
   },
   {
     title: "Mobile Development",
     count: "18+ Roles",
     icon: FiSmartphone,
-    iconColor: "text-amber-600 dark:text-amber-400",
-    bg: "bg-amber-50 dark:bg-amber-950/80",
+    iconColor: "text-amber-500 dark:text-amber-400",
+    bg: "bg-amber-500/10",
   },
   {
     title: "Cloud & DevOps",
     count: "25+ Roles",
     icon: FiCloud,
-    iconColor: "text-sky-600 dark:text-sky-400",
-    bg: "bg-sky-50 dark:bg-sky-950/80",
+    iconColor: "text-sky-500 dark:text-sky-400",
+    bg: "bg-sky-500/10",
   },
 ];
 
@@ -67,13 +67,13 @@ export default function PopularCategories() {
           transition={{ duration: 0.5 }}
           className="mb-8 text-center sm:mb-10"
         >
-          <span className="mb-2 block text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">
+          <span className="mb-2 block text-xs font-semibold uppercase tracking-wider text-primary">
             Categories
           </span>
-          <h2 className="text-2xl font-bold text-slate-900 dark:text-white sm:text-3xl">
+          <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
             Browse by Category
           </h2>
-          <p className="mx-auto mt-3 max-w-md text-sm text-slate-500 dark:text-slate-400 sm:text-base">
+          <p className="mx-auto mt-3 max-w-md text-sm text-muted-foreground sm:text-base">
             Find your ideal career path across every domain.
           </p>
         </motion.div>
@@ -91,18 +91,18 @@ export default function PopularCategories() {
               >
                 <Link
                   href={`/explore?category=${encodeURIComponent(cat.title)}`}
-                  className="group flex items-center gap-4 rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 shadow-sm transition-all hover:border-slate-300 dark:hover:border-slate-700 hover:shadow-md"
+                  className="group flex items-center gap-4 rounded-2xl border border-border bg-surface p-5 shadow-xs transition-all duration-300 hover:border-border-strong hover:bg-surface-hover hover:shadow-md"
                 >
                   <div
-                    className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${cat.bg} transition-transform duration-200 group-hover:scale-105`}
+                    className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${cat.bg} transition-transform duration-300 group-hover:scale-110`}
                   >
                     <Icon className={`h-5 w-5 ${cat.iconColor}`} />
                   </div>
                   <div className="min-w-0">
-                    <h3 className="truncate text-sm font-semibold text-slate-900 dark:text-slate-100 transition-colors group-hover:text-blue-600 dark:group-hover:text-blue-400 sm:text-base">
+                    <h3 className="truncate text-sm font-semibold text-foreground transition-colors group-hover:text-primary sm:text-base">
                       {cat.title}
                     </h3>
-                    <p className="text-xs text-slate-500 dark:text-slate-400">
+                    <p className="text-xs text-muted-foreground">
                       {cat.count}
                     </p>
                   </div>

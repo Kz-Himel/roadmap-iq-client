@@ -58,18 +58,18 @@ export default function FAQ() {
             transition={{ duration: 0.5 }}
             className="mb-8 text-center sm:mb-10"
           >
-            <span className="mb-2 block text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">
+            <span className="mb-2 block text-xs font-semibold uppercase tracking-wider text-primary">
               FAQ
             </span>
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-white sm:text-3xl">
+            <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
               Frequently Asked Questions
             </h2>
-            <p className="mt-3 text-sm text-slate-500 dark:text-slate-400 sm:text-base">
+            <p className="mt-3 text-sm text-muted-foreground sm:text-base">
               Everything you need to know before you start.
             </p>
           </motion.div>
 
-          {/* Two-column layout: Bento highlights (left) + Accordion (right) */}
+          {/* Two Column Layout */}
           <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-2 lg:gap-12">
             {/* Bento Grid */}
             <motion.div
@@ -82,87 +82,75 @@ export default function FAQ() {
               }}
               className="grid grid-cols-2 gap-4 auto-rows-[minmax(150px,auto)]"
             >
-              {/* Big card — AI Roadmaps */}
+              {/* Big card */}
               <motion.div
                 variants={{
                   hidden: { opacity: 0, y: 24 },
                   show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
                 }}
                 whileHover={{ y: -4 }}
-                className="group relative col-span-2 overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm transition-all hover:border-blue-200 hover:shadow-md dark:border-slate-800 dark:bg-slate-900 dark:hover:border-blue-900/60"
+                className="group relative col-span-2 overflow-hidden rounded-2xl border border-border bg-surface p-6 shadow-xs transition-all hover:bg-surface-hover"
               >
-                {/* Decorative breathing gradient orb */}
-                <motion.div
-                  aria-hidden="true"
-                  animate={{ scale: [1, 1.15, 1], opacity: [0.25, 0.45, 0.25] }}
-                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                  className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-gradient-to-br from-blue-500 to-indigo-500 blur-3xl"
-                />
                 <div className="relative flex items-start gap-4">
-                  <motion.div
-                    animate={{ y: [0, -6, 0] }}
-                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                    className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600 dark:bg-blue-950/80 dark:text-blue-400"
-                  >
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
                     <HiSparkles className="h-6 w-6" />
-                  </motion.div>
+                  </div>
                   <div>
-                    <h3 className="text-base font-bold text-slate-900 dark:text-slate-100 sm:text-lg">
+                    <h3 className="text-base font-bold text-foreground sm:text-lg">
                       AI-Powered Roadmaps
                     </h3>
-                    <p className="mt-1.5 text-sm leading-relaxed text-slate-500 dark:text-slate-400">
-                      A personalized 3–6 month plan built around your goals,
-                      skills, and available study time — regenerate anytime.
+                    <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                      A personalized 3–6 month plan built around your goals, skills, and available study time — regenerate anytime.
                     </p>
                   </div>
                 </div>
               </motion.div>
 
-              {/* Small card — 24/7 AI Coach */}
+              {/* Small card 1 */}
               <motion.div
                 variants={{
                   hidden: { opacity: 0, y: 24 },
                   show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
                 }}
                 whileHover={{ y: -4 }}
-                className="flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm transition-all hover:border-emerald-200 hover:shadow-md dark:border-slate-800 dark:bg-slate-900 dark:hover:border-emerald-900/60"
+                className="flex flex-col justify-between rounded-2xl border border-border bg-surface p-5 shadow-xs transition-all hover:bg-surface-hover"
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 transition-transform duration-200 group-hover:scale-105 dark:bg-emerald-950/80 dark:text-emerald-400">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-500">
                   <FiMessageCircle className="h-5 w-5" />
                 </div>
                 <div className="mt-3">
-                  <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100">
+                  <h3 className="text-sm font-bold text-foreground">
                     24/7 AI Coach
                   </h3>
-                  <p className="mt-1 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+                  <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
                     Ask anything, anytime.
                   </p>
                 </div>
               </motion.div>
 
-              {/* Small card — Any Skill Level */}
+              {/* Small card 2 */}
               <motion.div
                 variants={{
                   hidden: { opacity: 0, y: 24 },
                   show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
                 }}
                 whileHover={{ y: -4 }}
-                className="flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm transition-all hover:border-violet-200 hover:shadow-md dark:border-slate-800 dark:bg-slate-900 dark:hover:border-violet-900/60"
+                className="flex flex-col justify-between rounded-2xl border border-border bg-surface p-5 shadow-xs transition-all hover:bg-surface-hover"
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-violet-50 text-violet-600 transition-transform duration-200 group-hover:scale-105 dark:bg-violet-950/80 dark:text-violet-400">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-violet-500/10 text-violet-500">
                   <FiTrendingUp className="h-5 w-5" />
                 </div>
                 <div className="mt-3">
-                  <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100">
+                  <h3 className="text-sm font-bold text-foreground">
                     Any Skill Level
                   </h3>
-                  <p className="mt-1 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+                  <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
                     Beginner to advanced.
                   </p>
                 </div>
               </motion.div>
 
-              {/* Wide card — CTA */}
+              {/* CTA card */}
               <motion.div
                 variants={{
                   hidden: { opacity: 0, y: 24 },
@@ -173,25 +161,25 @@ export default function FAQ() {
               >
                 <Link
                   href="/auth/register"
-                  className="group flex items-center justify-between gap-4 rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm transition-all hover:border-blue-200 hover:shadow-md dark:border-slate-800 dark:bg-slate-900 dark:hover:border-blue-900/60"
+                  className="group flex items-center justify-between gap-4 rounded-2xl border border-border bg-surface p-5 shadow-xs transition-all hover:bg-surface-hover hover:border-border-strong"
                 >
                   <div>
-                    <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 sm:text-base">
+                    <h3 className="text-sm font-bold text-foreground sm:text-base">
                       Free to Start
                     </h3>
-                    <p className="mt-1 text-xs leading-relaxed text-slate-500 dark:text-slate-400 sm:text-sm">
+                    <p className="mt-1 text-xs leading-relaxed text-muted-foreground sm:text-sm">
                       No credit card needed — try the demo login instantly.
                     </p>
                   </div>
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-blue-50 text-blue-600 transition-all group-hover:bg-blue-600 group-hover:text-white dark:bg-blue-950/80 dark:text-blue-400">
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary transition-all group-hover:bg-primary group-hover:text-primary-foreground">
                     <FiArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                   </div>
                 </Link>
               </motion.div>
             </motion.div>
 
-            {/* Accordion Wrapper */}
-            <div className="flex flex-col gap-4">
+            {/* Accordion List */}
+            <div className="flex flex-col gap-3.5">
               {faqs.map((faq, index) => {
                 const isOpen = openIndex === index;
                 return (
@@ -201,13 +189,13 @@ export default function FAQ() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: index * 0.08 }}
-                    className="overflow-hidden rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm transition-all hover:border-slate-300 dark:hover:border-slate-700 hover:shadow-md"
+                    className="overflow-hidden rounded-2xl border border-border bg-surface shadow-xs transition-all"
                   >
                     <button
                       onClick={() => toggle(index)}
-                      className="flex min-h-[46px] w-full items-center justify-between gap-4 p-5 text-left transition-colors hover:bg-slate-50/80 dark:hover:bg-slate-800/50 sm:p-6"
+                      className="flex min-h-[46px] w-full items-center justify-between gap-4 p-5 text-left transition-colors hover:bg-surface-hover sm:p-6"
                     >
-                      <span className="text-base font-bold text-slate-900 dark:text-slate-100">
+                      <span className="text-base font-bold text-foreground">
                         {faq.question}
                       </span>
                       <motion.span
@@ -215,8 +203,8 @@ export default function FAQ() {
                         transition={{ duration: 0.25 }}
                         className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg transition-colors ${
                           isOpen
-                            ? "bg-blue-50 dark:bg-blue-950/80 text-blue-600 dark:text-blue-400"
-                            : "bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500"
+                            ? "bg-primary/15 text-primary"
+                            : "bg-background text-muted-foreground"
                         }`}
                       >
                         <FiChevronDown className="h-4 w-4" />
@@ -232,7 +220,7 @@ export default function FAQ() {
                           exit={{ height: 0, opacity: 0 }}
                           transition={{ duration: 0.3, ease: "easeInOut" }}
                         >
-                          <p className="border-t border-slate-100 dark:border-slate-800 px-5 pb-5 pt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 sm:px-6 sm:pb-6">
+                          <p className="border-t border-border px-5 pb-5 pt-4 text-sm leading-relaxed text-muted-foreground sm:px-6 sm:pb-6">
                             {faq.answer}
                           </p>
                         </motion.div>
