@@ -34,7 +34,7 @@
 
 
 // utils/constants/dashboard-nav.ts
-import { FiGrid, FiTarget, FiMessageCircle, FiMap } from "react-icons/fi";
+import { FiGrid, FiTarget, FiMessageCircle, FiMap, FiBookOpen, FiMic } from "react-icons/fi";
 import type { IconType } from "react-icons";
 import { IoMdAddCircleOutline } from "react-icons/io";
 
@@ -50,4 +50,6 @@ export const dashboardNavItems: DashboardNavItem[] = [
   { label: "Manage Roadmaps", href: "/dashboard/manage-goals", icon: FiTarget },
   { label: "AI Roadmap", href: "/dashboard/ai-roadmap", icon: FiMap },
   { label: "AI Chat", href: "/dashboard/ai-chat", icon: FiMessageCircle },
+  { label: "Question Bank", href: "/dashboard/question-bank", icon: FiBookOpen },
+  { label: "Mock Interview", href: "/dashboard/mock-interview", icon: FiMic },
 ];
