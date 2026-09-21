@@ -12,11 +12,11 @@ import {
 } from "react-icons/fi";
 
 const categories = [
-  { label: "Frontend", color: "bg-indigo-500" },
+  { label: "Frontend", color: "bg-blue-500" },
   { label: "Backend", color: "bg-emerald-500" },
   { label: "DSA", color: "bg-amber-500" },
   { label: "System Design", color: "bg-rose-500" },
-  { label: "Behavioral", color: "bg-violet-500" },
+  { label: "Behavioral", color: "bg-blue-500" },
 ];
 
 export default function QuestionBankShowcase() {
@@ -30,7 +30,7 @@ export default function QuestionBankShowcase() {
           transition={{ duration: 0.5 }}
           className="mx-auto mb-12 max-w-2xl text-center sm:mb-16"
         >
-          <span className="mb-3 inline-block rounded-full border border-emerald-100 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-600 dark:border-emerald-900/40 dark:bg-emerald-950/60 dark:text-emerald-400">
+          <span className="mb-3 inline-block rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-600 dark:border-blue-900/40 dark:bg-blue-950/60 dark:text-blue-400">
             New · Question Bank
           </span>
           <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
@@ -71,7 +71,7 @@ export default function QuestionBankShowcase() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="relative overflow-hidden rounded-3xl border border-slate-200/80 bg-white p-6 shadow-xs dark:border-slate-800 dark:bg-slate-900 sm:col-span-2 sm:row-span-2 sm:p-8"
           >
-            <div className="absolute -bottom-16 -left-16 h-56 w-56 rounded-full bg-gradient-to-tr from-emerald-100/60 to-indigo-100/40 blur-3xl dark:from-emerald-500/10 dark:to-indigo-500/5" />
+            <div className="absolute -bottom-16 -left-16 h-56 w-56 rounded-full bg-gradient-to-tr from-emerald-100/60 to-blue-100/40 blur-3xl dark:from-emerald-500/10 dark:to-blue-500/5" />
 
             <div className="relative">
               <div className="mb-6 flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-600 shadow-lg shadow-emerald-600/20 dark:shadow-emerald-500/10">
@@ -89,7 +89,7 @@ export default function QuestionBankShowcase() {
               {/* Mock question card preview */}
               <div className="mb-6 rounded-2xl border border-slate-100 bg-slate-50/80 p-4 dark:border-slate-800 dark:bg-slate-950/60">
                 <div className="mb-3 flex flex-wrap gap-1.5">
-                  <span className="inline-flex items-center rounded-lg border border-indigo-100 bg-indigo-50 px-2 py-0.5 text-[10px] font-semibold text-indigo-700 dark:border-indigo-900/40 dark:bg-indigo-950/50 dark:text-indigo-300">
+                  <span className="inline-flex items-center rounded-lg border border-blue-100 bg-blue-50 px-2 py-0.5 text-[10px] font-semibold text-blue-700 dark:border-blue-900/40 dark:bg-blue-950/50 dark:text-blue-300">
                     Frontend
                   </span>
                   <span className="inline-flex items-center rounded-lg border border-amber-100 bg-amber-50 px-2 py-0.5 text-[10px] font-semibold text-amber-700 dark:border-amber-900/40 dark:bg-amber-950/50 dark:text-amber-400">
@@ -123,8 +123,8 @@ export default function QuestionBankShowcase() {
             transition={{ duration: 0.4, delay: 0.2 }}
             className="flex flex-col justify-between rounded-3xl border border-slate-200/80 bg-white p-5 shadow-xs dark:border-slate-800 dark:bg-slate-900 sm:p-6"
           >
-            <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-50 border border-indigo-100 dark:bg-indigo-950/50 dark:border-indigo-900/40">
-              <FiCpu className="h-5 w-5 text-indigo-600 dark:text-indigo-400" />
+            <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 border border-blue-100 dark:bg-blue-950/50 dark:border-blue-900/40">
+              <FiCpu className="h-5 w-5 text-blue-600 dark:text-blue-400" />
             </div>
             <div>
               <h4 className="mb-1.5 text-sm font-bold text-slate-900 dark:text-white">

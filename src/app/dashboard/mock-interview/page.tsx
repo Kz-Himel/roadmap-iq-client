@@ -71,8 +71,8 @@ export default function MockInterviewPage() {
       {/* Setup card */}
       <div className="mb-8 rounded-2xl border border-slate-200/80 bg-white p-6 shadow-xs dark:border-slate-800 dark:bg-slate-900 sm:p-8">
         <div className="mb-5 flex items-center gap-3">
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-50 to-violet-50 border border-indigo-100/80 dark:from-indigo-950/50 dark:to-violet-950/50 dark:border-indigo-900/40">
-            <FiMic className="h-5 w-5 text-indigo-600 dark:text-indigo-400" />
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-50 to-blue-50 border border-blue-100/80 dark:from-blue-950/50 dark:to-blue-950/50 dark:border-blue-900/40">
+            <FiMic className="h-5 w-5 text-blue-600 dark:text-blue-400" />
           </div>
           <h2 className="text-sm font-semibold text-slate-900 dark:text-white">Start a new session</h2>
         </div>
@@ -87,7 +87,7 @@ export default function MockInterviewPage() {
               value={role}
               onChange={(e) => setRole(e.target.value)}
               placeholder="e.g. Frontend Developer"
-              className="w-full rounded-xl border border-slate-200 bg-slate-50/60 px-4 py-2.5 text-sm text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-800 dark:bg-slate-950/60 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:bg-slate-950"
+              className="w-full rounded-xl border border-slate-200 bg-slate-50/60 px-4 py-2.5 text-sm text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20 dark:border-slate-800 dark:bg-slate-950/60 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:bg-slate-950"
             />
           </div>
 
@@ -98,7 +98,7 @@ export default function MockInterviewPage() {
             <select
               value={difficulty}
               onChange={(e) => setDifficulty(e.target.value as InterviewDifficulty)}
-              className="w-full rounded-xl border border-slate-200 bg-slate-50/60 px-4 py-2.5 text-sm text-slate-700 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-800 dark:bg-slate-950/60 dark:text-slate-200"
+              className="w-full rounded-xl border border-slate-200 bg-slate-50/60 px-4 py-2.5 text-sm text-slate-700 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-800 dark:bg-slate-950/60 dark:text-slate-200"
             >
               {INTERVIEW_DIFFICULTIES.map((d) => (
                 <option key={d} value={d}>{d}</option>
@@ -113,7 +113,7 @@ export default function MockInterviewPage() {
             <select
               value={type}
               onChange={(e) => setType(e.target.value as InterviewType)}
-              className="w-full rounded-xl border border-slate-200 bg-slate-50/60 px-4 py-2.5 text-sm text-slate-700 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-800 dark:bg-slate-950/60 dark:text-slate-200"
+              className="w-full rounded-xl border border-slate-200 bg-slate-50/60 px-4 py-2.5 text-sm text-slate-700 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-800 dark:bg-slate-950/60 dark:text-slate-200"
             >
               {INTERVIEW_TYPES.map((t) => (
                 <option key={t} value={t}>{t}</option>
@@ -125,7 +125,7 @@ export default function MockInterviewPage() {
         <button
           onClick={handleStart}
           disabled={starting}
-          className="mt-5 inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 px-5 py-2.5 text-sm font-semibold text-white transition-all hover:opacity-90 disabled:opacity-60 dark:from-indigo-500 dark:to-violet-500"
+          className="mt-5 inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition-all hover:opacity-90 disabled:opacity-60 dark:from-blue-500 dark:to-blue-500"
         >
           <FiPlay className="h-4 w-4" />
           {starting ? "Starting..." : "Start Interview"}
@@ -169,7 +169,7 @@ export default function MockInterviewPage() {
                   <p className="truncate text-sm font-semibold text-slate-900 dark:text-white">
                     {session.role}
                   </p>
-                  <span className="inline-flex items-center rounded-lg border border-indigo-100 bg-indigo-50 px-2 py-0.5 text-[10px] font-semibold text-indigo-700 dark:border-indigo-900/40 dark:bg-indigo-950/50 dark:text-indigo-300">
+                  <span className="inline-flex items-center rounded-lg border border-blue-100 bg-blue-50 px-2 py-0.5 text-[10px] font-semibold text-blue-700 dark:border-blue-900/40 dark:bg-blue-950/50 dark:text-blue-300">
                     {session.type}
                   </span>
                   <span className="inline-flex items-center rounded-lg bg-slate-100 px-2 py-0.5 text-[10px] font-semibold text-slate-500 dark:bg-slate-800 dark:text-slate-400">

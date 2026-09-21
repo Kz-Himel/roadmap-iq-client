@@ -14,7 +14,7 @@ export default function NotFound() {
           transition={{ duration: 0.5 }}
           className="relative mx-auto mb-6 flex h-32 w-32 items-center justify-center sm:h-40 sm:w-40"
         >
-          <div className="absolute inset-0 rounded-full bg-indigo-50 border border-indigo-100 dark:bg-indigo-950/50 dark:border-indigo-900/40" />
+          <div className="absolute inset-0 rounded-full bg-blue-50 border border-blue-100 dark:bg-blue-950/50 dark:border-blue-900/40" />
           <motion.span
             animate={{ y: [0, -8, 0] }}
             transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
@@ -28,7 +28,7 @@ export default function NotFound() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-6xl font-extrabold text-indigo-600 dark:text-indigo-400 sm:text-7xl"
+          className="text-6xl font-extrabold text-blue-600 dark:text-blue-400 sm:text-7xl"
         >
           404
         </motion.h1>
@@ -59,7 +59,7 @@ export default function NotFound() {
         >
           <Link
             href="/"
-            className="flex min-h-[46px] items-center justify-center gap-2 rounded-xl bg-indigo-600 px-6 text-sm font-semibold text-white shadow-xs transition-colors hover:bg-indigo-700 active:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600"
+            className="flex min-h-[46px] items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 text-sm font-semibold text-white shadow-xs transition-colors hover:bg-blue-700 active:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600"
           >
             <FiHome className="h-4 w-4" />
             Back to Home

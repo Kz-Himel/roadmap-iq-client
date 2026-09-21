@@ -127,7 +127,7 @@ export default function AddGoalPage() {
     ${
       fieldError
         ? "border-red-400 bg-red-50/50 focus:border-red-500 focus:ring-2 focus:ring-red-500/20 dark:border-red-900/50 dark:bg-red-950/30"
-        : "border-slate-200/80 bg-slate-50/50 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-800 dark:bg-slate-950/50 dark:focus:border-indigo-400 dark:focus:bg-slate-900"
+        : "border-slate-200/80 bg-slate-50/50 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20 dark:border-slate-800 dark:bg-slate-950/50 dark:focus:border-blue-400 dark:focus:bg-slate-900"
     }
   `;
 
@@ -174,7 +174,7 @@ export default function AddGoalPage() {
               Role / Title
             </label>
             <div className="relative">
-              <FiBriefcase className="pointer-events-none absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-indigo-500 dark:text-indigo-400" />
+              <FiBriefcase className="pointer-events-none absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-blue-500 dark:text-blue-400" />
               <input
                 type="text"
                 value={form.title}
@@ -192,7 +192,7 @@ export default function AddGoalPage() {
               Description / Overview
             </label>
             <div className="relative">
-              <FiAlignLeft className="pointer-events-none absolute left-3 top-3.5 h-5 w-5 text-indigo-500 dark:text-indigo-400" />
+              <FiAlignLeft className="pointer-events-none absolute left-3 top-3.5 h-5 w-5 text-blue-500 dark:text-blue-400" />
               <textarea
                 value={form.description}
                 onChange={(e) => handleChange("description", e.target.value)}
@@ -217,13 +217,13 @@ export default function AddGoalPage() {
                 {form.requiredSkills.map((skill) => (
                   <span
                     key={skill}
-                    className="flex items-center gap-1.5 rounded-lg border border-indigo-100 bg-indigo-50 px-2.5 py-1 text-xs font-semibold text-indigo-700 dark:border-indigo-900/50 dark:bg-indigo-950/60 dark:text-indigo-300"
+                    className="flex items-center gap-1.5 rounded-lg border border-blue-100 bg-blue-50 px-2.5 py-1 text-xs font-semibold text-blue-700 dark:border-blue-900/50 dark:bg-blue-950/60 dark:text-blue-300"
                   >
                     {skill}
                     <button
                       type="button"
                       onClick={() => removeSkill(skill)}
-                      className="rounded-sm p-0.5 hover:bg-indigo-200/50 dark:hover:bg-indigo-900/80 transition-colors"
+                      className="rounded-sm p-0.5 hover:bg-blue-200/50 dark:hover:bg-blue-900/80 transition-colors"
                     >
                       <FiX className="h-3 w-3" />
                     </button>
@@ -249,7 +249,7 @@ export default function AddGoalPage() {
               <button
                 type="button"
                 onClick={addSkill}
-                className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-xl border border-slate-200/80 bg-slate-50 text-indigo-600 transition-colors hover:bg-slate-100 dark:border-slate-800 dark:bg-slate-800 dark:text-indigo-400 dark:hover:bg-slate-700"
+                className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-xl border border-slate-200/80 bg-slate-50 text-blue-600 transition-colors hover:bg-slate-100 dark:border-slate-800 dark:bg-slate-800 dark:text-blue-400 dark:hover:bg-slate-700"
               >
                 <FiPlus className="h-5 w-5" />
               </button>
@@ -266,7 +266,7 @@ export default function AddGoalPage() {
                 Approx. Salary Range
               </label>
               <div className="relative">
-                <FiDollarSign className="pointer-events-none absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-indigo-500 dark:text-indigo-400" />
+                <FiDollarSign className="pointer-events-none absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-blue-500 dark:text-blue-400" />
                 <input
                   type="text"
                   value={form.salaryRange}
@@ -285,7 +285,7 @@ export default function AddGoalPage() {
                 Estimated Time to Learn
               </label>
               <div className="relative">
-                <FiClock className="pointer-events-none absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-indigo-500 dark:text-indigo-400" />
+                <FiClock className="pointer-events-none absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-blue-500 dark:text-blue-400" />
                 <input
                   type="text"
                   value={form.estimatedTime}
@@ -306,7 +306,7 @@ export default function AddGoalPage() {
               Cover Image URL <span className="font-normal text-slate-500 dark:text-slate-400">(optional)</span>
             </label>
             <div className="relative">
-              <FiImage className="pointer-events-none absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-indigo-500 dark:text-indigo-400" />
+              <FiImage className="pointer-events-none absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-blue-500 dark:text-blue-400" />
               <input
                 type="url"
                 value={form.imageUrl}
@@ -320,7 +320,7 @@ export default function AddGoalPage() {
           <button
             type="submit"
             disabled={mutation.isPending}
-            className="mt-2 inline-flex min-h-[48px] w-full items-center justify-center rounded-xl bg-indigo-600 text-base font-semibold text-white shadow-xs transition-all hover:bg-indigo-700 active:bg-indigo-800 disabled:opacity-60 disabled:pointer-events-none dark:bg-indigo-500 dark:hover:bg-indigo-600"
+            className="mt-2 inline-flex min-h-[48px] w-full items-center justify-center rounded-xl bg-blue-600 text-base font-semibold text-white shadow-xs transition-all hover:bg-blue-700 active:bg-blue-800 disabled:opacity-60 disabled:pointer-events-none dark:bg-blue-500 dark:hover:bg-blue-600"
           >
             {mutation.isPending ? "Posting Guide..." : "Post Career Guide"}
           </button>

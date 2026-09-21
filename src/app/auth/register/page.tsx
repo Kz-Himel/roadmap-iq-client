@@ -104,7 +104,7 @@ export default function RegisterPage() {
     <div className="mesh-gradient flex min-h-[calc(100dvh-4rem)] items-center justify-center px-4 py-10 sm:px-6 sm:py-14">
       <div className="card w-full max-w-[440px] p-7 shadow-lg sm:p-9">
         <Link href="/" className="mb-6 flex items-center justify-center gap-2.5">
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-600 to-violet-600 text-sm font-bold text-white">
+          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-blue-600 text-sm font-bold text-white">
             R
           </span>
           <span className="text-lg font-bold text-slate-900">
@@ -169,7 +169,7 @@ export default function RegisterPage() {
                 disabled={isDisabled}
                 aria-invalid={!!errors.fullName}
                 className={`form-input-icon w-full pl-10 pr-4 py-2 rounded-lg border text-sm transition focus:outline-none ${
-                  errors.fullName ? "border-red-500 focus:ring-1 focus:ring-red-500" : "border-slate-300 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+                  errors.fullName ? "border-red-500 focus:ring-1 focus:ring-red-500" : "border-slate-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                 }`}
               />
             </div>
@@ -193,7 +193,7 @@ export default function RegisterPage() {
                 disabled={isDisabled}
                 aria-invalid={!!errors.email}
                 className={`form-input-icon w-full pl-10 pr-4 py-2 rounded-lg border text-sm transition focus:outline-none ${
-                  errors.email ? "border-red-500 focus:ring-1 focus:ring-red-500" : "border-slate-300 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+                  errors.email ? "border-red-500 focus:ring-1 focus:ring-red-500" : "border-slate-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                 }`}
               />
             </div>
@@ -216,7 +216,7 @@ export default function RegisterPage() {
                 disabled={isDisabled}
                 aria-invalid={!!errors.password}
                 className={`form-input-icon w-full pl-10 pr-10 py-2 rounded-lg border text-sm transition focus:outline-none ${
-                  errors.password ? "border-red-500 focus:ring-1 focus:ring-red-500" : "border-slate-300 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+                  errors.password ? "border-red-500 focus:ring-1 focus:ring-red-500" : "border-slate-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                 }`}
               />
               <button
@@ -242,11 +242,11 @@ export default function RegisterPage() {
                   clearFieldError("terms");
                 }}
                 disabled={isDisabled}
-                className="mt-0.5 h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 disabled:opacity-50"
+                className="mt-0.5 h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500 disabled:opacity-50"
               />
               <span>
                 I agree to the{" "}
-                <Link href="/terms" className="font-semibold text-indigo-600 hover:text-indigo-700">
+                <Link href="/terms" className="font-semibold text-blue-600 hover:text-blue-700">
                   Terms & Conditions
                 </Link>
               </span>
@@ -257,7 +257,7 @@ export default function RegisterPage() {
           <button
             type="submit"
             disabled={isDisabled}
-            className="btn btn-primary btn-lg mt-1 flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 py-2.5 font-medium text-white hover:bg-indigo-700 disabled:opacity-50 transition"
+            className="btn btn-primary btn-lg mt-1 flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 py-2.5 font-medium text-white hover:bg-blue-700 disabled:opacity-50 transition"
           >
             {loading ? (
               <>
@@ -275,7 +275,7 @@ export default function RegisterPage() {
 
         <p className="mt-6 text-center text-sm text-slate-500">
           Already have an account?{" "}
-          <Link href="/auth/login" className="font-semibold text-indigo-600 hover:text-indigo-700">
+          <Link href="/auth/login" className="font-semibold text-blue-600 hover:text-blue-700">
             Login
           </Link>
         </p>

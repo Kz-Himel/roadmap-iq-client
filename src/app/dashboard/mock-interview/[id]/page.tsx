@@ -222,7 +222,7 @@ export default function MockInterviewSessionPage() {
   if (!isNew && isLoadingExisting) {
     return (
       <div className="mx-auto flex h-[calc(100dvh-8rem)] max-w-3xl items-center justify-center">
-        <div className="h-8 w-8 animate-spin rounded-full border-2 border-indigo-200 border-t-indigo-600 dark:border-indigo-900 dark:border-t-indigo-400" />
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-blue-200 border-t-blue-600 dark:border-blue-900 dark:border-t-blue-400" />
       </div>
     );
   }
@@ -235,13 +235,13 @@ export default function MockInterviewSessionPage() {
       <div className="mb-4 flex items-center justify-between gap-3">
         <button
           onClick={() => router.push("/dashboard/mock-interview")}
-          className="flex items-center gap-1.5 text-sm font-medium text-slate-600 transition-colors hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400"
+          className="flex items-center gap-1.5 text-sm font-medium text-slate-600 transition-colors hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400"
         >
           <FiArrowLeft className="h-4 w-4" />
           Back
         </button>
         <div className="flex flex-wrap items-center justify-end gap-1.5 text-right">
-          <span className="rounded-lg border border-indigo-100 bg-indigo-50 px-2.5 py-1 text-[11px] font-semibold text-indigo-700 dark:border-indigo-900/40 dark:bg-indigo-950/50 dark:text-indigo-300">
+          <span className="rounded-lg border border-blue-100 bg-blue-50 px-2.5 py-1 text-[11px] font-semibold text-blue-700 dark:border-blue-900/40 dark:bg-blue-950/50 dark:text-blue-300">
             {role}
           </span>
           <span className="rounded-lg bg-slate-100 px-2.5 py-1 text-[11px] font-semibold text-slate-500 dark:bg-slate-800 dark:text-slate-400">
@@ -258,7 +258,7 @@ export default function MockInterviewSessionPage() {
           </div>
           <div className="h-1.5 w-full overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800">
             <div
-              className="h-full rounded-full bg-gradient-to-r from-indigo-600 to-violet-600 transition-all duration-500 dark:from-indigo-500 dark:to-violet-500"
+              className="h-full rounded-full bg-gradient-to-r from-blue-600 to-blue-600 transition-all duration-500 dark:from-blue-500 dark:to-blue-500"
               style={{ width: `${progressPct}%` }}
             />
           </div>
@@ -273,7 +273,7 @@ export default function MockInterviewSessionPage() {
         {history.map((qa, i) => (
           <div key={i} className="space-y-3">
             <div className="flex items-start gap-3">
-              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-indigo-50 to-violet-50 text-indigo-600 border border-indigo-100/80 dark:from-indigo-950/60 dark:to-violet-950/60 dark:text-indigo-400 dark:border-indigo-900/50">
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-blue-50 to-blue-50 text-blue-600 border border-blue-100/80 dark:from-blue-950/60 dark:to-blue-950/60 dark:text-blue-400 dark:border-blue-900/50">
                 <FiCpu className="h-4 w-4" />
               </div>
               <div className="max-w-[75%] rounded-2xl border border-slate-200/80 bg-slate-50 px-4 py-3 text-sm leading-relaxed text-slate-800 dark:border-slate-800 dark:bg-slate-950/60 dark:text-slate-200 sm:max-w-[70%]">
@@ -284,7 +284,7 @@ export default function MockInterviewSessionPage() {
               <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300">
                 <FiUser className="h-4 w-4" />
               </div>
-              <div className="max-w-[75%] rounded-2xl bg-gradient-to-r from-indigo-600 to-violet-600 px-4 py-3 text-sm leading-relaxed text-white shadow-xs dark:from-indigo-500 dark:to-violet-500 sm:max-w-[70%]">
+              <div className="max-w-[75%] rounded-2xl bg-gradient-to-r from-blue-600 to-blue-600 px-4 py-3 text-sm leading-relaxed text-white shadow-xs dark:from-blue-500 dark:to-blue-500 sm:max-w-[70%]">
                 {qa.answer}
               </div>
             </div>
@@ -302,7 +302,7 @@ export default function MockInterviewSessionPage() {
         {/* Current pending question */}
         {currentQuestion && phase === "waiting-answer" && (
           <div className="flex items-start gap-3">
-            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-indigo-50 to-violet-50 text-indigo-600 border border-indigo-100/80 dark:from-indigo-950/60 dark:to-violet-950/60 dark:text-indigo-400 dark:border-indigo-900/50">
+            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-blue-50 to-blue-50 text-blue-600 border border-blue-100/80 dark:from-blue-950/60 dark:to-blue-950/60 dark:text-blue-400 dark:border-blue-900/50">
               <FiCpu className="h-4 w-4" />
             </div>
             <div className="max-w-[75%] rounded-2xl border border-slate-200/80 bg-slate-50 px-4 py-3 text-sm leading-relaxed text-slate-800 dark:border-slate-800 dark:bg-slate-950/60 dark:text-slate-200 sm:max-w-[70%]">
@@ -314,7 +314,7 @@ export default function MockInterviewSessionPage() {
         {/* Live streaming (question / evaluation-wait / summary) */}
         {(phase === "asking" || phase === "evaluating") && (
           <div className="flex items-start gap-3">
-            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-indigo-50 to-violet-50 text-indigo-600 border border-indigo-100/80 dark:from-indigo-950/60 dark:to-violet-950/60 dark:text-indigo-400 dark:border-indigo-900/50">
+            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-blue-50 to-blue-50 text-blue-600 border border-blue-100/80 dark:from-blue-950/60 dark:to-blue-950/60 dark:text-blue-400 dark:border-blue-900/50">
               <FiCpu className="h-4 w-4" />
             </div>
             <div className="max-w-[75%] rounded-2xl border border-slate-200/80 bg-slate-50 px-4 py-3 text-sm leading-relaxed text-slate-800 dark:border-slate-800 dark:bg-slate-950/60 dark:text-slate-200 sm:max-w-[70%]">
@@ -322,9 +322,9 @@ export default function MockInterviewSessionPage() {
                 streamingText
               ) : (
                 <div className="flex items-center gap-1.5 py-1">
-                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-indigo-500 dark:bg-indigo-400 [animation-delay:-0.3s]" />
-                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-indigo-500 dark:bg-indigo-400 [animation-delay:-0.15s]" />
-                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-indigo-500 dark:bg-indigo-400" />
+                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-blue-500 dark:bg-blue-400 [animation-delay:-0.3s]" />
+                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-blue-500 dark:bg-blue-400 [animation-delay:-0.15s]" />
+                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-blue-500 dark:bg-blue-400" />
                 </div>
               )}
             </div>
@@ -333,12 +333,12 @@ export default function MockInterviewSessionPage() {
 
         {/* Final summary */}
         {phase === "complete" && (
-          <div className="rounded-2xl border border-indigo-100 bg-gradient-to-br from-indigo-50 to-violet-50 p-5 dark:border-indigo-900/40 dark:from-indigo-950/30 dark:to-violet-950/30">
+          <div className="rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 to-blue-50 p-5 dark:border-blue-900/40 dark:from-blue-950/30 dark:to-blue-950/30">
             <div className="mb-3 flex items-center gap-2">
-              <FiAward className="h-5 w-5 text-indigo-600 dark:text-indigo-400" />
+              <FiAward className="h-5 w-5 text-blue-600 dark:text-blue-400" />
               <h3 className="text-sm font-bold text-slate-900 dark:text-white">Interview Complete</h3>
               {overallScore !== null && (
-                <span className="ml-auto rounded-lg bg-white px-2.5 py-1 text-sm font-bold text-indigo-700 shadow-xs dark:bg-slate-900 dark:text-indigo-300">
+                <span className="ml-auto rounded-lg bg-white px-2.5 py-1 text-sm font-bold text-blue-700 shadow-xs dark:bg-slate-900 dark:text-blue-300">
                   {overallScore}/10
                 </span>
               )}
@@ -354,7 +354,7 @@ export default function MockInterviewSessionPage() {
       {phase === "complete" ? (
         <button
           onClick={() => router.push("/dashboard/mock-interview")}
-          className="mt-3 inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600"
+          className="mt-3 inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600"
         >
           <FiRotateCcw className="h-4 w-4" />
           Start a New Interview
@@ -368,12 +368,12 @@ export default function MockInterviewSessionPage() {
             onKeyDown={(e) => e.key === "Enter" && submitAnswer()}
             disabled={phase !== "waiting-answer"}
             placeholder={phase === "waiting-answer" ? "Type your answer..." : "Please wait..."}
-            className="h-10 sm:h-11 flex-1 rounded-xl border border-slate-200/80 bg-white px-3 sm:px-4 text-xs sm:text-sm font-medium text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 disabled:opacity-60 dark:border-slate-800 dark:bg-slate-900 dark:text-white dark:placeholder:text-slate-500 dark:focus:border-indigo-400"
+            className="h-10 sm:h-11 flex-1 rounded-xl border border-slate-200/80 bg-white px-3 sm:px-4 text-xs sm:text-sm font-medium text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 disabled:opacity-60 dark:border-slate-800 dark:bg-slate-900 dark:text-white dark:placeholder:text-slate-500 dark:focus:border-blue-400"
           />
           <button
             onClick={submitAnswer}
             disabled={phase !== "waiting-answer" || !answerInput.trim()}
-            className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white transition-all hover:bg-indigo-700 active:bg-indigo-800 disabled:opacity-50 disabled:pointer-events-none dark:bg-indigo-500 dark:hover:bg-indigo-600"
+            className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl bg-blue-600 text-white transition-all hover:bg-blue-700 active:bg-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:bg-blue-500 dark:hover:bg-blue-600"
           >
             <FiSend className="h-[18px] w-[18px] sm:h-5 sm:w-5 shrink-0" />
           </button>

@@ -58,7 +58,7 @@ export default function FAQ() {
             transition={{ duration: 0.5 }}
             className="mb-8 text-center sm:mb-10"
           >
-            <span className="mb-2 block text-xs font-semibold uppercase tracking-wider text-primary">
+            <span className="mb-3 inline-block rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-600 dark:border-blue-900/40 dark:bg-blue-950/60 dark:text-blue-400">
               FAQ
             </span>
             <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
@@ -137,7 +137,7 @@ export default function FAQ() {
                 whileHover={{ y: -4 }}
                 className="flex flex-col justify-between rounded-2xl border border-border bg-surface p-5 shadow-xs transition-all hover:bg-surface-hover"
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-violet-500/10 text-violet-500">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/10 text-blue-500">
                   <FiTrendingUp className="h-5 w-5" />
                 </div>
                 <div className="mt-3">

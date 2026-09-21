@@ -34,7 +34,7 @@ export default function PopularRoadmaps() {
           className="mb-8 flex flex-col items-center justify-between gap-4 text-center sm:mb-10 sm:flex-row sm:text-left"
         >
           <div className="flex flex-col items-center sm:items-start">
-            <span className="mb-2 block text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">
+            <span className="mb-3 inline-block rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-600 dark:border-blue-900/40 dark:bg-blue-950/60 dark:text-blue-400">
               Trending
             </span>
             <h2 className="text-2xl font-bold text-slate-900 dark:text-white sm:text-3xl">

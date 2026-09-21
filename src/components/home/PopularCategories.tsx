@@ -30,8 +30,8 @@ const categories = [
     title: "Data & Analytics",
     count: "29+ Roles",
     icon: FiPieChart,
-    iconColor: "text-violet-500 dark:text-violet-400",
-    bg: "bg-violet-500/10",
+    iconColor: "text-blue-500 dark:text-blue-400",
+    bg: "bg-blue-500/10",
   },
   {
     title: "Cybersecurity",
@@ -67,7 +67,7 @@ export default function PopularCategories() {
           transition={{ duration: 0.5 }}
           className="mb-8 text-center sm:mb-10"
         >
-          <span className="mb-2 block text-xs font-semibold uppercase tracking-wider text-primary">
+          <span className="mb-3 inline-block rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-600 dark:border-blue-900/40 dark:bg-blue-950/60 dark:text-blue-400">
             Categories
           </span>
           <h2 className="text-2xl font-bold text-foreground sm:text-3xl">

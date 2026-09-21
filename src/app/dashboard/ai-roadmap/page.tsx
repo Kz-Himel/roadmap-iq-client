@@ -188,7 +188,7 @@ export default function AIRoadmapPage() {
               <select
                 value={form.savedGuideId || ""}
                 onChange={(e) => handleSavedGuideChange(e.target.value)}
-                className="relative h-10 w-full appearance-none rounded-xl border border-slate-200/80 bg-white pr-8 text-xs font-medium text-slate-900 outline-none transition-all focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-200 dark:focus:border-indigo-400"
+                className="relative h-10 w-full appearance-none rounded-xl border border-slate-200/80 bg-white pr-8 text-xs font-medium text-slate-900 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-200 dark:focus:border-blue-400"
                 style={{ paddingLeft: "2.75rem" }}
               >
                 <option value="" className="bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-200">
@@ -226,7 +226,7 @@ export default function AIRoadmapPage() {
                 onChange={(e) => setForm((p) => ({ ...p, targetRole: e.target.value }))}
                 placeholder="Frontend Developer"
                 required
-                className="h-10 w-full rounded-xl border border-slate-200/80 bg-white text-xs font-medium text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-800 dark:bg-slate-950 dark:text-white dark:placeholder:text-slate-500 dark:focus:border-indigo-400"
+                className="h-10 w-full rounded-xl border border-slate-200/80 bg-white text-xs font-medium text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-800 dark:bg-slate-950 dark:text-white dark:placeholder:text-slate-500 dark:focus:border-blue-400"
                 style={{ paddingLeft: "2.75rem" }}
               />
             </div>
@@ -244,7 +244,7 @@ export default function AIRoadmapPage() {
                 value={form.currentRole}
                 onChange={(e) => setForm((p) => ({ ...p, currentRole: e.target.value }))}
                 placeholder="Student, Junior Developer, etc."
-                className="h-10 w-full rounded-xl border border-slate-200/80 bg-white text-xs font-medium text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-800 dark:bg-slate-950 dark:text-white dark:placeholder:text-slate-500 dark:focus:border-indigo-400"
+                className="h-10 w-full rounded-xl border border-slate-200/80 bg-white text-xs font-medium text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-800 dark:bg-slate-950 dark:text-white dark:placeholder:text-slate-500 dark:focus:border-blue-400"
                 style={{ paddingLeft: "2.75rem" }}
               />
             </div>
@@ -262,7 +262,7 @@ export default function AIRoadmapPage() {
                 onChange={(e) =>
                   setForm((p) => ({ ...p, experienceLevel: e.target.value as ExtendedRoadmapFormInput["experienceLevel"] }))
                 }
-                className="relative h-10 w-full appearance-none rounded-xl border border-slate-200/80 bg-white pr-8 text-xs font-medium text-slate-900 outline-none transition-all focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-200 dark:focus:border-indigo-400"
+                className="relative h-10 w-full appearance-none rounded-xl border border-slate-200/80 bg-white pr-8 text-xs font-medium text-slate-900 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-200 dark:focus:border-blue-400"
                 style={{ paddingLeft: "2.75rem" }}
               >
                 <option value="beginner" className="bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-200">Beginner</option>
@@ -287,7 +287,7 @@ export default function AIRoadmapPage() {
                     desiredDurationMonths: Number(e.target.value) as ExtendedRoadmapFormInput["desiredDurationMonths"],
                   }))
                 }
-                className="relative h-10 w-full appearance-none rounded-xl border border-slate-200/80 bg-white pr-8 text-xs font-medium text-slate-900 outline-none transition-all focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-200 dark:focus:border-indigo-400"
+                className="relative h-10 w-full appearance-none rounded-xl border border-slate-200/80 bg-white pr-8 text-xs font-medium text-slate-900 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-200 dark:focus:border-blue-400"
                 style={{ paddingLeft: "2.75rem" }}
               >
                 <option value={3} className="bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-200">3 Months (Quick Start)</option>
@@ -306,13 +306,13 @@ export default function AIRoadmapPage() {
               {form.currentSkills.map((skill) => (
                 <span
                   key={skill}
-                  className="inline-flex items-center gap-1 rounded-lg border border-indigo-100 bg-indigo-50 px-2.5 py-1 text-xs font-medium text-indigo-700 dark:border-indigo-900/50 dark:bg-indigo-950/60 dark:text-indigo-300"
+                  className="inline-flex items-center gap-1 rounded-lg border border-blue-100 bg-blue-50 px-2.5 py-1 text-xs font-medium text-blue-700 dark:border-blue-900/50 dark:bg-blue-950/60 dark:text-blue-300"
                 >
                   {skill}
                   <button
                     type="button"
                     onClick={() => removeSkill(skill)}
-                    className="text-indigo-500 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-200"
+                    className="text-blue-500 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-200"
                   >
                     <FiX className="h-3 w-3" />
                   </button>
@@ -331,7 +331,7 @@ export default function AIRoadmapPage() {
                   }
                 }}
                 placeholder="HTML, CSS, JavaScript..."
-                className="h-10 flex-1 rounded-xl border border-slate-200/80 bg-white px-3 text-xs font-medium text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-800 dark:bg-slate-950 dark:text-white dark:placeholder:text-slate-500 dark:focus:border-indigo-400"
+                className="h-10 flex-1 rounded-xl border border-slate-200/80 bg-white px-3 text-xs font-medium text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-800 dark:bg-slate-950 dark:text-white dark:placeholder:text-slate-500 dark:focus:border-blue-400"
               />
               <button
                 type="button"
@@ -355,7 +355,7 @@ export default function AIRoadmapPage() {
                 onChange={(e) =>
                   setForm((p) => ({ ...p, weeklyStudyHours: Number(e.target.value) }))
                 }
-                className="relative h-10 w-full appearance-none rounded-xl border border-slate-200/80 bg-white pr-8 text-xs font-medium text-slate-900 outline-none transition-all focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-200 dark:focus:border-indigo-400"
+                className="relative h-10 w-full appearance-none rounded-xl border border-slate-200/80 bg-white pr-8 text-xs font-medium text-slate-900 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-200 dark:focus:border-blue-400"
                 style={{ paddingLeft: "2.75rem" }}
               >
                 <option value={5} className="bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-200">5 hrs</option>
@@ -376,7 +376,7 @@ export default function AIRoadmapPage() {
           <button
             type="submit"
             disabled={generateMutation.isPending}
-            className="mt-1 flex h-11 w-full items-center justify-center rounded-xl bg-indigo-600 text-sm font-semibold text-white shadow-xs transition-all hover:bg-indigo-700 active:bg-indigo-800 disabled:opacity-50 dark:bg-indigo-500 dark:hover:bg-indigo-600"
+            className="mt-1 flex h-11 w-full items-center justify-center rounded-xl bg-blue-600 text-sm font-semibold text-white shadow-xs transition-all hover:bg-blue-700 active:bg-blue-800 disabled:opacity-50 dark:bg-blue-500 dark:hover:bg-blue-600"
           >
             {generateMutation.isPending ? "Generating..." : "Generate Roadmap"}
           </button>
@@ -399,7 +399,7 @@ export default function AIRoadmapPage() {
 
           {generateMutation.isPending && (
             <div className="flex h-full min-h-[300px] flex-col items-center justify-center text-center">
-              <div className="mb-4 h-10 w-10 animate-spin rounded-full border-2 border-indigo-200 border-t-indigo-600 dark:border-indigo-900 dark:border-t-indigo-400" />
+              <div className="mb-4 h-10 w-10 animate-spin rounded-full border-2 border-blue-200 border-t-blue-600 dark:border-blue-900 dark:border-t-blue-400" />
               <p className="text-sm font-medium text-slate-500 dark:text-slate-400">
                 Generating your roadmap...
               </p>
@@ -429,7 +429,7 @@ export default function AIRoadmapPage() {
                   <button
                     onClick={() => saveMutation.mutate(roadmap)}
                     disabled={saveMutation.isPending}
-                    className="inline-flex items-center gap-1.5 rounded-xl bg-indigo-600 px-3 py-1.5 text-xs font-semibold text-white shadow-xs transition-all hover:bg-indigo-700 disabled:opacity-60 dark:bg-indigo-500 dark:hover:bg-indigo-600"
+                    className="inline-flex items-center gap-1.5 rounded-xl bg-blue-600 px-3 py-1.5 text-xs font-semibold text-white shadow-xs transition-all hover:bg-blue-700 disabled:opacity-60 dark:bg-blue-500 dark:hover:bg-blue-600"
                   >
                     <FiSave className="h-3.5 w-3.5" />
                     {saveMutation.isPending ? "Saving..." : "Save"}
@@ -448,10 +448,10 @@ export default function AIRoadmapPage() {
                 {roadmap.months.map((month) => (
                   <div
                     key={month.monthNumber}
-                    className="rounded-xl border border-slate-100 bg-slate-50/80 p-4 transition-colors hover:border-indigo-100 hover:bg-indigo-50/30 dark:border-slate-800/80 dark:bg-slate-950/50 dark:hover:border-indigo-900/50 dark:hover:bg-indigo-950/30"
+                    className="rounded-xl border border-slate-100 bg-slate-50/80 p-4 transition-colors hover:border-blue-100 hover:bg-blue-50/30 dark:border-slate-800/80 dark:bg-slate-950/50 dark:hover:border-blue-900/50 dark:hover:bg-blue-950/30"
                   >
                     <div className="mb-2 flex items-center gap-2.5">
-                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-indigo-600 to-violet-600 text-[11px] font-bold text-white dark:from-indigo-500 dark:to-violet-500">
+                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-blue-600 text-[11px] font-bold text-white dark:from-blue-500 dark:to-blue-500">
                         {month.monthNumber}
                       </span>
                       <h3 className="text-sm font-semibold text-slate-900 dark:text-white">

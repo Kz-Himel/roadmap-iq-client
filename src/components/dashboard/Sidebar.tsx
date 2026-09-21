@@ -26,16 +26,16 @@ export default function Sidebar({ mobileOpen, onClose, onLogout }: SidebarProps)
             onClick={onClose}
             className={`relative flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all duration-150 ${
               active
-                ? "bg-indigo-50 pl-4 font-semibold text-indigo-700 dark:bg-indigo-950/50 dark:text-indigo-300"
+                ? "bg-blue-50 pl-4 font-semibold text-blue-700 dark:bg-blue-950/50 dark:text-blue-300"
                 : "text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-white"
             }`}
           >
             {active && (
-              <span className="absolute left-0 top-1/2 h-5 w-1 -translate-y-1/2 rounded-r-full bg-indigo-600 dark:bg-indigo-400" />
+              <span className="absolute left-0 top-1/2 h-5 w-1 -translate-y-1/2 rounded-r-full bg-blue-600 dark:bg-blue-400" />
             )}
             <Icon
               className={`h-[18px] w-[18px] shrink-0 ${
-                active ? "text-indigo-600 dark:text-indigo-400" : "text-slate-400 dark:text-slate-500"
+                active ? "text-blue-600 dark:text-blue-400" : "text-slate-400 dark:text-slate-500"
               }`}
             />
             {item.label}

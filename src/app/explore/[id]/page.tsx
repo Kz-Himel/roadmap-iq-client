@@ -66,7 +66,7 @@ export default function GoalDetailsPage() {
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <button
           onClick={() => router.back()}
-          className="mb-6 flex items-center gap-1.5 rounded-xl text-sm font-medium text-slate-600 transition-colors hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400"
+          className="mb-6 flex items-center gap-1.5 rounded-xl text-sm font-medium text-slate-600 transition-colors hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400"
         >
           <FiArrowLeft className="h-4 w-4" />
           Back to Explore
@@ -83,7 +83,7 @@ export default function GoalDetailsPage() {
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
       <Link
         href="/explore"
-        className="mb-6 inline-flex items-center gap-1.5 rounded-xl text-sm font-medium text-slate-600 transition-colors hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400"
+        className="mb-6 inline-flex items-center gap-1.5 rounded-xl text-sm font-medium text-slate-600 transition-colors hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400"
       >
         <FiArrowLeft className="h-4 w-4" />
         Back to Explore
@@ -102,8 +102,8 @@ export default function GoalDetailsPage() {
         </div>
 
         <div className="flex items-center gap-4 rounded-2xl border border-slate-200/80 bg-white p-5 shadow-xs transition-shadow hover:shadow-md dark:border-slate-800 dark:bg-slate-900">
-          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-violet-50 dark:bg-violet-950/50 border border-violet-100 dark:border-violet-900/30">
-            <FiClock className="h-5 w-5 text-violet-600 dark:text-violet-400" />
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 dark:bg-blue-950/50 border border-blue-100 dark:border-blue-900/30">
+            <FiClock className="h-5 w-5 text-blue-600 dark:text-blue-400" />
           </div>
           <div className="min-w-0">
             <p className="text-xs font-medium text-slate-500 dark:text-slate-400">Estimated Time to Learn</p>
@@ -117,8 +117,8 @@ export default function GoalDetailsPage() {
         <div className="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-xs dark:border-slate-800 dark:bg-slate-900">
           <div className="mb-5 flex flex-wrap items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-50 dark:bg-indigo-950/50 border border-indigo-100 dark:border-indigo-900/30">
-                <FiBriefcase className="h-5 w-5 text-indigo-600 dark:text-indigo-400" />
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-50 dark:bg-blue-950/50 border border-blue-100 dark:border-blue-900/30">
+                <FiBriefcase className="h-5 w-5 text-blue-600 dark:text-blue-400" />
               </div>
               <h1 className="text-xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-2xl">{goal.title}</h1>
             </div>
@@ -127,7 +127,7 @@ export default function GoalDetailsPage() {
 
           <div className="border-t border-slate-100 dark:border-slate-800/80 pt-5">
             <h2 className="mb-3 flex items-center gap-2 text-sm font-semibold text-slate-900 dark:text-white">
-              <FiFileText className="h-4 w-4 text-indigo-600 dark:text-indigo-400" />
+              <FiFileText className="h-4 w-4 text-blue-600 dark:text-blue-400" />
               Overview
             </h2>
             <p className="whitespace-pre-line text-sm leading-relaxed text-slate-600 dark:text-slate-300 sm:text-[15px]">
@@ -139,7 +139,7 @@ export default function GoalDetailsPage() {
         {/* Skills */}
         <div className="mb-10 h-fit rounded-2xl border border-slate-200/80 bg-white p-6 shadow-xs dark:border-slate-800 dark:bg-slate-900">
           <p className="mb-4 flex items-center gap-2 text-sm font-semibold text-slate-900 dark:text-white">
-            <FiCheckCircle className="h-4 w-4 text-indigo-600 dark:text-indigo-400" />
+            <FiCheckCircle className="h-4 w-4 text-blue-600 dark:text-blue-400" />
             Required Skills
           </p>
 
@@ -148,7 +148,7 @@ export default function GoalDetailsPage() {
               {goal.requiredSkills.map((skill) => (
                 <span
                   key={skill}
-                  className="rounded-lg bg-indigo-50 px-3 py-1.5 text-xs font-semibold text-indigo-600 border border-indigo-100 dark:bg-indigo-950/60 dark:text-indigo-300 dark:border-indigo-900/40"
+                  className="rounded-lg bg-blue-50 px-3 py-1.5 text-xs font-semibold text-blue-600 border border-blue-100 dark:bg-blue-950/60 dark:text-blue-300 dark:border-blue-900/40"
                 >
                   {skill}
                 </span>

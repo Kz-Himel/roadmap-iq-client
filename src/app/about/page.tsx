@@ -73,7 +73,7 @@ export default function AboutPage() {
           >
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
-                <p className="text-2xl font-bold text-indigo-600 dark:text-indigo-400 sm:text-3xl">{stat.value}</p>
+                <p className="text-2xl font-bold text-blue-600 dark:text-blue-400 sm:text-3xl">{stat.value}</p>
                 <p className="mt-1 text-xs text-slate-500 dark:text-slate-400 sm:text-sm">{stat.label}</p>
               </div>
             ))}
@@ -110,7 +110,7 @@ export default function AboutPage() {
               transition={{ duration: 0.5, delay: 0.08 }}
               className="flex items-center justify-center lg:justify-end"
             >
-              <div className="flex h-56 w-56 items-center justify-center rounded-2xl bg-indigo-50 border border-indigo-100 dark:bg-indigo-950/50 dark:border-indigo-900/40 sm:h-64 sm:w-64">
+              <div className="flex h-56 w-56 items-center justify-center rounded-2xl bg-blue-50 border border-blue-100 dark:bg-blue-950/50 dark:border-blue-900/40 sm:h-64 sm:w-64">
                 <span className="text-6xl">🎯</span>
               </div>
             </motion.div>
@@ -145,7 +145,7 @@ export default function AboutPage() {
                     whileHover={{ y: -4 }}
                     className="flex flex-col rounded-2xl border border-slate-200/80 bg-white p-5 shadow-xs transition-all duration-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-900 sm:p-6"
                   >
-                    <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600 border border-indigo-100 dark:bg-indigo-950/60 dark:text-indigo-400 dark:border-indigo-900/40 sm:h-12 sm:w-12">
+                    <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-blue-600 border border-blue-100 dark:bg-blue-950/60 dark:text-blue-400 dark:border-blue-900/40 sm:h-12 sm:w-12">
                       <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
                     </div>
                     <h3 className="mb-2 text-base font-bold text-slate-900 dark:text-white sm:text-lg">

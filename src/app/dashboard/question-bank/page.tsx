@@ -108,7 +108,7 @@ export default function QuestionBankPage() {
         </div>
         <button
           onClick={() => setShowGenerate((s) => !s)}
-          className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600"
+          className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600"
         >
           <FiZap className="h-4 w-4" />
           Generate Questions
@@ -117,7 +117,7 @@ export default function QuestionBankPage() {
 
       {/* Generate Panel */}
       {showGenerate && (
-        <div className="mb-6 rounded-2xl border border-indigo-100 bg-indigo-50/50 p-4 dark:border-indigo-900/40 dark:bg-indigo-950/20 sm:p-5">
+        <div className="mb-6 rounded-2xl border border-blue-100 bg-blue-50/50 p-4 dark:border-blue-900/40 dark:bg-blue-950/20 sm:p-5">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end">
             <div className="flex-1">
               <label className="mb-1.5 block text-xs font-semibold text-slate-600 dark:text-slate-300">
@@ -126,7 +126,7 @@ export default function QuestionBankPage() {
               <select
                 value={genCategory}
                 onChange={(e) => setGenCategory(e.target.value as QuestionCategory)}
-                className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-700 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200"
+                className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-700 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200"
               >
                 {QUESTION_CATEGORIES.map((c) => (
                   <option key={c} value={c}>{c}</option>
@@ -140,7 +140,7 @@ export default function QuestionBankPage() {
               <select
                 value={genDifficulty}
                 onChange={(e) => setGenDifficulty(e.target.value as QuestionDifficulty)}
-                className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-700 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200"
+                className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-700 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200"
               >
                 {QUESTION_DIFFICULTIES.map((d) => (
                   <option key={d} value={d}>{d}</option>
@@ -150,7 +150,7 @@ export default function QuestionBankPage() {
             <button
               onClick={() => generateMutation.mutate({ category: genCategory, difficulty: genDifficulty, count: 5 })}
               disabled={generateMutation.isPending}
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-indigo-700 disabled:opacity-60 dark:bg-indigo-500 dark:hover:bg-indigo-600"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-blue-700 disabled:opacity-60 dark:bg-blue-500 dark:hover:bg-blue-600"
             >
               {generateMutation.isPending ? "Generating..." : "Generate 5"}
             </button>
@@ -167,13 +167,13 @@ export default function QuestionBankPage() {
             value={search}
             onChange={(e) => { setSearch(e.target.value); resetPage(); }}
             placeholder="Search questions or tags..."
-            className="w-full rounded-xl border border-slate-200 bg-slate-50/60 py-2.5 pl-11 pr-4 text-sm text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-800 dark:bg-slate-950/60 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:bg-slate-950"
+            className="w-full rounded-xl border border-slate-200 bg-slate-50/60 py-2.5 pl-11 pr-4 text-sm text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20 dark:border-slate-800 dark:bg-slate-950/60 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:bg-slate-950"
           />
         </div>
         <select
           value={category}
           onChange={(e) => { setCategory(e.target.value); resetPage(); }}
-          className="rounded-xl border border-slate-200 bg-slate-50/60 px-4 py-2.5 text-sm text-slate-700 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-800 dark:bg-slate-950/60 dark:text-slate-200 sm:w-44"
+          className="rounded-xl border border-slate-200 bg-slate-50/60 px-4 py-2.5 text-sm text-slate-700 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-800 dark:bg-slate-950/60 dark:text-slate-200 sm:w-44"
         >
           <option value="">All Categories</option>
           {QUESTION_CATEGORIES.map((c) => (
@@ -183,7 +183,7 @@ export default function QuestionBankPage() {
         <select
           value={difficulty}
           onChange={(e) => { setDifficulty(e.target.value); resetPage(); }}
-          className="rounded-xl border border-slate-200 bg-slate-50/60 px-4 py-2.5 text-sm text-slate-700 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-800 dark:bg-slate-950/60 dark:text-slate-200 sm:w-40"
+          className="rounded-xl border border-slate-200 bg-slate-50/60 px-4 py-2.5 text-sm text-slate-700 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-800 dark:bg-slate-950/60 dark:text-slate-200 sm:w-40"
         >
           <option value="">All Levels</option>
           {QUESTION_DIFFICULTIES.map((d) => (

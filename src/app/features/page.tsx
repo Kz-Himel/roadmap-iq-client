@@ -137,17 +137,17 @@ export default function FeaturesPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="mx-auto flex max-w-4xl flex-col items-center gap-4 rounded-2xl bg-indigo-600 px-6 py-10 text-center dark:bg-indigo-700 sm:py-12 shadow-lg"
+            className="mx-auto flex max-w-4xl flex-col items-center gap-4 rounded-2xl bg-blue-600 px-6 py-10 text-center dark:bg-blue-700 sm:py-12 shadow-lg"
           >
             <h2 className="text-2xl font-bold text-white sm:text-3xl">
               Ready to Start Your Journey?
             </h2>
-            <p className="max-w-md text-sm text-indigo-100 sm:text-base">
+            <p className="max-w-md text-sm text-blue-100 sm:text-base">
               Join thousands of learners already using CareerPilot AI to reach their dream careers.
             </p>
             <Link
               href="/register"
-              className="mt-2 flex min-h-[46px] items-center gap-2 rounded-lg bg-white px-6 text-sm font-semibold text-indigo-600 transition-colors hover:bg-indigo-50 dark:bg-slate-900 dark:text-white dark:hover:bg-slate-800"
+              className="mt-2 flex min-h-[46px] items-center gap-2 rounded-lg bg-white px-6 text-sm font-semibold text-blue-600 transition-colors hover:bg-blue-50 dark:bg-slate-900 dark:text-white dark:hover:bg-slate-800"
             >
               Get Started Free
               <FiArrowRight className="h-4 w-4" />

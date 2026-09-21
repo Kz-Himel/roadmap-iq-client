@@ -35,7 +35,7 @@ export default function Banner() {
     <section className="relative overflow-hidden hero-gradient-bg pt-12 pb-20 lg:pt-20 lg:pb-28">
       {/* Background Glow */}
       <div className="pointer-events-none absolute left-1/2 top-0 -z-10 -translate-x-1/2 opacity-30 blur-3xl">
-        <div className="h-[450px] w-[800px] bg-gradient-to-tr from-blue-600 via-indigo-600 to-purple-600 dark:from-blue-600/40 dark:via-indigo-600/40 dark:to-purple-600/40" />
+        <div className="h-[450px] w-[800px] bg-gradient-to-tr from-blue-600 via-blue-600 to-purple-600 dark:from-blue-600/40 dark:via-blue-600/40 dark:to-purple-600/40" />
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -61,7 +61,7 @@ export default function Banner() {
               className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl"
             >
               Build Your <br />
-              <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent dark:from-blue-400 dark:via-indigo-300 dark:to-purple-400">
+              <span className="text-blue-600 dark:text-blue-400">
                 Dream Career Path
               </span>
             </motion.h1>
@@ -73,7 +73,8 @@ export default function Banner() {
               custom={2}
               className="mt-6 text-lg text-muted-foreground leading-relaxed"
             >
-              Discover step-by-step career roadmaps, AI recommendations, and interactive visual paths tailored to your goals.
+              Discover step-by-step career roadmaps, AI recommendations, and
+              interactive visual paths tailored to your goals.
             </motion.p>
 
             <motion.div
@@ -85,7 +86,7 @@ export default function Banner() {
             >
               <Link
                 href="/explore"
-                className="inline-flex h-12 items-center gap-2 rounded-xl bg-primary px-6 font-semibold text-primary-foreground shadow-lg shadow-blue-500/20 transition-all hover:opacity-90 active:scale-95"
+                className="inline-flex h-12 items-center gap-2 rounded-xl bg-primary px-6 font-semibold text-primary-foreground shadow-lg shadow-blue-500/20 transition-all hover:bg-blue-700 dark:hover:bg-blue-600 hover:shadow-md active:scale-95"
               >
                 <span>Explore Careers</span>
                 <FiChevronRight className="h-4 w-4" />
@@ -133,7 +134,6 @@ export default function Banner() {
             >
               {/* Card using CSS Surface Token */}
               <div className="relative overflow-hidden rounded-2xl border border-border bg-surface p-5 shadow-2xl backdrop-blur-xl">
-                
                 {/* Header */}
                 <div className="mb-4 flex items-center justify-between border-b border-border pb-3">
                   <div className="flex items-center gap-2">
@@ -188,7 +188,7 @@ export default function Banner() {
                       </div>
 
                       <div className="h-1.5 w-full overflow-hidden rounded-full bg-border">
-                        <div className="h-full w-[68%] rounded-full bg-gradient-to-r from-blue-600 to-indigo-500" />
+                        <div className="h-full w-[68%] rounded-full bg-gradient-to-r from-blue-600 to-blue-500" />
                       </div>
 
                       <div className="mt-4 flex flex-col gap-2.5">
@@ -199,7 +199,9 @@ export default function Banner() {
                               Frontend Fundamentals
                             </span>
                           </div>
-                          <span className="text-[10px] font-medium text-muted-foreground">Done</span>
+                          <span className="text-[10px] font-medium text-muted-foreground">
+                            Done
+                          </span>
                         </div>
 
                         <div className="flex items-center justify-between rounded-lg border border-primary/30 bg-primary/10 p-2.5 shadow-xs">
@@ -209,7 +211,9 @@ export default function Banner() {
                               React & Next.js Ecosystem
                             </span>
                           </div>
-                          <span className="text-[10px] font-bold text-primary">In Progress</span>
+                          <span className="text-[10px] font-bold text-primary">
+                            In Progress
+                          </span>
                         </div>
 
                         <div className="flex items-center justify-between rounded-lg border border-border bg-surface p-2.5 shadow-xs">
@@ -219,7 +223,9 @@ export default function Banner() {
                               Backend Architecture & DB
                             </span>
                           </div>
-                          <span className="text-[10px] font-medium text-muted-foreground">Next</span>
+                          <span className="text-[10px] font-medium text-muted-foreground">
+                            Next
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -238,8 +244,12 @@ export default function Banner() {
                   <FiBookmark className="h-4 w-4" />
                 </div>
                 <div>
-                  <p className="text-[11px] font-bold text-foreground">Next Recommendation</p>
-                  <p className="text-[10px] text-muted-foreground">Learn TypeScript Generics</p>
+                  <p className="text-[11px] font-bold text-foreground">
+                    Next Recommendation
+                  </p>
+                  <p className="text-[10px] text-muted-foreground">
+                    Learn TypeScript Generics
+                  </p>
                 </div>
               </motion.div>
 

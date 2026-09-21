@@ -70,7 +70,7 @@ export default function QuestionDetailPage() {
       <div className="mx-auto max-w-3xl">
         <button
           onClick={() => router.back()}
-          className="mb-6 flex items-center gap-1.5 text-sm font-medium text-slate-600 transition-colors hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400"
+          className="mb-6 flex items-center gap-1.5 text-sm font-medium text-slate-600 transition-colors hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400"
         >
           <FiArrowLeft className="h-4 w-4" />
           Back to Question Bank
@@ -87,7 +87,7 @@ export default function QuestionDetailPage() {
     <div className="mx-auto max-w-3xl">
       <Link
         href="/dashboard/question-bank"
-        className="mb-6 inline-flex items-center gap-1.5 text-sm font-medium text-slate-600 transition-colors hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400"
+        className="mb-6 inline-flex items-center gap-1.5 text-sm font-medium text-slate-600 transition-colors hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400"
       >
         <FiArrowLeft className="h-4 w-4" />
         Back to Question Bank
@@ -95,7 +95,7 @@ export default function QuestionDetailPage() {
 
       <div className="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-xs dark:border-slate-800 dark:bg-slate-900 sm:p-8">
         <div className="mb-4 flex flex-wrap items-center gap-1.5">
-          <span className="inline-flex items-center rounded-lg border border-indigo-100 bg-indigo-50 px-2.5 py-1 text-[11px] font-semibold text-indigo-700 dark:border-indigo-900/40 dark:bg-indigo-950/50 dark:text-indigo-300">
+          <span className="inline-flex items-center rounded-lg border border-blue-100 bg-blue-50 px-2.5 py-1 text-[11px] font-semibold text-blue-700 dark:border-blue-900/40 dark:bg-blue-950/50 dark:text-blue-300">
             {question.category}
           </span>
           <span
@@ -106,8 +106,8 @@ export default function QuestionDetailPage() {
         </div>
 
         <div className="mb-6 flex items-start gap-3">
-          <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-indigo-50 dark:bg-indigo-950/50 border border-indigo-100 dark:border-indigo-900/30">
-            <FiHelpCircle className="h-4.5 w-4.5 text-indigo-600 dark:text-indigo-400" />
+          <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-50 dark:bg-blue-950/50 border border-blue-100 dark:border-blue-900/30">
+            <FiHelpCircle className="h-4.5 w-4.5 text-blue-600 dark:text-blue-400" />
           </div>
           <h1 className="text-lg font-bold leading-relaxed text-slate-900 dark:text-white sm:text-xl">
             {question.question}
@@ -116,7 +116,7 @@ export default function QuestionDetailPage() {
 
         <button
           onClick={() => setShowAnswer((s) => !s)}
-          className="mb-4 inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-4 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600"
+          className="mb-4 inline-flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600"
         >
           {showAnswer ? <FiEyeOff className="h-4 w-4" /> : <FiEye className="h-4 w-4" />}
           {showAnswer ? "Hide Answer" : "Reveal Answer"}

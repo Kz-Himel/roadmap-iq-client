@@ -10,8 +10,8 @@ const paths = [
     title: "New to Tech",
     description: "Just starting out? Get a step-by-step roadmap built for absolute beginners.",
     icon: FiUser,
-    iconColor: "text-indigo-600 dark:text-indigo-400",
-    bg: "bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-100 dark:border-indigo-900/40",
+    iconColor: "text-blue-600 dark:text-blue-400",
+    bg: "bg-blue-50 dark:bg-blue-950/60 border border-blue-100 dark:border-blue-900/40",
     href: "/register",
   },
   {
@@ -28,8 +28,8 @@ const paths = [
     title: "Ready to Level Up",
     description: "Experienced professional? Get advanced roadmaps and interview prep.",
     icon: FiAward,
-    iconColor: "text-violet-600 dark:text-violet-400",
-    bg: "bg-violet-50 dark:bg-violet-950/60 border border-violet-100 dark:border-violet-900/40",
+    iconColor: "text-blue-600 dark:text-blue-400",
+    bg: "bg-blue-50 dark:bg-blue-950/60 border border-blue-100 dark:border-blue-900/40",
     href: "/register",
   },
 ];
@@ -45,7 +45,7 @@ export default function WhereToStart() {
           transition={{ duration: 0.5 }}
           className="mx-auto max-w-2xl text-center mb-12 sm:mb-16"
         >
-          <span className="mb-3 inline-block rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-600 dark:bg-indigo-950/60 dark:text-indigo-400 border border-indigo-100 dark:border-indigo-900/40">
+          <span className="mb-3 inline-block rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-600 dark:bg-blue-950/60 dark:text-blue-400 border border-blue-100 dark:border-blue-900/40">
             Getting Started
           </span>
           <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
@@ -69,7 +69,7 @@ export default function WhereToStart() {
               >
                 <Link
                   href={path.href}
-                  className="group flex h-full flex-col rounded-2xl border border-slate-200/80 bg-white p-6 shadow-xs transition-all duration-300 hover:border-indigo-200 hover:shadow-md dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-700"
+                  className="group flex h-full flex-col rounded-2xl border border-slate-200/80 bg-white p-6 shadow-xs transition-all duration-300 hover:border-blue-200 hover:shadow-md dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-700"
                 >
                   <div
                     className={`mb-5 flex h-12 w-12 items-center justify-center rounded-xl ${path.bg} transition-transform duration-200 group-hover:scale-105`}
@@ -85,7 +85,7 @@ export default function WhereToStart() {
                   <p className="mb-5 flex-1 text-sm leading-relaxed text-slate-500 dark:text-slate-400">
                     {path.description}
                   </p>
-                  <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-600 dark:text-indigo-400">
+                  <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 dark:text-blue-400">
                     Get Started
                     <FiArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </span>

@@ -175,7 +175,7 @@ export default function AIChatPage() {
         {isLoading && (
           <div className="flex h-full items-center justify-center">
             <div className="flex flex-col items-center gap-3">
-              <div className="h-8 w-8 animate-spin rounded-full border-2 border-indigo-200 border-t-indigo-600 dark:border-indigo-900 dark:border-t-indigo-400" />
+              <div className="h-8 w-8 animate-spin rounded-full border-2 border-blue-200 border-t-blue-600 dark:border-blue-900 dark:border-t-blue-400" />
               <p className="text-sm text-slate-400 dark:text-slate-500">Loading conversation...</p>
             </div>
           </div>
@@ -183,8 +183,8 @@ export default function AIChatPage() {
 
         {!isLoading && (!messages || messages.length === 0) && !streamingText && (
           <div className="flex h-full flex-col items-center justify-center text-center">
-            <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-50 to-violet-50 border border-indigo-100/80 dark:from-indigo-950/50 dark:to-violet-950/50 dark:border-indigo-900/40">
-              <FiCpu className="h-7 w-7 text-indigo-600 dark:text-indigo-400" />
+            <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-50 to-blue-50 border border-blue-100/80 dark:from-blue-950/50 dark:to-blue-950/50 dark:border-blue-900/40">
+              <FiCpu className="h-7 w-7 text-blue-600 dark:text-blue-400" />
             </div>
             <p className="text-sm font-semibold text-slate-800 dark:text-slate-200">
               Hello! How can I help you today?
@@ -206,7 +206,7 @@ export default function AIChatPage() {
               className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full ${
                 msg.role === "user"
                   ? "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300"
-                  : "bg-gradient-to-br from-indigo-50 to-violet-50 text-indigo-600 border border-indigo-100/80 dark:from-indigo-950/60 dark:to-violet-950/60 dark:text-indigo-400 dark:border-indigo-900/50"
+                  : "bg-gradient-to-br from-blue-50 to-blue-50 text-blue-600 border border-blue-100/80 dark:from-blue-950/60 dark:to-blue-950/60 dark:text-blue-400 dark:border-blue-900/50"
               }`}
             >
               {msg.role === "user" ? <FiUser className="h-4 w-4" /> : <FiCpu className="h-4 w-4" />}
@@ -214,7 +214,7 @@ export default function AIChatPage() {
             <div
               className={`max-w-[75%] rounded-2xl px-4 py-3 text-sm leading-relaxed sm:max-w-[70%] ${
                 msg.role === "user"
-                  ? "bg-gradient-to-r from-indigo-600 to-violet-600 text-white shadow-xs dark:from-indigo-500 dark:to-violet-500"
+                  ? "bg-gradient-to-r from-blue-600 to-blue-600 text-white shadow-xs dark:from-blue-500 dark:to-blue-500"
                   : "border border-slate-200/80 bg-slate-50 text-slate-800 dark:border-slate-800 dark:bg-slate-950/60 dark:text-slate-200"
               }`}
             >
@@ -226,7 +226,7 @@ export default function AIChatPage() {
         {/* Live streaming bubble */}
         {sendMutation.isPending && streamingText !== null && (
           <div className="flex items-start gap-3">
-            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-indigo-50 to-violet-50 text-indigo-600 border border-indigo-100/80 dark:from-indigo-950/60 dark:to-violet-950/60 dark:text-indigo-400 dark:border-indigo-900/50">
+            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-blue-50 to-blue-50 text-blue-600 border border-blue-100/80 dark:from-blue-950/60 dark:to-blue-950/60 dark:text-blue-400 dark:border-blue-900/50">
               <FiCpu className="h-4 w-4" />
             </div>
             <div className="max-w-[75%] rounded-2xl border border-slate-200/80 bg-slate-50 px-4 py-3 text-sm leading-relaxed text-slate-800 dark:border-slate-800 dark:bg-slate-950/60 dark:text-slate-200 sm:max-w-[70%]">
@@ -234,9 +234,9 @@ export default function AIChatPage() {
                 streamingText
               ) : (
                 <div className="flex items-center gap-1.5 py-1">
-                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-indigo-500 dark:bg-indigo-400 [animation-delay:-0.3s]" />
-                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-indigo-500 dark:bg-indigo-400 [animation-delay:-0.15s]" />
-                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-indigo-500 dark:bg-indigo-400" />
+                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-blue-500 dark:bg-blue-400 [animation-delay:-0.3s]" />
+                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-blue-500 dark:bg-blue-400 [animation-delay:-0.15s]" />
+                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-blue-500 dark:bg-blue-400" />
                 </div>
               )}
             </div>
@@ -251,7 +251,7 @@ export default function AIChatPage() {
               key={prompt}
               onClick={() => handleSend(prompt)}
               disabled={sendMutation.isPending}
-              className="inline-flex cursor-pointer items-center rounded-lg border border-indigo-100 bg-indigo-50 px-3 py-1.5 text-xs font-medium text-indigo-700 transition-colors hover:bg-indigo-100 disabled:opacity-60 dark:border-indigo-900/50 dark:bg-indigo-950/60 dark:text-indigo-300 dark:hover:bg-indigo-900/60"
+              className="inline-flex cursor-pointer items-center rounded-lg border border-blue-100 bg-blue-50 px-3 py-1.5 text-xs font-medium text-blue-700 transition-colors hover:bg-blue-100 disabled:opacity-60 dark:border-blue-900/50 dark:bg-blue-950/60 dark:text-blue-300 dark:hover:bg-blue-900/60"
             >
               {prompt}
             </button>
@@ -266,12 +266,12 @@ export default function AIChatPage() {
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && handleSend()}
           placeholder="Ask anything..."
-          className="h-10 sm:h-11 flex-1 rounded-xl border border-slate-200/80 bg-white px-3 sm:px-4 text-xs sm:text-sm font-medium text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-800 dark:bg-slate-900 dark:text-white dark:placeholder:text-slate-500 dark:focus:border-indigo-400"
+          className="h-10 sm:h-11 flex-1 rounded-xl border border-slate-200/80 bg-white px-3 sm:px-4 text-xs sm:text-sm font-medium text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-slate-800 dark:bg-slate-900 dark:text-white dark:placeholder:text-slate-500 dark:focus:border-blue-400"
         />
         <button
           onClick={() => handleSend()}
           disabled={sendMutation.isPending || !input.trim()}
-          className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white transition-all hover:bg-indigo-700 active:bg-indigo-800 disabled:opacity-50 disabled:pointer-events-none dark:bg-indigo-500 dark:hover:bg-indigo-600"
+          className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl bg-blue-600 text-white transition-all hover:bg-blue-700 active:bg-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:bg-blue-500 dark:hover:bg-blue-600"
         >
           <FiSend className="h-[18px] w-[18px] sm:h-5 sm:w-5 shrink-0" />
         </button>

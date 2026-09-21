@@ -21,10 +21,10 @@ export function GoalCardSkeleton() {
 
 export default function GoalCard({ goal }: GoalCardProps) {
   return (
-    <div className="group flex h-full flex-col rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm transition-all hover:border-slate-300 dark:hover:border-slate-700 hover:shadow-md">
+    <div className="group flex h-full flex-col rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 dark:hover:border-slate-700 hover:shadow-lg">
       {/* Icon */}
-      <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 dark:bg-blue-950/80 transition-transform duration-200 group-hover:scale-105">
-        <FiBriefcase className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+      <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-blue-500 shadow-lg shadow-blue-600/20 dark:shadow-blue-500/10 transition-transform duration-200 group-hover:scale-105">
+        <FiBriefcase className="h-5 w-5 text-white" />
       </div>
 
       {/* Title */}
@@ -71,10 +71,10 @@ export default function GoalCard({ goal }: GoalCardProps) {
       {/* Action Button */}
       <Link
         href={`/explore/${goal._id}`}
-        className="group/btn mt-auto inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/60 px-4 py-2.5 text-xs font-semibold text-slate-700 dark:text-slate-200 transition-all hover:bg-blue-600 hover:text-white hover:border-blue-600 dark:hover:bg-blue-600 dark:hover:border-blue-600 shadow-sm"
+        className="group/btn mt-auto inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 dark:bg-blue-500 px-4 py-2.5 text-xs font-semibold text-white shadow-sm shadow-blue-600/20 dark:shadow-blue-500/10 transition-all hover:bg-blue-700 dark:hover:bg-blue-600 hover:shadow-md active:scale-[0.98]"
       >
         View Details
-        <FiArrowRight className="h-3.5 w-3.5 transition-transform group-hover/btn:translate-x-0.5" />
+        <FiArrowRight className="h-3.5 w-3.5 transition-transform group-hover/btn:translate-x-1" />
       </Link>
     </div>
   );

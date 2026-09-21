@@ -16,16 +16,16 @@ const features = [
     description: "Personalized 3-6 month learning paths.",
     icon: FiMap,
     href: "/register",
-    color: "text-indigo-600 dark:text-indigo-400",
-    bg: "bg-indigo-50 dark:bg-indigo-950/50 border-indigo-100 dark:border-indigo-900/40",
+    color: "text-blue-600 dark:text-blue-400",
+    bg: "bg-blue-50 dark:bg-blue-950/50 border-blue-100 dark:border-blue-900/40",
   },
   {
     title: "AI Career Chat",
     description: "Ask anything, get context-aware guidance.",
     icon: FiMessageCircle,
     href: "/register",
-    color: "text-violet-600 dark:text-violet-400",
-    bg: "bg-violet-50 dark:bg-violet-950/50 border-violet-100 dark:border-violet-900/40",
+    color: "text-blue-600 dark:text-blue-400",
+    bg: "bg-blue-50 dark:bg-blue-950/50 border-blue-100 dark:border-blue-900/40",
   },
   {
     title: "Question Bank",
@@ -56,7 +56,7 @@ export default function AllInOneShowcase() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-600 to-violet-600 p-8 shadow-lg shadow-indigo-600/20 dark:shadow-indigo-500/10 sm:col-span-4 sm:p-12"
+            className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 to-blue-600 p-8 shadow-lg shadow-blue-600/20 dark:shadow-blue-500/10 sm:col-span-4 sm:p-12"
           >
             <div className="absolute -right-10 -top-10 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
             <div className="absolute -bottom-16 left-1/3 h-64 w-64 rounded-full bg-white/5 blur-3xl" />
@@ -68,13 +68,13 @@ export default function AllInOneShowcase() {
               <h2 className="text-2xl font-bold tracking-tight text-white sm:text-4xl">
                 Everything You Need to Land the Job
               </h2>
-              <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-indigo-100 sm:text-base">
+              <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-blue-100 sm:text-base">
                 From your first roadmap to your final interview — CareerPilot AI
                 guides you with one connected toolkit, not four different apps.
               </p>
               <Link
                 href="/register"
-                className="group mt-7 inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-bold text-indigo-700 shadow-md transition-transform hover:scale-[1.03]"
+                className="group mt-7 inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-bold text-blue-700 shadow-md transition-transform hover:scale-[1.03]"
               >
                 Get Started Free
                 <FiArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

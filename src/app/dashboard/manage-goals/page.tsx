@@ -63,7 +63,7 @@ export default function ManageGoalsPage() {
         </div>
         <Link
           href="/dashboard/add-goal"
-          className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl bg-indigo-600 px-5 text-sm font-semibold text-white shadow-xs transition-colors hover:bg-indigo-700 active:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600"
+          className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 text-sm font-semibold text-white shadow-xs transition-colors hover:bg-blue-700 active:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600"
         >
           <FiPlus className="h-4 w-4" />
           Add Guide
@@ -96,7 +96,7 @@ export default function ManageGoalsPage() {
           </p>
           <Link
             href="/dashboard/add-goal"
-            className="mt-5 inline-flex min-h-[42px] items-center justify-center gap-2 rounded-xl bg-indigo-600 px-5 text-sm font-semibold text-white shadow-xs transition-colors hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600"
+            className="mt-5 inline-flex min-h-[42px] items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 text-sm font-semibold text-white shadow-xs transition-colors hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600"
           >
             Add Guide
           </Link>
@@ -110,8 +110,8 @@ export default function ManageGoalsPage() {
               key={goal._id}
               className="card card-hover flex flex-col rounded-2xl border border-slate-200/80 bg-white p-5 shadow-xs transition-all duration-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-900 sm:p-6"
             >
-              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-50 border border-indigo-100 dark:bg-indigo-950/50 dark:border-indigo-900/40">
-                <FiBriefcase className="h-5 w-5 text-indigo-600 dark:text-indigo-400" />
+              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 border border-blue-100 dark:bg-blue-950/50 dark:border-blue-900/40">
+                <FiBriefcase className="h-5 w-5 text-blue-600 dark:text-blue-400" />
               </div>
 
               <h3 className="mb-1 line-clamp-1 text-base font-semibold text-slate-900 dark:text-white">
@@ -127,7 +127,7 @@ export default function ManageGoalsPage() {
                   {goal.requiredSkills.slice(0, 3).map((skill) => (
                     <span
                       key={skill}
-                      className="inline-flex items-center rounded-lg bg-indigo-50 px-2.5 py-0.5 text-xs font-medium text-indigo-700 border border-indigo-100/80 dark:bg-indigo-950/60 dark:text-indigo-300 dark:border-indigo-900/50"
+                      className="inline-flex items-center rounded-lg bg-blue-50 px-2.5 py-0.5 text-xs font-medium text-blue-700 border border-blue-100/80 dark:bg-blue-950/60 dark:text-blue-300 dark:border-blue-900/50"
                     >
                       {skill}
                     </span>
@@ -146,7 +146,7 @@ export default function ManageGoalsPage() {
                   {goal.salaryRange}
                 </span>
                 <span className="flex items-center gap-1">
-                  <FiClock className="h-3.5 w-3.5 text-violet-600 dark:text-violet-400" />
+                  <FiClock className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400" />
                   {goal.estimatedTime}
                 </span>
               </div>
@@ -161,7 +161,7 @@ export default function ManageGoalsPage() {
                 </Link>
                 <button
                   onClick={() => setEditTarget(goal)}
-                  className="flex min-h-[38px] flex-1 items-center justify-center gap-1.5 rounded-xl border border-indigo-200/80 bg-indigo-50 px-3 text-xs font-semibold text-indigo-700 transition-colors hover:bg-indigo-100/80 dark:border-indigo-900/50 dark:bg-indigo-950/60 dark:text-indigo-300 dark:hover:bg-indigo-900/60"
+                  className="flex min-h-[38px] flex-1 items-center justify-center gap-1.5 rounded-xl border border-blue-200/80 bg-blue-50 px-3 text-xs font-semibold text-blue-700 transition-colors hover:bg-blue-100/80 dark:border-blue-900/50 dark:bg-blue-950/60 dark:text-blue-300 dark:hover:bg-blue-900/60"
                 >
                   <FiEdit2 className="h-3.5 w-3.5" />
                   Edit

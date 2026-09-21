@@ -115,7 +115,7 @@ export default function LoginPage() {
       <div className="card w-full max-w-[440px] p-7 shadow-lg sm:p-9">
         {/* Logo */}
         <Link href="/" className="mb-6 flex items-center justify-center gap-2.5">
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-600 to-violet-600 text-sm font-bold text-white">
+          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-blue-600 text-sm font-bold text-white">
             R
           </span>
           <span className="text-lg font-bold text-slate-900">
@@ -140,7 +140,7 @@ export default function LoginPage() {
           type="button"
           onClick={handleDemoLogin}
           disabled={isDisabled}
-          className="btn btn-md mb-4 flex w-full items-center justify-center gap-2 rounded-xl border border-indigo-200 bg-indigo-50 text-indigo-700 hover:bg-indigo-100 disabled:opacity-50"
+          className="btn btn-md mb-4 flex w-full items-center justify-center gap-2 rounded-xl border border-blue-200 bg-blue-50 text-blue-700 hover:bg-blue-100 disabled:opacity-50"
         >
           {demoLoading ? (
             <>
@@ -203,7 +203,7 @@ export default function LoginPage() {
                 placeholder="example@gmail.com"
                 disabled={isDisabled}
                 className={`form-input-icon w-full pl-10 pr-4 py-2 rounded-lg border text-sm transition focus:outline-none ${
-                  errors.email ? "border-red-500 focus:ring-1 focus:ring-red-500" : "border-slate-300 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+                  errors.email ? "border-red-500 focus:ring-1 focus:ring-red-500" : "border-slate-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                 }`}
               />
             </div>
@@ -213,7 +213,7 @@ export default function LoginPage() {
           <div>
             <div className="mb-1 flex flex-wrap items-center justify-between gap-1">
               <label className="form-label text-sm font-medium text-slate-700">Password</label>
-              <Link href="/forgot-password" className="text-xs font-semibold text-indigo-600 hover:text-indigo-700">
+              <Link href="/forgot-password" className="text-xs font-semibold text-blue-600 hover:text-blue-700">
                 Forgot password?
               </Link>
             </div>
@@ -227,7 +227,7 @@ export default function LoginPage() {
                 placeholder="••••••••"
                 disabled={isDisabled}
                 className={`form-input-icon w-full pl-10 pr-10 py-2 rounded-lg border text-sm transition focus:outline-none ${
-                  errors.password ? "border-red-500 focus:ring-1 focus:ring-red-500" : "border-slate-300 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+                  errors.password ? "border-red-500 focus:ring-1 focus:ring-red-500" : "border-slate-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                 }`}
               />
               <button
@@ -249,7 +249,7 @@ export default function LoginPage() {
               checked={rememberMe}
               onChange={(e) => setRememberMe(e.target.checked)}
               disabled={isDisabled}
-              className="h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 disabled:opacity-50"
+              className="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500 disabled:opacity-50"
             />
             Remember me
           </label>
@@ -257,7 +257,7 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={isDisabled}
-            className="btn btn-primary btn-lg mt-1 flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 py-2.5 font-medium text-white hover:bg-indigo-700 disabled:opacity-50 transition"
+            className="btn btn-primary btn-lg mt-1 flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 py-2.5 font-medium text-white hover:bg-blue-700 disabled:opacity-50 transition"
           >
             {loading ? (
               <>
@@ -275,7 +275,7 @@ export default function LoginPage() {
 
         <p className="mt-6 text-center text-sm text-slate-500">
           Don&apos;t have an account?{" "}
-          <Link href="/auth/register" className="font-semibold text-indigo-600 hover:text-indigo-700">
+          <Link href="/auth/register" className="font-semibold text-blue-600 hover:text-blue-700">
             Sign up
           </Link>
         </p>
