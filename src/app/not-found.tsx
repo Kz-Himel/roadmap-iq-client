@@ -6,7 +6,7 @@ import { FiHome, FiSearch } from "react-icons/fi";
 
 export default function NotFound() {
   return (
-    <div className="flex min-h-[70dvh] items-center justify-center bg-slate-50/50 px-4 py-12 dark:bg-slate-950 sm:px-6">
+    <div className="flex min-h-[70dvh] items-center justify-center bg-slate-50/50 px-4 py-12 dark:bg-slate-900 sm:px-6">
       <div className="mx-auto max-w-md text-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}

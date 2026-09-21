@@ -35,7 +35,7 @@ const values = [
 
 export default function AboutPage() {
   return (
-    <main className="bg-slate-50/50 dark:bg-slate-950">
+    <main className="bg-slate-50/50 dark:bg-slate-900">
       {/* Hero */}
       <section className="py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

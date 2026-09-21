@@ -17,7 +17,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   };
 
   return (
-    <div className="mx-auto flex w-full max-w-7xl items-start bg-slate-50/50 px-4 dark:bg-slate-950 sm:px-6 lg:px-8">
+    <div className="mx-auto flex w-full max-w-7xl items-start bg-slate-50/50 px-4 dark:bg-slate-900 sm:px-6 lg:px-8">
       <Sidebar
         mobileOpen={mobileOpen}
         onClose={() => setMobileOpen(false)}
