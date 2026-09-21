@@ -21,7 +21,7 @@ const categories = [
 
 export default function QuestionBankShowcase() {
   return (
-    <section className="border-t border-border/60 bg-background-alt py-16 sm:py-24">
+    <section className="border-t border-border/60 bg-background py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -87,7 +87,7 @@ export default function QuestionBankShowcase() {
               </p>
 
               {/* Mock question card preview */}
-              <div className="mb-6 rounded-2xl border border-slate-100 bg-slate-50/80 p-4 dark:border-slate-800 dark:bg-slate-950/60">
+              <div className="mb-6 rounded-2xl border border-slate-100 bg-slate-50/80 p-4 dark:border-slate-800 dark:bg-slate-800">
                 <div className="mb-3 flex flex-wrap gap-1.5">
                   <span className="inline-flex items-center rounded-lg border border-blue-100 bg-blue-50 px-2 py-0.5 text-[10px] font-semibold text-blue-700 dark:border-blue-900/40 dark:bg-blue-950/50 dark:text-blue-300">
                     Frontend

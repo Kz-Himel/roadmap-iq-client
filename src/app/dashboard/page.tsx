@@ -108,10 +108,10 @@ export default function DashboardPage() {
   });
 
   return (
-    <div className="mx-auto max-w-6xl p-4 sm:p-6 lg:p-8">
+    <div className="mx-auto max-w-6xl">
       <div className="mb-6 sm:mb-8">
         <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-3xl">
-          Welcome back, {userName}! 👋
+          Welcome back, {userName}!
         </h1>
         <p className="mt-1.5 text-sm text-slate-600 dark:text-slate-400 sm:text-base">
           Let&apos;s continue your journey toward your dream career.

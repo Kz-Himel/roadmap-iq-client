@@ -13,7 +13,7 @@ import {
 
 export default function AIInterviewShowcase() {
   return (
-    <section className="border-t border-border/60 bg-background py-16 sm:py-24">
+    <section className="border-t border-border/60 bg-background-alt py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -58,7 +58,7 @@ export default function AIInterviewShowcase() {
               </p>
 
               {/* Mock chat preview */}
-              <div className="mb-6 space-y-2.5 rounded-2xl border border-slate-100 bg-slate-50/80 p-4 dark:border-slate-800 dark:bg-slate-950/60">
+              <div className="mb-6 space-y-2.5 rounded-2xl border border-slate-100 bg-slate-50/80 p-4 dark:border-slate-800 dark:bg-slate-800">
                 <div className="flex items-start gap-2.5">
                   <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-blue-50 to-blue-50 text-blue-600 dark:from-blue-950/60 dark:to-blue-950/60 dark:text-blue-400">
                     <FiCpu className="h-3 w-3" />
