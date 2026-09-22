@@ -33,7 +33,7 @@ const categoryDot: Record<string, string> = {
   Behavioral: "bg-violet-500",
 };
 
-// Typewriter hook — only starts once `enabled` becomes true, never re-types after
+// Typewriter hook
 function useTypewriter(text: string, enabled: boolean, speed = 16, startDelay = 0) {
   const [displayed, setDisplayed] = useState("");
   const [done, setDone] = useState(false);
@@ -87,14 +87,21 @@ function FeedSkeleton() {
 
 function QuestionTypeCard({ q, index }: { q: QuestionBankItem; index: number }) {
   const [hasEntered, setHasEntered] = useState(false);
-  const { displayed, done } = useTypewriter(q.question, hasEntered, 14, 200);
+  
+  // Fallback: If it doesn't trigger via viewport quickly, ensure it starts rendering text
+  useEffect(() => {
+    const timer = setTimeout(() => setHasEntered(true), 300 + index * 100);
+    return () => clearTimeout(timer);
+  }, [index]);
+
+  const { displayed, done } = useTypewriter(q.question, hasEntered, 14, 100);
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       onViewportEnter={() => setHasEntered(true)}
-      viewport={{ once: true, amount: 0.3 }}
+      viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.4, delay: index * 0.08 }}
     >
       <Link
