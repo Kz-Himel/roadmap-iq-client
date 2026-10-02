@@ -1,4 +1,4 @@
-# 🚀 CareerPilot AI 
+# Roadmap IQ
 
 An AI-powered career planning platform built with Next.js, React, TypeScript, Tailwind CSS, and HeroUI.
 
