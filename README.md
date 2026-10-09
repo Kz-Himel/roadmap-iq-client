@@ -7,13 +7,13 @@ An AI-powered career planning platform built with Next.js, React, TypeScript, Ta
 ## 🌐 Live Demo
 
 Frontend:
-https://careerpilot-client-kzhimel.vercel.app/  
+https://roadmap-iq-client-kzhimel.vercel.app/  
 
 Server repo: 
-https://github.com/Kz-Himel/careerpilot-server  
+https://github.com/Kz-Himel/roadmap-iq-server  
 
-Backend API:
-https://careerpilot-server-kzhimel.vercel.app/
+Backend Live:
+https://roadmap-iq-server-kzhimel.vercel.app/
 
 ---
 
